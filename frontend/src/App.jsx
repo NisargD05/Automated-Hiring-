@@ -32,7 +32,14 @@ function App() {
         }
       >
         <Route index element={<Dashboard />} />
-        <Route path="candidates" element={<Candidates />} />
+        <Route
+          path="candidates"
+          element={
+            <RoleRoute allowedRoles={["admin", "recruiter"]}>
+              <Candidates />
+            </RoleRoute>
+          }
+        />
         <Route path="interviews" element={<Interviews />} />
         <Route path="settings" element={<Settings />} />
         <Route

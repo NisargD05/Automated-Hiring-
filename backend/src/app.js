@@ -5,6 +5,7 @@ const authRoutes = require("./routes/authRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 const knowledgeBaseRoutes = require("./routes/knowledgeBaseRoutes");
 const interviewerRoutes = require("./routes/interviewerRoutes");
+const candidateRoutes = require("./routes/candidateRoutes");
 const logger = require("./utils/logger");
 
 dotenv.config();
@@ -59,6 +60,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/knowledge-base", knowledgeBaseRoutes);
 app.use("/api/interviewer", interviewerRoutes);
+app.use("/api/candidates", candidateRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

@@ -19,7 +19,7 @@ function DashboardLayout() {
     { label: "Knowledge Base", to: "/dashboard/knowledge-base", roles: ["admin", "recruiter"] },
     { label: "Create Job", to: "/dashboard/create-job", roles: ["admin", "recruiter"] },
     { label: "Job Listings", to: "/dashboard/job-listings", roles: ["admin", "recruiter"] },
-    { label: "Candidates", to: "/dashboard/candidates", roles: ["admin", "recruiter", "interviewer"] },
+    { label: "Candidates", to: "/dashboard/candidates", roles: ["admin", "recruiter"] },
     { label: "Interviews", to: "/dashboard/interviews", roles: ["admin", "recruiter", "interviewer"] },
     { label: "Settings", to: "/dashboard/settings", roles: ["admin", "recruiter", "interviewer"] }
   ];

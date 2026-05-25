@@ -10,3 +10,14 @@ def build_retrieval_query(job_details) -> str:
         ]
         if value
     )
+
+
+def build_candidate_kb_query(job) -> str:
+    values = [
+        getattr(job, "roleName", ""),
+        getattr(job, "requiredSkills", ""),
+        getattr(job, "mandatoryRequirements", ""),
+        getattr(job, "seniorityLevel", ""),
+        getattr(job, "experienceRequired", ""),
+    ]
+    return " ".join(value for value in values if value).strip()

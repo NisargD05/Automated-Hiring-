@@ -2,6 +2,15 @@ const mongoose = require("mongoose");
 
 const candidateSchema = new mongoose.Schema(
   {
+    job: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Job",
+      index: true
+    },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
     name: {
       type: String,
       required: true,
@@ -13,7 +22,11 @@ const candidateSchema = new mongoose.Schema(
       lowercase: true,
       trim: true
     },
-    phone: String,
+    phone: {
+      type: String,
+      required: true,
+      trim: true
+    },
     location: String,
     currentRole: String,
     experienceYears: Number,
@@ -31,12 +44,33 @@ const candidateSchema = new mongoose.Schema(
         url: String
       }
     ],
+    currentCompany: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    yearsOfExperience: {
+      type: Number,
+      min: 0,
+      default: null
+    },
+    source: {
+      type: String,
+      trim: true,
+      default: "Manual upload"
+    },
+    notes: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    resumeDocument: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "CandidateResume"
+    },
     resume: {
-      fileName: String,
-      text: String,
-      highlights: [String],
-      projects: [String],
-      certifications: [String]
+      type: mongoose.Schema.Types.Mixed,
+      default: null
     },
     aiSummary: String,
     match: {
@@ -46,10 +80,25 @@ const candidateSchema = new mongoose.Schema(
       riskNotes: [String],
       explanation: String
     },
+    latestEvaluation: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "CandidateEvaluation"
+    },
+    rankingStatus: {
+      type: String,
+      enum: ["pending", "resume_uploaded", "parsing", "ready", "ranking", "ranked", "failed"],
+      default: "pending",
+      index: true
+    },
+    rankingError: {
+      type: String,
+      default: ""
+    },
     status: {
       type: String,
-      enum: ["new", "shortlisted", "assigned", "interview_scheduled", "rejected"],
-      default: "assigned"
+      enum: ["new", "shortlisted", "assigned", "interview_scheduled", "rejected", "review"],
+      default: "new",
+      index: true
     }
   },
   {
@@ -57,6 +106,7 @@ const candidateSchema = new mongoose.Schema(
   }
 );
 
-candidateSchema.index({ email: 1 });
+candidateSchema.index({ email: 1, job: 1 });
+candidateSchema.index({ job: 1, status: 1, rankingStatus: 1 });
 
 module.exports = mongoose.model("Candidate", candidateSchema);

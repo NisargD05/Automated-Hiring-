@@ -192,3 +192,14 @@ Node.js v20.16.0
 [2026-05-25T19:53:22.683Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
 [2026-05-25T19:53:33.550Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
 [2026-05-25T19:53:51.726Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:18:00.869Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:18:03.093Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:18:13.320Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:18:33.568Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:19:31.037Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:19:33.080Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:41:18.539Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:43:57.837Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:43:59.685Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:57:22.287Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }
+[2026-05-25T22:59:32.126Z] [ERROR] Port 5001 is already in use. Stop the existing backend or choose another PORT. { port: '5001' }

@@ -64,32 +64,39 @@ MongoDB connected
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
-T19:52:29.059Z] [INFO] Backend server running on port 5001 {}
-[2026-05-25T19:52:29.091Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
-[2026-05-25T19:52:33.476Z] [INFO] Backend server running on port 5001 {}
-[2026-05-25T19:52:33.516Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
-[2026-05-25T19:52:51.477Z] [INFO] Backend server running on port 5001 {}
-[2026-05-25T19:52:51.509Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
-[2026-05-25T19:53:05.662Z] [INFO] Backend server running on port 5001 {}
-[2026-05-25T19:53:05.694Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
-[2026-05-25T19:53:15.449Z] [INFO] Backend server running on port 5001 {}
-[2026-05-25T19:53:15.489Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
-[2026-05-25T19:53:19.346Z] [INFO] Backend server running on port 5001 {}
-[2026-05-25T19:53:19.384Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
-[2026-05-25T19:53:24.589Z] [INFO] Backend server running on port 5001 {}
-[2026-05-25T19:53:24.629Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+_system' }
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
 [2026-05-25T19:53:35.310Z] [INFO] Backend server running on port 5001 {}
@@ -303,5 +310,609 @@ T19:52:29.059Z] [INFO] Backend server running on port 5001 {}
 [2026-05-25T20:20:16.766Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T22:18:27.449Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T22:18:27.488Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T22:18:36.126Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T22:18:36.178Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T22:19:57.861Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T22:19:57.900Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[2026-05-25T22:28:52.698Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:28:52.750Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:02.433Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:02.619Z] [INFO] User logged in {
+  userId: '6a148440cf4199b40f53680d',
+  email: 'nisargdivecha1@gmail.com',
+  role: 'recruiter'
+}
+[2026-05-25T22:29:02.742Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:02.750Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:02.811Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:02.818Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:04.464Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:04.483Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:04.497Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:29:04.525Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:34:39.005Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:34:39.068Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/6a14ce7f8054b0ec2c49824e/upload-resume',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:35:41.781Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/health',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T22:35:41.963Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[32m[nodemon] restarting due to changes...[39m
+[2026-05-25T22:41:17.747Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:41:17.781Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T22:41:20.501Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T22:41:20.535Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T22:44:09.824Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T22:44:09.873Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[2026-05-25T22:44:23.562Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/health',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T22:49:45.585Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/health',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T22:50:03.145Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:03.181Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:09.875Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:10.047Z] [INFO] User logged in {
+  userId: '6a148440cf4199b40f53680d',
+  email: 'nisargdivecha1@gmail.com',
+  role: 'recruiter'
+}
+[2026-05-25T22:50:10.086Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:10.092Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:10.146Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:10.152Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:19.241Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:19.262Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:19.283Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:19.311Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:39.266Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:39.325Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/6a14d23f5cb711dd9b2339e8/upload-resume',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:50:40.154Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:09.367Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:09.402Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/6a14d25d5cb711dd9b233a1c/upload-resume',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:09.815Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:33.140Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:33.174Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/6a14d2755cb711dd9b233a55/upload-resume',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:33.563Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:39.215Z] [INFO] HTTP request {
+  method: 'PUT',
+  path: '/api/candidates/6a14ce7f8054b0ec2c49824e/shortlist',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:39.253Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:42.359Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/rank-all',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T22:51:43.297Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T22:57:24.752Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T22:57:24.786Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T22:59:34.122Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T22:59:34.154Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[2026-05-25T23:00:11.073Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/health',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T23:05:55.929Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/rank-all',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T23:05:55.960Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:05:55.990Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:06:35.924Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:07:17.493Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:09:14.209Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/rank-all',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T23:09:14.217Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:09:14.230Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:09:54.153Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:10:34.007Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:12:37.107Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/rank-all',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T23:12:37.115Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:12:37.128Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:12:54.231Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a14d23f5cb711dd9b2339e8',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 44,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-25T23:12:54.274Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:13:09.460Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a14d25d5cb711dd9b233a1c',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 52,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-25T23:13:09.488Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:13:20.184Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a14d2755cb711dd9b233a55',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 35,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-25T23:15:41.437Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:15:41.448Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:15.780Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:15.789Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:21.663Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:21.848Z] [INFO] User logged in {
+  userId: '6a148440cf4199b40f53680d',
+  email: 'nisargdivecha1@gmail.com',
+  role: 'recruiter'
+}
+[2026-05-25T23:16:21.942Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:21.948Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:21.974Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:21.978Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:23.326Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:23.345Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:23.363Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:23.408Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:39.618Z] [INFO] HTTP request {
+  method: 'PUT',
+  path: '/api/candidates/6a14ce7f8054b0ec2c49824e/shortlist',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:16:39.653Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:17:48.381Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:17:48.392Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:17:48.419Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/6a14d89c790c46f0fdb1017a/upload-resume',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:17:48.443Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:17:48.641Z] [INFO] [Resume Parser] AI service returned parsed resume {
+  candidateId: '6a14d89c790c46f0fdb1017a',
+  resumeTextLength: 811,
+  skillsCount: 7,
+  projectsCount: 5,
+  experienceCount: 4
+}
+[2026-05-25T23:17:48.677Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:17:57.235Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/candidates/rank-all',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:17:57.245Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:17:57.267Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:18:07.179Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a14d23f5cb711dd9b2339e8',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 38,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-25T23:18:07.217Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:18:25.547Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a14d25d5cb711dd9b233a1c',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 50,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-25T23:18:25.587Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:18:45.245Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a14d2755cb711dd9b233a55',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 46,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-25T23:18:45.280Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-25T23:18:58.625Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a14d89c790c46f0fdb1017a',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 42,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-25T23:18:58.663Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:19:09.370Z] [INFO] HTTP request {
+  method: 'PUT',
+  path: '/api/candidates/6a14d25d5cb711dd9b233a1c/shortlist',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T23:19:09.408Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
