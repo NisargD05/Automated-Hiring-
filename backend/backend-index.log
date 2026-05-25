@@ -1,0 +1,307 @@
+
+> ai-hiring-backend@1.0.0 dev
+> nodemon src/server.js
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node src/server.js`[39m
+Backend server running on port 5001
+MongoDB connected
+[2026-05-25T18:14:40.089[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+T19:52:29.059Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:52:29.091Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:52:33.476Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:52:33.516Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:52:51.477Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:52:51.509Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:53:05.662Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:53:05.694Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:53:15.449Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:53:15.489Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:53:19.346Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:53:19.384Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:53:24.589Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:53:24.629Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:53:35.310Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:53:35.373Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-25T19:53:54.137Z] [INFO] Backend server running on port 5001 {}
+[2026-05-25T19:53:54.186Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[2026-05-25T19:54:09.806Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:54:09.906Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:54:27.128Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:54:27.139Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:54:27.160Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:54:27.170Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:54:27.276Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:54:27.296Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T19:56:41.913Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/health',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:56:53.750Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/register',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:56:53.931Z] [INFO] User registered {
+  userId: '6a14a985ef9775ed2dbd435f',
+  email: 'audit.recruiter.20260526012653@example.com',
+  role: 'recruiter'
+}
+[2026-05-25T19:56:53.980Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:56:53.990Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:02.136Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/register',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:02.277Z] [INFO] User registered {
+  userId: '6a14a98eef9775ed2dbd4364',
+  email: 'audit.interviewer.20260526012702@example.com',
+  role: 'interviewer'
+}
+[2026-05-25T19:57:02.327Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:02.352Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviewer/assignments',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:16.543Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/register',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:16.683Z] [INFO] User registered {
+  userId: '6a14a99cef9775ed2dbd436a',
+  email: 'workflow.recruiter.20260526012716@example.com',
+  role: 'recruiter'
+}
+[2026-05-25T19:57:16.733Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/jobs/create',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:16.743Z] [INFO] Draft job created {
+  jobId: '6a14a99cef9775ed2dbd436d',
+  userId: '6a14a99cef9775ed2dbd436a',
+  roleName: 'Audit Backend Engineer'
+}
+[2026-05-25T19:57:16.759Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/jobs/generate-jd',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:16.791Z] [INFO] Requesting JD generation from AI service {
+  endpoint: 'http://localhost:8001/generate-jd',
+  roleName: 'Audit Backend Engineer',
+  knowledgeContextCount: 6
+}
+[2026-05-25T19:57:17.137Z] [INFO] AI service returned generated JD { roleName: 'Audit Backend Engineer', agentStepCount: 6 }
+[2026-05-25T19:57:17.168Z] [INFO] Job description generated {
+  jobId: '6a14a99cef9775ed2dbd436d',
+  userId: '6a14a99cef9775ed2dbd436a',
+  sourceCount: 6
+}
+[2026-05-25T19:57:17.182Z] [INFO] HTTP request {
+  method: 'PUT',
+  path: '/api/jobs/6a14a99cef9775ed2dbd436d/edit-jd',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:17.197Z] [INFO] Job description edited {
+  jobId: '6a14a99cef9775ed2dbd436d',
+  userId: '6a14a99cef9775ed2dbd436a'
+}
+[2026-05-25T19:57:17.202Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/jobs/6a14a99cef9775ed2dbd436d/approve',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:17.213Z] [INFO] Job approved {
+  jobId: '6a14a99cef9775ed2dbd436d',
+  userId: '6a14a99cef9775ed2dbd436a'
+}
+[2026-05-25T19:57:17.218Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:28.465Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/register',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:57:28.606Z] [INFO] User registered {
+  userId: '6a14a9a8ef9775ed2dbd439c',
+  email: 'kb.recruiter.20260526012728@example.com',
+  role: 'recruiter'
+}
+[2026-05-25T19:57:28.832Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-IN) WindowsPowerShell/5.1.26100.7019'
+}
+[2026-05-25T19:58:22.441Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/register',
+  userAgent: 'axios/1.16.1'
+}
+[2026-05-25T19:58:22.580Z] [INFO] User registered {
+  userId: '6a14a9deef9775ed2dbd43a2',
+  email: 'kb.node.20260526012822@example.com',
+  role: 'recruiter'
+}
+[2026-05-25T19:58:22.599Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/knowledge-base/upload',
+  userAgent: 'axios/1.16.1'
+}
+[2026-05-25T19:58:22.616Z] [INFO] Knowledge Base upload received {
+  userId: '6a14a9deef9775ed2dbd43a2',
+  originalFileName: 'Product_Engineer_Knowledge_Base.pdf',
+  storedFileName: '1779739102611-Product_Engineer_Knowledge_Base.pdf',
+  mimeType: 'application/pdf',
+  size: 5003
+}
+[2026-05-25T19:58:22.622Z] [INFO] Sending PDF to AI service for indexing {
+  endpoint: 'http://localhost:8001/knowledge/index-pdf',
+  documentId: '6a14a9deef9775ed2dbd43a5',
+  originalFileName: 'Product_Engineer_Knowledge_Base.pdf',
+  filePath: 'C:\\Users\\nisar\\AI Agentic HR Final\\backend\\uploads\\knowledge-base\\1779739102611-Product_Engineer_Knowledge_Base.pdf'
+}
+[2026-05-25T19:58:22.887Z] [INFO] AI service indexing completed {
+  documentId: '6a14a9deef9775ed2dbd43a5',
+  chunkCount: 4,
+  collectionName: 'knowledge_base_documents_fallback'
+}
+[2026-05-25T19:58:22.913Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'axios/1.16.1'
+}
+[2026-05-25T20:20:16.745Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-25T20:20:16.766Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}

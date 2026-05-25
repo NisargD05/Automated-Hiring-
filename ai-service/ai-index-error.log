@@ -1,0 +1,39 @@
+INFO:     Started server process [3988]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+2026-05-25 23:42:53,151 INFO app.document_processing.pdf_extractor Starting PDF extraction for C:\Users\nisar\AppData\Local\Temp\tmp59mu_y4r.pdf
+2026-05-25 23:42:53,384 INFO app.document_processing.pdf_extractor PDF extraction completed with pdfplumber
+2026-05-25 23:44:40,163 INFO app.api.routes.knowledge_routes AI service received PDF indexing request
+2026-05-25 23:44:40,171 INFO app.document_processing.ingestion_pipeline Ingestion started
+2026-05-25 23:44:40,172 INFO app.document_processing.pdf_extractor Starting PDF extraction for C:\Users\nisar\AppData\Local\Temp\tmpir40uibh.pdf
+2026-05-25 23:44:40,444 INFO app.document_processing.pdf_extractor PDF extraction completed with pdfplumber
+2026-05-25 23:44:40,445 INFO app.document_processing.ingestion_pipeline Chunk generation completed
+2026-05-25 23:44:40,447 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-25 23:44:40,448 INFO app.rag.embedding_service Generating deterministic local embeddings for 4 chunks
+2026-05-25 23:44:40,451 WARNING app.db.vector_store ChromaDB insertion unavailable: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-25 23:44:40,452 WARNING app.db.vector_store Using local JSON vector-store fallback because ChromaDB is unavailable
+2026-05-25 23:44:40,487 INFO app.document_processing.ingestion_pipeline ChromaDB insertion completed
+2026-05-25 23:45:10,869 WARNING app.llm.gemini_client Gemini request failed with status 429; using local fallback
+2026-05-26 00:18:41,659 INFO app.api.routes.knowledge_routes AI service received PDF indexing request
+2026-05-26 00:18:41,674 INFO app.document_processing.ingestion_pipeline Ingestion started
+2026-05-26 00:18:41,675 INFO app.document_processing.pdf_extractor Starting PDF extraction for C:\Users\nisar\AppData\Local\Temp\tmpfxs65prw.pdf
+2026-05-26 00:18:42,093 INFO app.document_processing.pdf_extractor PDF extraction completed with pdfplumber
+2026-05-26 00:18:42,094 INFO app.document_processing.ingestion_pipeline Chunk generation completed
+2026-05-26 00:18:42,096 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 00:18:42,096 INFO app.rag.embedding_service Generating deterministic local embeddings for 4 chunks
+2026-05-26 00:18:42,098 WARNING app.db.vector_store ChromaDB insertion unavailable: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 00:18:42,098 WARNING app.db.vector_store Using local JSON vector-store fallback because ChromaDB is unavailable
+2026-05-26 00:18:42,149 INFO app.document_processing.ingestion_pipeline ChromaDB insertion completed
+2026-05-26 00:19:16,015 WARNING app.llm.gemini_client Gemini request failed with status 429; using local fallback
+2026-05-26 01:27:17,125 WARNING app.llm.gemini_client Gemini request failed with status 429; using local fallback
+2026-05-26 01:28:22,644 INFO app.api.routes.knowledge_routes AI service received PDF indexing request
+2026-05-26 01:28:22,653 INFO app.document_processing.ingestion_pipeline Ingestion started
+2026-05-26 01:28:22,653 INFO app.document_processing.pdf_extractor Starting PDF extraction for C:\Users\nisar\AppData\Local\Temp\tmpo1rl672y.pdf
+2026-05-26 01:28:22,849 INFO app.document_processing.pdf_extractor PDF extraction completed with pdfplumber
+2026-05-26 01:28:22,850 INFO app.document_processing.ingestion_pipeline Chunk generation completed
+2026-05-26 01:28:22,851 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 01:28:22,852 INFO app.rag.embedding_service Generating deterministic local embeddings for 4 chunks
+2026-05-26 01:28:22,854 WARNING app.db.vector_store ChromaDB insertion unavailable: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 01:28:22,855 WARNING app.db.vector_store Using local JSON vector-store fallback because ChromaDB is unavailable
+2026-05-26 01:28:22,884 INFO app.document_processing.ingestion_pipeline ChromaDB insertion completed

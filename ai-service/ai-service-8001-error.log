@@ -1,0 +1,7 @@
+INFO:     Started server process [22828]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+2026-05-25 23:26:34,631 WARNING app.llm.gemini_client Gemini request failed with status 429; using local fallback
+2026-05-25 23:28:39,133 WARNING app.llm.gemini_client Gemini request failed with status 429; using local fallback
+2026-05-25 23:28:58,558 WARNING app.llm.gemini_client Gemini request failed with status 429; using local fallback
