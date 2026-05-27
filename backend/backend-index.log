@@ -916,3 +916,4 @@ _system' }
   path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

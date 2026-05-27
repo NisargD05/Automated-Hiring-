@@ -65,6 +65,23 @@ const jobSchema = new mongoose.Schema(
       type: String,
       default: ""
     },
+    applicationLink: {
+      type: String,
+      default: ""
+    },
+    applicationFormProvider: {
+      type: String,
+      enum: ["tally", "typeform", ""],
+      default: ""
+    },
+    applicationFormId: {
+      type: String,
+      default: ""
+    },
+    applicationLinkGeneratedAt: {
+      type: Date,
+      default: null
+    },
     status: {
       type: String,
       enum: ["draft", "generated", "edited", "approved"],

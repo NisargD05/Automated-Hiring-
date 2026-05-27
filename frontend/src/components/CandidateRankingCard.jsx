@@ -7,11 +7,12 @@ const scoreTone = (score) => {
   return "bg-red-50 text-red-700 ring-red-200";
 };
 
-function CandidateRankingCard({ candidate, onRank, onShortlist, busy }) {
+function CandidateRankingCard({ candidate, onRank, onShortlist, onRequestInterview, busy }) {
   const evaluation = candidate.latestEvaluation;
   const score = evaluation?.score;
   const matches = evaluation?.matchesWithJD || [];
   const missing = evaluation?.missingWithJD || [];
+  const missingLinks = evaluation?.missingLinks || [];
   const strengths = evaluation?.strengths || [];
   const weaknesses = evaluation?.weaknesses || [];
   const hasEvaluation = Boolean(evaluation);
@@ -20,9 +21,17 @@ function CandidateRankingCard({ candidate, onRank, onShortlist, busy }) {
     <article className="candidate-card">
       <div className="card-topline">
         <span>{candidate.job?.roleName || "Selected role"}</span>
-        <span className={`status-badge ${candidate.rankingStatus === "failed" ? "status-failed" : "status-generated"}`}>
-          {candidate.rankingStatus}
-        </span>
+        <div className="flex flex-wrap justify-end gap-2">
+          {candidate.isShortlisted && candidate.status !== "shortlisted" && (
+            <span className="status-badge status-scheduled">shortlisted</span>
+          )}
+          <span className={`status-badge ${candidate.status === "rejected" ? "status-failed" : candidate.status === "shortlisted" ? "status-scheduled" : "status-generated"}`}>
+            {candidate.status}
+          </span>
+          <span className={`status-badge ${candidate.rankingStatus === "failed" ? "status-failed" : "status-generated"}`}>
+            {candidate.rankingStatus}
+          </span>
+        </div>
       </div>
 
       <div className="mt-4 flex items-start justify-between gap-4">
@@ -82,13 +91,29 @@ function CandidateRankingCard({ candidate, onRank, onShortlist, busy }) {
         </div>
       )}
 
+      {hasEvaluation && missingLinks.length > 0 && (
+        <div className="mt-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Missing links</p>
+          <div className="chip-row">
+            {missingLinks.slice(0, 3).map((item) => (
+              <span key={item} className="chip">{item}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="mt-5 flex flex-wrap gap-2">
         <Button variant="ai" onClick={(event) => { event.stopPropagation(); onRank(candidate._id); }} disabled={busy || !candidate.resumeDocument} className="px-3 py-2 text-xs">
           Rank
         </Button>
-        <Button variant="success" onClick={(event) => { event.stopPropagation(); onShortlist(candidate._id, "shortlisted"); }} disabled={busy} className="px-3 py-2 text-xs">
-          Shortlist
+        <Button variant="success" onClick={(event) => { event.stopPropagation(); onShortlist(candidate._id, "shortlisted"); }} disabled={busy || candidate.isShortlisted} className="px-3 py-2 text-xs">
+          {candidate.isShortlisted ? "Shortlisted" : "Shortlist"}
         </Button>
+        {candidate.isShortlisted && candidate.status === "shortlisted" && onRequestInterview && (
+          <Button variant="ai" onClick={(event) => { event.stopPropagation(); onRequestInterview(candidate); }} disabled={busy} className="px-3 py-2 text-xs">
+            Request Interview
+          </Button>
+        )}
         <Button variant="danger" onClick={(event) => { event.stopPropagation(); onShortlist(candidate._id, "rejected"); }} disabled={busy} className="px-3 py-2 text-xs">
           Reject
         </Button>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import api from "../api/axios";
 import { useAuth } from "../context/AuthContext";
 import Card from "../components/ui/Card";
@@ -38,33 +38,7 @@ function Dashboard() {
   }, [user?.role]);
 
   if (user?.role === "interviewer") {
-    return (
-      <div className="page-stack">
-        <PageHeader
-          eyebrow="Interview workspace"
-          title={`Welcome, ${user?.name}`}
-          description="Your candidate assignments, interview kits, and confirmed schedules stay focused and separate from recruiter operations."
-          actions={
-            <Link to="/interviewer/assignments">
-              <Button variant="primary">Open assignments</Button>
-            </Link>
-          }
-        />
-
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            ["Assigned candidates", "Review AI summaries and candidate fit."],
-            ["Interview kits", "Open resumes, job context, and questionnaire prompts."],
-            ["Schedule control", "Choose interview slots within recruiter working hours."]
-          ].map(([title, copy]) => (
-            <Card key={title} className="surface-hover p-5">
-              <p className="text-sm font-semibold text-slate-950">{title}</p>
-              <p className="mt-2 text-sm leading-6 text-slate-500">{copy}</p>
-            </Card>
-          ))}
-        </div>
-      </div>
-    );
+    return <Navigate to="/interviewer/pending" replace />;
   }
 
   const stats = [

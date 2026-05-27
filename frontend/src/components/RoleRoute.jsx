@@ -13,7 +13,7 @@ function RoleRoute({ allowedRoles, children }) {
   }
 
   if (!allowedRoles.includes(user.role)) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to={user.role === "interviewer" ? "/interviewer/pending" : "/dashboard"} replace />;
   }
 
   return children;

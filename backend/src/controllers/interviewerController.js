@@ -3,7 +3,7 @@ const InterviewAssignment = require("../models/InterviewAssignment");
 const InterviewSchedule = require("../models/InterviewSchedule");
 const Job = require("../models/Job");
 const Questionnaire = require("../models/Questionnaire");
-const { createGoogleMeetPlaceholder } = require("../services/meetingService");
+const { generateInterviewMeetingLink } = require("../services/meetingLinkService");
 
 const INTERVIEW_WORKING_HOURS = {
   start: "09:00",
@@ -151,6 +151,13 @@ const selectInterviewSlot = async (req, res) => {
     );
     const endsAt = addMinutes(startsAt, durationMinutes);
 
+    const meeting = generateInterviewMeetingLink({
+      candidate: assignment.candidate,
+      job: assignment.job,
+      roundType: "Interview",
+      startTime: startsAt
+    });
+
     const schedule = await InterviewSchedule.create({
       assignment: assignment._id,
       candidate: assignment.candidate,
@@ -158,7 +165,7 @@ const selectInterviewSlot = async (req, res) => {
       startsAt,
       endsAt,
       timezone: workingHours.timezone,
-      meetingLink: createGoogleMeetPlaceholder(assignment._id)
+      meetingLink: meeting.meetingLink
     });
 
     assignment.selectedTime = selectedTime;
@@ -172,7 +179,7 @@ const selectInterviewSlot = async (req, res) => {
     );
 
     res.status(201).json({
-      message: "Interview scheduled and notification emails queued",
+      message: "Interview scheduled and meeting link created",
       assignment: formatAssignment(populatedAssignment)
     });
   } catch (error) {

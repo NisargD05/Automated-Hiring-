@@ -4,6 +4,26 @@ const { retrieveRelevantKnowledge } = require("../services/ragService");
 const { generateJobDescription } = require("../services/aiServiceClient");
 const logger = require("../utils/logger");
 
+const buildApplicationLink = (job) => {
+  const provider = (process.env.APPLICATION_FORM_PROVIDER || "tally").toLowerCase();
+  const formId = process.env.TALLY_FORM_ID || process.env.TYPEFORM_FORM_ID || "81R4oY";
+  const baseUrl =
+    process.env.APPLICATION_FORM_BASE_URL ||
+    process.env.TALLY_FORM_BASE_URL ||
+    `https://tally.so/r/${formId}`;
+  const link = new URL(baseUrl);
+
+  link.searchParams.set("jobId", job._id.toString());
+  link.searchParams.set("role", job.roleName);
+
+  return {
+    applicationLink: link.toString(),
+    applicationFormProvider: provider === "typeform" ? "typeform" : "tally",
+    applicationFormId: formId,
+    applicationLinkGeneratedAt: new Date()
+  };
+};
+
 const normalizeJobInput = (body) => ({
   roleName: body.roleName?.trim(),
   department: body.department?.trim() || "",
@@ -190,11 +210,13 @@ const approveJob = async (req, res) => {
 
     job.approvedJD = job.generatedJD;
     job.status = "approved";
+    job.set(buildApplicationLink(job));
     await job.save();
 
     logger.info("Job approved", {
       jobId: job._id.toString(),
-      userId: req.user._id.toString()
+      userId: req.user._id.toString(),
+      applicationLink: job.applicationLink
     });
 
     res.json({ message: "Job approved", job });

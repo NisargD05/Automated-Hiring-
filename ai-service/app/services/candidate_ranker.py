@@ -2,6 +2,7 @@ import json
 import re
 from pydantic import ValidationError
 from app.llm.gemini_client import generate_with_gemini
+from app.core.config import settings
 from app.rag.context_builder import build_candidate_context
 from app.rag.prompt_builder import build_candidate_ranking_prompt, build_candidate_ranking_retry_prompt
 from app.schemas.candidate_schema import CandidateRankingResponse
@@ -57,8 +58,9 @@ def parse_and_validate_ranking(raw_output: str):
 def rank_candidate(payload):
     context = build_candidate_context(payload)
     prompt = build_candidate_ranking_prompt(context)
+    logger.info("[Ranking] Gemini key loaded=%s", bool(settings.gemini_api_key))
     logger.info(
-        "[Candidate Ranker] Ranking candidate=%s job=%s promptLength=%s",
+        "[Ranking] Gemini ranking request started candidate=%s job=%s promptLength=%s",
         payload.candidate.name,
         payload.job.roleName,
         len(prompt),
@@ -73,7 +75,7 @@ def rank_candidate(payload):
     )
     try:
         parsed = parse_and_validate_ranking(raw_output)
-        logger.info("[Gemini Ranking] Parsed JSON successfully score=%s", parsed.get("score"))
+        logger.info("[Ranking] Gemini response received and parsed score=%s", parsed.get("score"))
     except (json.JSONDecodeError, ValidationError, ValueError, TypeError) as error:
         logger.warning("[Gemini Ranking] JSON parsing/validation failed: %s", error)
         retry_prompt = build_candidate_ranking_retry_prompt(context, raw_output, str(error))

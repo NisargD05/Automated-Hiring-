@@ -6,6 +6,10 @@ import Interviews from "./pages/Interviews";
 import InterviewerAssignmentDetail from "./pages/InterviewerAssignmentDetail";
 import InterviewerAssignments from "./pages/InterviewerAssignments";
 import InterviewerSchedule from "./pages/InterviewerSchedule";
+import InterviewDetails from "./pages/interviewer/InterviewDetails";
+import PendingRequests from "./pages/interviewer/PendingRequests";
+import SubmitFeedback from "./pages/interviewer/SubmitFeedback";
+import UpcomingInterviews from "./pages/interviewer/UpcomingInterviews";
 import JobDetails from "./pages/JobDetails";
 import JobListings from "./pages/JobListings";
 import KnowledgeBase from "./pages/KnowledgeBase";
@@ -40,7 +44,14 @@ function App() {
             </RoleRoute>
           }
         />
-        <Route path="interviews" element={<Interviews />} />
+        <Route
+          path="interviews"
+          element={
+            <RoleRoute allowedRoles={["admin", "recruiter"]}>
+              <Interviews />
+            </RoleRoute>
+          }
+        />
         <Route path="settings" element={<Settings />} />
         <Route
           path="knowledge-base"
@@ -83,6 +94,66 @@ function App() {
             <RoleRoute allowedRoles={["interviewer"]}>
               <AppLayout>
                 <InterviewerAssignments />
+              </AppLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/interviewer/pending"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["interviewer"]}>
+              <AppLayout>
+                <PendingRequests />
+              </AppLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/interviewer/upcoming"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["interviewer"]}>
+              <AppLayout>
+                <UpcomingInterviews />
+              </AppLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/interviewer/feedback-history"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["interviewer"]}>
+              <AppLayout>
+                <UpcomingInterviews history />
+              </AppLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/interviewer/interviews/:interviewId"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["interviewer"]}>
+              <AppLayout>
+                <InterviewDetails />
+              </AppLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/interviewer/interviews/:interviewId/feedback"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["interviewer"]}>
+              <AppLayout>
+                <SubmitFeedback />
               </AppLayout>
             </RoleRoute>
           </ProtectedRoute>

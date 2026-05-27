@@ -1,13 +1,21 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
+from app.utils.logger import get_logger
 
 
+logger = get_logger(__name__)
+
+ENV_PATH = Path(__file__).resolve().parents[2] / ".env"
+
+logger.info("[Gemini] Loading environment variables", extra={"envPath": str(ENV_PATH)})
+load_dotenv(dotenv_path=ENV_PATH)
 load_dotenv()
 
 
 class Settings:
     app_name = os.getenv("APP_NAME", "AI Hiring JD Service")
-    ai_provider = os.getenv("AI_PROVIDER", "local").lower()
+    ai_provider = os.getenv("AI_PROVIDER", "gemini").lower()
     gemini_api_key = os.getenv("GEMINI_API_KEY", "")
     gemini_model = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
     gemini_fallback_models = [
@@ -31,3 +39,14 @@ class Settings:
 
 
 settings = Settings()
+
+logger.info(
+    "[Gemini] API key %s",
+    "found" if settings.gemini_api_key else "missing",
+)
+logger.info(
+    "[Gemini] Config loaded provider=%s model=%s fallbackModels=%s",
+    settings.ai_provider,
+    settings.gemini_model,
+    settings.gemini_fallback_models,
+)

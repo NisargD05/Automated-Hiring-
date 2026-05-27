@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 
 function AppLayout({ children }) {
@@ -13,11 +14,21 @@ function AppLayout({ children }) {
   const links =
     user?.role === "interviewer"
       ? [
-          { to: "/dashboard", label: "Overview" },
-          { to: "/interviewer/assignments", label: "Assigned Candidates" },
-          { to: "/interviewer/schedule", label: "Schedule" }
+          { to: "/interviewer/pending", label: "Pending Requests" },
+          { to: "/interviewer/upcoming", label: "Upcoming Interviews" },
+          { to: "/interviewer/feedback-history", label: "Feedback History" },
+          { to: "/dashboard/settings", label: "Settings" }
         ]
       : [{ to: "/dashboard", label: "Overview" }];
+
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      console.debug("[layout] interviewer portal render", {
+        role: user?.role,
+        links: links.map((link) => link.to)
+      });
+    }
+  }, [links, user?.role]);
 
   return (
     <div className="app-bg text-slate-900">

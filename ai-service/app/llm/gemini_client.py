@@ -20,18 +20,20 @@ def generate_with_gemini(
     log_prefix: str = "[Gemini]",
 ) -> str:
     if settings.ai_provider != "gemini":
-        message = "Gemini skipped because AI_PROVIDER is not gemini"
-        logger.info("%s %s", log_prefix, message)
+        message = "Gemini ranking requires AI_PROVIDER=gemini"
+        logger.error("%s %s currentProvider=%s", log_prefix, message, settings.ai_provider)
         if raise_on_error:
             raise GeminiRequestError(message)
         return ""
 
     if not settings.gemini_api_key:
-        message = "Gemini API key missing"
-        logger.warning("%s %s", log_prefix, message)
+        message = "Gemini API key missing. Set GEMINI_API_KEY in ai-service/.env or the ai-service container environment, then restart the AI service."
+        logger.error("%s %s", log_prefix, message)
         if raise_on_error:
             raise GeminiRequestError(message)
         return ""
+
+    logger.info("%s Client initialized successfully", log_prefix)
 
     model_names = []
     for model_name in [settings.gemini_model, *settings.gemini_fallback_models]:
@@ -67,7 +69,7 @@ def generate_with_gemini(
             "https://generativelanguage.googleapis.com/v1beta/models/"
             f"{model_name}:generateContent"
         )
-        logger.info("%s Sending request model=%s promptLength=%s", log_prefix, model_name, len(prompt or ""))
+        logger.info("%s Ranking request started model=%s promptLength=%s", log_prefix, model_name, len(prompt or ""))
         try:
             response = requests.post(
                 url,
@@ -108,5 +110,5 @@ def generate_with_gemini(
             raise GeminiRequestError(message)
         return ""
 
-    logger.info("%s Response received model=%s length=%s", log_prefix, active_model, len(text))
+    logger.info("%s Ranking response received model=%s length=%s", log_prefix, active_model, len(text))
     return text

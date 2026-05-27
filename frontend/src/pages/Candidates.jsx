@@ -2,34 +2,37 @@ import { useEffect, useMemo, useState } from "react";
 import api from "../api/axios";
 import CandidateDetails from "../components/CandidateDetails";
 import CandidateRankingCard from "../components/CandidateRankingCard";
-import FormField from "../components/FormField";
+import InterviewRequestModal from "../components/InterviewRequestModal";
+import { useAuth } from "../context/AuthContext";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import EmptyState from "../components/ui/EmptyState";
 import Loader from "../components/ui/Loader";
 import PageHeader from "../components/ui/PageHeader";
 
-const initialForm = {
-  name: "",
-  email: "",
-  phone: "",
-  currentCompany: "",
-  yearsOfExperience: "",
-  source: "Manual upload",
-  notes: ""
+const extractApiError = (error, fallback) => {
+  const response = error.response?.data;
+  if (response?.failures?.length) {
+    return response.failures.map((failure) => failure.message).join(" | ");
+  }
+  return response?.details?.message || response?.message || response?.error || error.message || fallback;
 };
 
 function Candidates() {
+  const { user } = useAuth();
   const [jobs, setJobs] = useState([]);
   const [selectedJobId, setSelectedJobId] = useState("");
   const [candidates, setCandidates] = useState([]);
-  const [form, setForm] = useState(initialForm);
-  const [resumeFile, setResumeFile] = useState(null);
+  const [shortlistedCandidates, setShortlistedCandidates] = useState([]);
+  const [applicationSummary, setApplicationSummary] = useState(null);
   const [query, setQuery] = useState("");
   const [minScore, setMinScore] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
   const [selectedCandidateId, setSelectedCandidateId] = useState("");
+  const [interviewRequestCandidate, setInterviewRequestCandidate] = useState(null);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
+  const [fetchingResumes, setFetchingResumes] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -38,17 +41,68 @@ function Candidates() {
     [candidates, selectedCandidateId]
   );
 
+  const selectedJob = useMemo(
+    () => jobs.find((job) => job._id === selectedJobId),
+    [jobs, selectedJobId]
+  );
+
   const fetchCandidates = async (jobId = selectedJobId) => {
     if (!jobId) {
       setCandidates([]);
-      return;
+      return [];
     }
 
     const { data } = await api.get("/candidates", {
       params: { jobId, sort: "score" }
     });
-    setCandidates(data.candidates || []);
-    setSelectedCandidateId((current) => current || data.candidates?.[0]?._id || "");
+    const nextCandidates = data.candidates || [];
+    setCandidates(nextCandidates);
+    return nextCandidates;
+  };
+
+  const fetchShortlistedCandidates = async (jobId = selectedJobId) => {
+    if (!jobId) {
+      setShortlistedCandidates([]);
+      return [];
+    }
+
+    const { data } = await api.get("/candidates/shortlisted", {
+      params: { jobId }
+    });
+    const nextShortlisted = data.candidates || [];
+    setShortlistedCandidates(nextShortlisted);
+    return nextShortlisted;
+  };
+
+  const fetchApplicationSummary = async (jobId = selectedJobId) => {
+    if (!jobId) {
+      setApplicationSummary(null);
+      return null;
+    }
+
+    const { data } = await api.get("/external-applications/summary", {
+      params: { jobId }
+    });
+    setApplicationSummary(data);
+    return data;
+  };
+
+  const refreshCandidateWorkspace = async (jobId = selectedJobId, preferredCandidateId = "") => {
+    const [nextCandidates, nextShortlisted] = await Promise.all([
+      fetchCandidates(jobId),
+      fetchShortlistedCandidates(jobId)
+    ]);
+
+    const preferredExists = preferredCandidateId && nextCandidates.some((candidate) => candidate._id === preferredCandidateId);
+    const currentExists = selectedCandidateId && nextCandidates.some((candidate) => candidate._id === selectedCandidateId);
+    const nextSelectedId = preferredExists
+      ? preferredCandidateId
+      : currentExists
+        ? selectedCandidateId
+        : nextShortlisted[0]?._id || nextCandidates[0]?._id || "";
+
+    setSelectedCandidateId(nextSelectedId);
+    return { candidates: nextCandidates, shortlistedCandidates: nextShortlisted };
   };
 
   useEffect(() => {
@@ -59,11 +113,17 @@ function Candidates() {
         const firstJobId = data.jobs?.[0]?._id || "";
         setSelectedJobId(firstJobId);
         if (firstJobId) {
-          const response = await api.get("/candidates", {
-            params: { jobId: firstJobId, sort: "score" }
-          });
-          setCandidates(response.data.candidates || []);
-          setSelectedCandidateId(response.data.candidates?.[0]?._id || "");
+          const [candidateResponse, shortlistResponse, summaryResponse] = await Promise.all([
+            api.get("/candidates", { params: { jobId: firstJobId, sort: "score" } }),
+            api.get("/candidates/shortlisted", { params: { jobId: firstJobId } }),
+            api.get("/external-applications/summary", { params: { jobId: firstJobId } })
+          ]);
+          const nextCandidates = candidateResponse.data.candidates || [];
+          const nextShortlisted = shortlistResponse.data.candidates || [];
+          setCandidates(nextCandidates);
+          setShortlistedCandidates(nextShortlisted);
+          setApplicationSummary(summaryResponse.data);
+          setSelectedCandidateId(nextShortlisted[0]?._id || nextCandidates[0]?._id || "");
         }
       } catch (error) {
         setError(error.response?.data?.message || "Failed to load candidate workspace");
@@ -88,13 +148,31 @@ function Candidates() {
         .join(" ")
         .toLowerCase();
       const score = candidate.latestEvaluation?.score ?? -1;
+      const matchesStatus =
+        statusFilter === "all" ||
+        (statusFilter === "shortlisted" ? candidate.isShortlisted : candidate.status === statusFilter);
+      return haystack.includes(query.toLowerCase()) && (!minScore || score >= Number(minScore)) && matchesStatus;
+    });
+  }, [candidates, minScore, query, statusFilter]);
+
+  const filteredShortlistedCandidates = useMemo(() => {
+    return shortlistedCandidates.filter((candidate) => {
+      const haystack = [
+        candidate.name,
+        candidate.email,
+        candidate.phone,
+        candidate.currentCompany,
+        candidate.job?.roleName,
+        candidate.latestEvaluation?.recommendation,
+        candidate.rankingStatus,
+        candidate.status
+      ]
+        .join(" ")
+        .toLowerCase();
+      const score = candidate.latestEvaluation?.score ?? -1;
       return haystack.includes(query.toLowerCase()) && (!minScore || score >= Number(minScore));
     });
-  }, [candidates, minScore, query]);
-
-  const onChange = (event) => {
-    setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
-  };
+  }, [minScore, query, shortlistedCandidates]);
 
   const handleJobChange = async (event) => {
     const jobId = event.target.value;
@@ -104,7 +182,12 @@ function Candidates() {
     setSuccess("");
     setLoading(true);
     try {
-      await fetchCandidates(jobId);
+      const [nextCandidates, nextShortlisted] = await Promise.all([
+        fetchCandidates(jobId),
+        fetchShortlistedCandidates(jobId),
+        fetchApplicationSummary(jobId)
+      ]);
+      setSelectedCandidateId(nextShortlisted[0]?._id || nextCandidates[0]?._id || "");
     } catch (error) {
       setError(error.response?.data?.message || "Failed to load candidates");
     } finally {
@@ -112,40 +195,42 @@ function Candidates() {
     }
   };
 
-  const handleCreateCandidate = async (event) => {
-    event.preventDefault();
-    setBusy(true);
+  const handleCopyApplicationLink = async () => {
     setError("");
     setSuccess("");
-    let candidateCreated = false;
+    try {
+      await navigator.clipboard.writeText(applicationSummary?.applicationLink || "");
+      setSuccess("Application link copied.");
+    } catch (error) {
+      setError("Unable to copy application link");
+    }
+  };
+
+  const handleFetchResumes = async () => {
+    setFetchingResumes(true);
+    setError("");
+    setSuccess("");
 
     try {
-      const { data } = await api.post("/candidates", {
-        ...form,
-        jobId: selectedJobId
-      });
-      candidateCreated = Boolean(data.candidate?._id);
-
-      if (resumeFile) {
-        const upload = new FormData();
-        upload.append("resume", resumeFile);
-        await api.post(`/candidates/${data.candidate._id}/upload-resume`, upload, {
-          headers: { "Content-Type": "multipart/form-data" }
-        });
+      const { data } = await api.post("/external-applications/fetch-resumes", { jobId: selectedJobId });
+      if (data.importedCount === 0 && data.failedCount === 0 && data.duplicateCount === 0) {
+        setSuccess(data.message || "No resumes available to fetch");
+      } else {
+        const failureText = data.failedCount ? `, ${data.failedCount} failed` : "";
+        const duplicateText = data.duplicateCount ? `, ${data.duplicateCount} duplicate` : "";
+        setSuccess(`Fetched ${data.importedCount} resume${data.importedCount === 1 ? "" : "s"}${duplicateText}${failureText}.`);
       }
-
-      setForm(initialForm);
-      setResumeFile(null);
-      setSuccess("Candidate added and resume parsed.");
-      await fetchCandidates(selectedJobId);
+      if (data.failures?.length) {
+        setError(data.failures.map((failure) => failure.message).join(" | "));
+      }
+      await Promise.all([
+        refreshCandidateWorkspace(selectedJobId),
+        fetchApplicationSummary(selectedJobId)
+      ]);
     } catch (error) {
-      const response = error.response?.data;
-      setError(response?.details?.message || response?.message || response?.error || "Failed to add candidate");
-      if (candidateCreated) {
-        await fetchCandidates(selectedJobId);
-      }
+      setError(error.response?.data?.message || "Failed to fetch resumes");
     } finally {
-      setBusy(false);
+      setFetchingResumes(false);
     }
   };
 
@@ -154,11 +239,20 @@ function Candidates() {
     setError("");
     setSuccess("");
     try {
-      await api.post(`/candidates/${candidateId}/rank`);
+      console.debug("[Frontend] Rank button clicked", { candidateId });
+      console.debug("[Frontend] Sending ranking request", { candidateId });
+      const { data } = await api.post(`/candidates/${candidateId}/rank`);
+      console.debug("[Frontend] Ranking response received", {
+        candidateId,
+        score: data.candidate?.latestEvaluation?.score,
+        status: data.candidate?.rankingStatus
+      });
       setSuccess("Candidate ranking completed.");
-      await fetchCandidates(selectedJobId);
+      await refreshCandidateWorkspace(selectedJobId, candidateId);
     } catch (error) {
-      setError(error.response?.data?.message || "Failed to rank candidate");
+      const message = extractApiError(error, "Failed to rank candidate");
+      console.error("[Frontend] Ranking failed:", message);
+      setError(message);
     } finally {
       setBusy(false);
     }
@@ -169,11 +263,60 @@ function Candidates() {
     setError("");
     setSuccess("");
     try {
+      console.debug("[Frontend] Rank button clicked", { jobId: selectedJobId, candidateCount: candidates.length });
+      console.debug("[Frontend] Sending ranking request", { jobId: selectedJobId });
       const { data } = await api.post("/candidates/rank-all", { jobId: selectedJobId });
-      setSuccess(`Ranked ${data.rankedCount} candidates${data.failedCount ? `, ${data.failedCount} failed` : ""}.`);
-      await fetchCandidates(selectedJobId);
+      console.debug("[Frontend] Ranking response received", {
+        jobId: selectedJobId,
+        rankedCount: data.rankedCount,
+        failedCount: data.failedCount
+      });
+      if (data.failedCount) {
+        const failureText = (data.failures || []).map((failure) => failure.message).join(" | ");
+        setError(`Ranking completed with ${data.failedCount} failure(s): ${failureText || "No failure detail returned"}`);
+      }
+      if (data.rankedCount > 0) {
+        setSuccess(`Ranked ${data.rankedCount} candidates${data.failedCount ? `, ${data.failedCount} failed` : ""}.`);
+      } else if (data.failedCount > 0) {
+        setSuccess("");
+      } else {
+        setSuccess("No candidates with parsed resumes were available to rank.");
+      }
+      await refreshCandidateWorkspace(selectedJobId);
     } catch (error) {
-      setError(error.response?.data?.message || "Failed to rank candidates");
+      const message = extractApiError(error, "Failed to rank candidates");
+      console.error("[Frontend] Ranking failed:", message);
+      setError(message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const handleResetCandidates = async () => {
+    const confirmed = window.confirm(
+      selectedJobId
+        ? "Delete all candidates, resumes, rankings, and interview records for the selected job?"
+        : "Delete all candidates, resumes, rankings, and interview records?"
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    setBusy(true);
+    setError("");
+    setSuccess("");
+    try {
+      const { data } = await api.delete("/candidates", {
+        data: selectedJobId ? { jobId: selectedJobId } : {}
+      });
+      setCandidates([]);
+      setShortlistedCandidates([]);
+      setSelectedCandidateId("");
+      setSuccess(`Cleanup complete: deleted ${data.deletedCount || 0} candidates and ${data.cleanup?.filesRemoved || 0} resume files.`);
+      await refreshCandidateWorkspace(selectedJobId);
+    } catch (error) {
+      setError(error.response?.data?.message || "Failed to reset candidate test data");
     } finally {
       setBusy(false);
     }
@@ -184,7 +327,8 @@ function Candidates() {
     setError("");
     try {
       await api.put(`/candidates/${candidateId}/shortlist`, { status });
-      await fetchCandidates(selectedJobId);
+      setSelectedCandidateId(status === "rejected" ? "" : candidateId);
+      await refreshCandidateWorkspace(selectedJobId, status === "rejected" ? "" : candidateId);
     } catch (error) {
       setError(error.response?.data?.message || "Failed to update candidate");
     } finally {
@@ -192,12 +336,26 @@ function Candidates() {
     }
   };
 
+  const openInterviewRequest = (candidate) => {
+    console.debug("[Shortlist] shortlisted candidate clicked", {
+      candidateId: candidate._id,
+      candidateName: candidate.name
+    });
+    console.debug("[Interview Request] candidate selected:", candidate._id);
+    setSelectedCandidateId(candidate._id);
+    setInterviewRequestCandidate(candidate);
+  };
+
+  const closeInterviewRequest = () => {
+    setInterviewRequestCandidate(null);
+  };
+
   return (
     <div className="page-stack">
       <PageHeader
         eyebrow="AI talent intelligence"
         title="Candidates"
-        description="Upload resumes, compare them against approved JDs and company knowledge, then rank the strongest profiles with tri-source RAG."
+        description="Share the external application link, fetch submitted resumes on demand, and review automatically ranked candidates."
       />
 
       {error && <p className="alert-error">{error}</p>}
@@ -212,43 +370,157 @@ function Candidates() {
         </select>
         <input type="search" placeholder="Search candidates, company, recommendation" value={query} onChange={(event) => setQuery(event.target.value)} />
         <input type="number" min="0" max="100" placeholder="Min score" value={minScore} onChange={(event) => setMinScore(event.target.value)} className="md:max-w-32" />
+        <select value={statusFilter} onChange={(event) => setStatusFilter(event.target.value)} className="md:max-w-44">
+          <option value="all">All statuses</option>
+          <option value="new">New</option>
+          <option value="shortlisted">Shortlisted</option>
+          <option value="assigned">Assigned</option>
+          <option value="interview_scheduled">Interview scheduled</option>
+          <option value="review">Review</option>
+          <option value="rejected">Rejected</option>
+        </select>
         <Button variant="ai" onClick={handleRankAll} disabled={busy || !selectedJobId || candidates.length === 0}>
           Rank Candidates
         </Button>
+        {user?.role === "admin" && (
+          <Button variant="danger" onClick={handleResetCandidates} disabled={busy || !selectedJobId || candidates.length === 0}>
+            Reset Candidates
+          </Button>
+        )}
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[420px_1fr]">
         <Card className="p-5">
-          <h2 className="font-semibold text-slate-950">Add candidate</h2>
-          <p className="mt-1 text-sm text-slate-500">Manual intake now, with source metadata ready for future imports.</p>
+          <h2 className="font-semibold text-slate-950">Application intake</h2>
+          <p className="mt-1 text-sm text-slate-500">
+            Share the generated public apply link on LinkedIn. One reusable Tally form routes every applicant to the selected job.
+          </p>
 
-          <form className="mt-5 space-y-4" onSubmit={handleCreateCandidate}>
-            <FormField label="Candidate name" name="name" value={form.name} onChange={onChange} required />
-            <FormField label="Email" name="email" type="email" value={form.email} onChange={onChange} required />
-            <FormField label="Phone number" name="phone" value={form.phone} onChange={onChange} required />
-            <label className="block">
-              <span className="field-label">Resume PDF <span className="ml-1 text-red-500">*</span></span>
-              <input
-                type="file"
-                accept="application/pdf"
-                className="field-control"
-                required
-                onChange={(event) => setResumeFile(event.target.files?.[0] || null)}
-              />
-            </label>
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-1">
-              <FormField label="Current company" name="currentCompany" value={form.currentCompany} onChange={onChange} />
-              <FormField label="Years of experience" name="yearsOfExperience" type="number" value={form.yearsOfExperience} onChange={onChange} />
+          <div className="mt-5 space-y-4">
+            <div>
+              <p className="field-label">Selected role</p>
+              <p className="mt-2 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm font-semibold text-slate-950">
+                {selectedJob?.roleName || "Select an approved JD"}
+              </p>
             </div>
-            <FormField label="Source" name="source" value={form.source} onChange={onChange} />
-            <FormField label="Notes" name="notes" value={form.notes} onChange={onChange} textarea />
-            <Button type="submit" disabled={busy || !selectedJobId} className="w-full">
-              Add Candidate
-            </Button>
-          </form>
+
+            <div>
+              <p className="field-label">Generated Public Apply Link</p>
+              <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
+                {applicationSummary?.applicationLink ? (
+                  <p className="break-all text-sm text-slate-700">{applicationSummary.applicationLink}</p>
+                ) : (
+                  <p className="text-sm text-slate-500">Approve a JD to generate an external application link.</p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+              <div className="rounded-xl border border-slate-200 p-3">
+                <p className="field-label">Pending submissions</p>
+                <p className="mt-1 text-2xl font-semibold text-slate-950">{applicationSummary?.pendingCount ?? 0}</p>
+              </div>
+              <div className="rounded-xl border border-slate-200 p-3">
+                <p className="field-label">Last fetched</p>
+                <p className="mt-1 text-sm font-semibold text-slate-950">
+                  {applicationSummary?.lastFetchedAt ? new Date(applicationSummary.lastFetchedAt).toLocaleString() : "Never"}
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <p className="field-label">Webhook URL</p>
+              <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <p className="break-all text-sm text-slate-700">
+                  {applicationSummary?.webhookUrl || "Configure WEBHOOK_PUBLIC_BASE_URL to show a full webhook URL."}
+                </p>
+              </div>
+              <p className="mt-2 text-xs leading-5 text-slate-500">
+                Configure this once in Tally. Job mapping now comes from hidden form fields, not webhook query params.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+              <div className="flex items-center justify-between gap-3">
+                <p className="field-label">Webhook Debug</p>
+                <span className="chip">{applicationSummary?.latestWebhook?.status || applicationSummary?.latestWebhookAny?.status || "No webhook yet"}</span>
+              </div>
+              {applicationSummary?.latestWebhook || applicationSummary?.latestWebhookAny ? (
+                <div className="mt-3 space-y-2 text-xs text-slate-600">
+                  <p>Latest received: {new Date((applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).createdAt).toLocaleString()}</p>
+                  <p>Job ID: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).rawJobId || "Not parsed"}</p>
+                  <p>Role: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).role || "Not parsed"}</p>
+                  <p>Email: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).email || "Not parsed"}</p>
+                  <p>Resume detected: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).resumeDetected ? "Yes" : "No"}</p>
+                  <p>Candidate imported: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).candidateImported ? "Yes" : "No"}</p>
+                  <p>Import status: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).importStatus || "Not started"}</p>
+                  <p className="break-all">Resume URL: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).resumeUrl || "Not parsed"}</p>
+                  {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).error && (
+                    <p className="text-red-600">{(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).error}</p>
+                  )}
+                </div>
+              ) : (
+                <p className="mt-3 text-xs text-slate-500">No webhook request has reached the backend yet.</p>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Button variant="secondary" onClick={handleCopyApplicationLink} disabled={!applicationSummary?.applicationLink || fetchingResumes}>
+                Copy Link
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={() => window.open(applicationSummary.applicationLink, "_blank", "noopener,noreferrer")}
+                disabled={!applicationSummary?.applicationLink || fetchingResumes}
+              >
+                Open Form
+              </Button>
+              <Button variant="ai" onClick={handleFetchResumes} disabled={!selectedJobId || fetchingResumes}>
+                {fetchingResumes ? "Fetching resumes..." : "Fetch Resumes"}
+              </Button>
+            </div>
+          </div>
         </Card>
 
         <div className="space-y-6">
+          <Card className="p-5">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 className="font-semibold text-slate-950">Shortlisted candidates</h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  {filteredShortlistedCandidates.length} shortlisted profiles for this role.
+                </p>
+              </div>
+              <span className="chip">{shortlistedCandidates.length} total</span>
+            </div>
+
+            {loading ? (
+              <div className="mt-5"><Loader label="Loading shortlist..." /></div>
+            ) : filteredShortlistedCandidates.length === 0 ? (
+              <div className="mt-5">
+                <EmptyState title="No shortlisted candidates" description="Click Shortlist on ranked profiles and every selected candidate will remain visible here." />
+              </div>
+            ) : (
+              <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                {filteredShortlistedCandidates.map((candidate) => (
+                  <div
+                    key={candidate._id}
+                    className="cursor-pointer"
+                    onClick={() => setSelectedCandidateId(candidate._id)}
+                  >
+                    <CandidateRankingCard
+                      candidate={candidate}
+                      onRank={handleRank}
+                      onShortlist={handleShortlist}
+                      onRequestInterview={openInterviewRequest}
+                      busy={busy}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </Card>
+
           <Card className="p-5">
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
@@ -284,9 +556,20 @@ function Candidates() {
             )}
           </Card>
 
-          <CandidateDetails candidate={selectedCandidate} />
+          <CandidateDetails
+            candidate={selectedCandidate}
+          />
         </div>
       </div>
+
+      <InterviewRequestModal
+        candidate={interviewRequestCandidate}
+        onClose={closeInterviewRequest}
+        onInterviewRequested={async (candidateId) => {
+          setSuccess("Interview request sent to interviewer.");
+          await refreshCandidateWorkspace(selectedJobId, candidateId);
+        }}
+      />
     </div>
   );
 }

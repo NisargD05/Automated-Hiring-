@@ -1,24 +1,37 @@
-import Card from "../components/ui/Card";
+import { useState } from "react";
 import PageHeader from "../components/ui/PageHeader";
+import CandidateInterviews from "./recruiter/CandidateInterviews";
+import InterviewRequests from "./recruiter/InterviewRequests";
 
 function Interviews() {
+  const [tab, setTab] = useState("requests");
+
   return (
     <div className="page-stack">
       <PageHeader
         eyebrow="Interview operations"
         title="Interviews"
-        description="Interview scheduling will be added later. This area is styled for panels, calendars, schedules, and interviewer coordination."
+        description="Create interviewer-owned scheduling requests, track confirmed interviews, and review feedback."
       />
-      <Card className="p-6">
-        <div className="grid gap-4 md:grid-cols-3">
-          {["Schedule orchestration", "Interviewer capacity", "Candidate readiness"].map((item) => (
-            <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="font-semibold text-slate-950">{item}</p>
-              <p className="mt-2 text-sm leading-6 text-slate-500">Prepared placeholder for the next workflow layer.</p>
-            </div>
-          ))}
-        </div>
-      </Card>
+
+      <div className="toolbar max-w-fit">
+        <button
+          type="button"
+          className={`mobile-nav-item ${tab === "requests" ? "mobile-nav-item-active" : ""}`}
+          onClick={() => setTab("requests")}
+        >
+          Requests
+        </button>
+        <button
+          type="button"
+          className={`mobile-nav-item ${tab === "interviews" ? "mobile-nav-item-active" : ""}`}
+          onClick={() => setTab("interviews")}
+        >
+          Scheduled & Feedback
+        </button>
+      </div>
+
+      {tab === "requests" ? <InterviewRequests /> : <CandidateInterviews />}
     </div>
   );
 }

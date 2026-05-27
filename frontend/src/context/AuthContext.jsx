@@ -18,8 +18,17 @@ export function AuthProvider({ children }) {
 
       try {
         const { data } = await api.get("/auth/me");
+        if (import.meta.env.DEV) {
+          console.debug("[auth] restored session", {
+            role: data.user?.role,
+            email: data.user?.email
+          });
+        }
         setUser(data.user);
       } catch (error) {
+        if (import.meta.env.DEV) {
+          console.warn("[auth] session restore failed", error.response?.data || error.message);
+        }
         localStorage.removeItem("token");
         setUser(null);
       } finally {
@@ -41,6 +50,12 @@ export function AuthProvider({ children }) {
     const { data } = await api.post("/auth/login", formData);
     localStorage.setItem("token", data.token);
     setUser(data.user);
+    if (import.meta.env.DEV) {
+      console.debug("[auth] login success", {
+        role: data.user?.role,
+        email: data.user?.email
+      });
+    }
     return data.user;
   };
 

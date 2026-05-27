@@ -8,22 +8,39 @@ const iconMap = {
   "Job Listings": "J",
   Candidates: "P",
   Interviews: "I",
-  Settings: "S"
+  Settings: "S",
+  "Pending Requests": "P",
+  "Upcoming Interviews": "U",
+  "Feedback History": "F"
 };
 
 function DashboardLayout() {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
-  const navItems = [
-    { label: "Dashboard", to: "/dashboard", end: true, roles: ["admin", "recruiter", "interviewer"] },
-    { label: "Knowledge Base", to: "/dashboard/knowledge-base", roles: ["admin", "recruiter"] },
-    { label: "Create Job", to: "/dashboard/create-job", roles: ["admin", "recruiter"] },
-    { label: "Job Listings", to: "/dashboard/job-listings", roles: ["admin", "recruiter"] },
-    { label: "Candidates", to: "/dashboard/candidates", roles: ["admin", "recruiter"] },
-    { label: "Interviews", to: "/dashboard/interviews", roles: ["admin", "recruiter", "interviewer"] },
-    { label: "Settings", to: "/dashboard/settings", roles: ["admin", "recruiter", "interviewer"] }
-  ];
-  const visibleNavItems = navItems.filter((item) => item.roles.includes(user?.role));
+  const navItems =
+    user?.role === "interviewer"
+      ? [
+          { label: "Pending Requests", to: "/interviewer/pending" },
+          { label: "Upcoming Interviews", to: "/interviewer/upcoming" },
+          { label: "Feedback History", to: "/interviewer/feedback-history" },
+          { label: "Settings", to: "/dashboard/settings" }
+        ]
+      : [
+          { label: "Dashboard", to: "/dashboard", end: true, roles: ["admin", "recruiter"] },
+          { label: "Knowledge Base", to: "/dashboard/knowledge-base", roles: ["admin", "recruiter"] },
+          { label: "Create Job", to: "/dashboard/create-job", roles: ["admin", "recruiter"] },
+          { label: "Job Listings", to: "/dashboard/job-listings", roles: ["admin", "recruiter"] },
+          { label: "Candidates", to: "/dashboard/candidates", roles: ["admin", "recruiter"] },
+          { label: "Interviews", to: "/dashboard/interviews", roles: ["admin", "recruiter"] },
+          { label: "Settings", to: "/dashboard/settings", roles: ["admin", "recruiter"] }
+        ];
+  const visibleNavItems = navItems.filter((item) => {
+    if (!item.roles) {
+      return true;
+    }
+
+    return item.roles.includes(user?.role);
+  });
 
   const handleLogout = () => {
     logout();

@@ -26,8 +26,8 @@ function Login() {
 
     try {
       setLoading(true);
-      await login(formData);
-      navigate("/dashboard");
+      const loggedInUser = await login(formData);
+      navigate(loggedInUser.role === "interviewer" ? "/interviewer/pending" : "/dashboard");
     } catch (error) {
       setError(error.response?.data?.message || "Login failed");
     } finally {

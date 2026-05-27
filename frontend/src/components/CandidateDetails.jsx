@@ -14,7 +14,9 @@ function CandidateDetails({ candidate }) {
           <h2 className="mt-2 text-lg font-semibold text-slate-950">{candidate.name}</h2>
           <p className="mt-1 text-sm text-slate-500">{resume?.originalFileName || "No resume uploaded"}</p>
         </div>
-        <span className="chip">{candidate.status}</span>
+        <div className="flex flex-wrap justify-end gap-2">
+          <span className="chip">{candidate.status}</span>
+        </div>
       </div>
 
       <div className="mt-5 grid gap-4 md:grid-cols-2">

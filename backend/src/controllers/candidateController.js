@@ -1,13 +1,21 @@
 const Candidate = require("../models/Candidate");
 const CandidateEvaluation = require("../models/CandidateEvaluation");
 const CandidateResume = require("../models/CandidateResume");
+const Interview = require("../models/Interview");
+const InterviewFeedback = require("../models/InterviewFeedback");
+const InterviewRequest = require("../models/InterviewRequest");
 const Job = require("../models/Job");
 const { parseCandidateResume, rankCandidate: requestCandidateRanking } = require("../services/aiServiceClient");
 const logger = require("../utils/logger");
+const fs = require("fs/promises");
+const path = require("path");
+
+const resumeUploadRoot = path.resolve(__dirname, "../../uploads/resumes");
 
 const populateCandidateQuery = (query) =>
   query
     .populate("job", "roleName department skills seniorityLevel mandatoryRequirements experienceRequired status")
+    .populate("shortlistedBy", "name email role")
     .populate("resumeDocument")
     .populate("latestEvaluation");
 
@@ -68,8 +76,200 @@ const formatJobPayload = (job) => ({
   fullJDText: job.approvedJD || job.generatedJD || ""
 });
 
+const getResumeText = (resumeDocument) => String(resumeDocument?.resumeText || "").trim();
+
+const getRankingEligibility = (candidate) => {
+  const resumeText = getResumeText(candidate.resumeDocument);
+
+  if (!candidate.resumeDocument) {
+    return {
+      eligible: false,
+      resumeText,
+      exclusionReason: "candidate.resumeDocument is missing"
+    };
+  }
+
+  if (!resumeText) {
+    return {
+      eligible: false,
+      resumeText,
+      exclusionReason: "candidate.resumeDocument.resumeText is empty"
+    };
+  }
+
+  return {
+    eligible: true,
+    resumeText,
+    exclusionReason: ""
+  };
+};
+
+const deleteResumeFile = async (filePath) => {
+  if (!filePath) {
+    return false;
+  }
+
+  const resolvedPath = path.resolve(filePath);
+  if (!resolvedPath.startsWith(resumeUploadRoot + path.sep) && resolvedPath !== resumeUploadRoot) {
+    logger.warn("[Cleanup] Skipping resume file outside upload directory", {
+      filePath,
+      resolvedPath,
+      resumeUploadRoot
+    });
+    return false;
+  }
+
+  try {
+    await fs.unlink(resolvedPath);
+    logger.info("[Cleanup] Old resume file removed", { filePath: resolvedPath });
+    return true;
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      logger.info("[Cleanup] Resume file already absent", { filePath: resolvedPath });
+      return false;
+    }
+
+    throw error;
+  }
+};
+
+const cleanupCandidateArtifacts = async (candidateIds) => {
+  const ids = candidateIds.map((id) => id.toString());
+  const resumes = await CandidateResume.find({ candidate: { $in: ids } });
+  let filesRemoved = 0;
+
+  for (const resume of resumes) {
+    if (await deleteResumeFile(resume.filePath)) {
+      filesRemoved += 1;
+    }
+  }
+
+  const interviews = await Interview.find({ candidateId: { $in: ids } }).select("_id");
+  const interviewIds = interviews.map((interview) => interview._id);
+  const [
+    feedbackResult,
+    interviewResult,
+    requestResult,
+    evaluationResult,
+    resumeResult
+  ] = await Promise.all([
+    InterviewFeedback.deleteMany({ candidateId: { $in: ids } }),
+    Interview.deleteMany({ candidateId: { $in: ids } }),
+    InterviewRequest.deleteMany({ candidateId: { $in: ids } }),
+    CandidateEvaluation.deleteMany({ candidate: { $in: ids } }),
+    CandidateResume.deleteMany({ candidate: { $in: ids } })
+  ]);
+
+  logger.info("[Cleanup] Candidate artifacts removed", {
+    candidateCount: ids.length,
+    filesRemoved,
+    resumesDeleted: resumeResult.deletedCount,
+    evaluationsDeleted: evaluationResult.deletedCount,
+    interviewRequestsDeleted: requestResult.deletedCount,
+    interviewsDeleted: interviewResult.deletedCount,
+    feedbackDeleted: feedbackResult.deletedCount,
+    interviewIds: interviewIds.map((id) => id.toString())
+  });
+
+  return {
+    filesRemoved,
+    resumesDeleted: resumeResult.deletedCount,
+    evaluationsDeleted: evaluationResult.deletedCount,
+    interviewRequestsDeleted: requestResult.deletedCount,
+    interviewsDeleted: interviewResult.deletedCount,
+    feedbackDeleted: feedbackResult.deletedCount
+  };
+};
+
+const processCandidateResume = async ({ candidate, file }) => {
+  await ensureApprovedJob(candidate.job);
+
+  logger.info("[Resume Parsing] Triggered", {
+    candidateId: candidate._id.toString(),
+    originalFileName: file.originalname
+  });
+
+  candidate.rankingStatus = "parsing";
+  candidate.rankingError = "";
+  await candidate.save();
+
+  const parsed = await parseCandidateResume({
+    filePath: file.path,
+    originalFileName: file.originalname
+  });
+
+  if (!parsed.resumeText || parsed.resumeText.trim().length < 50) {
+    const error = new Error("Resume parsing returned too little text to index reliably");
+    error.status = 422;
+    error.details = {
+      resumeTextLength: (parsed.resumeText || "").length,
+      extractionEngine: parsed.extractionEngine
+    };
+    throw error;
+  }
+
+  logger.info("[Resume Indexing] extraction completed", {
+    candidateId: candidate._id.toString(),
+    resumeTextLength: (parsed.resumeText || "").length,
+    skillsCount: parsed.parsedSections?.skills?.length || 0,
+    projectsCount: parsed.parsedSections?.projects?.length || 0,
+    experienceCount: parsed.parsedSections?.experience?.length || 0
+  });
+
+  if (candidate.resumeDocument) {
+    const previousResume = await CandidateResume.findById(candidate.resumeDocument);
+    if (previousResume) {
+      await deleteResumeFile(previousResume.filePath);
+      await CandidateResume.deleteOne({ _id: previousResume._id });
+      await CandidateEvaluation.deleteMany({ candidate: candidate._id });
+      logger.info("[Cleanup] Previous resume and ranking state cleared before new upload", {
+        candidateId: candidate._id.toString(),
+        previousResumeId: previousResume._id.toString()
+      });
+    }
+  }
+
+  const resume = await CandidateResume.create({
+    candidate: candidate._id,
+    job: candidate.job,
+    originalFileName: file.originalname,
+    storedFileName: file.filename,
+    filePath: file.path,
+    mimeType: file.mimetype || "application/pdf",
+    size: file.size || 0,
+    resumeText: parsed.resumeText || "",
+    parsedSections: parsed.parsedSections || {},
+    parserMetadata: {
+      characterCount: parsed.characterCount || 0,
+      extractionEngine: parsed.extractionEngine || "pdfplumber/pypdf",
+      parsedAt: new Date()
+    }
+  });
+
+  candidate.resumeDocument = resume._id;
+  candidate.rankingStatus = "ready";
+  candidate.latestEvaluation = null;
+  await candidate.save();
+
+  logger.info("[Resume Indexing] candidate resume indexed", {
+    candidateId: candidate._id.toString(),
+    resumeId: resume._id.toString(),
+    resumeTextLength: resume.resumeText.length,
+    status: candidate.rankingStatus
+  });
+
+  return resume;
+};
+
 const createCandidate = async (req, res) => {
   try {
+    logger.info("[Candidate Create] request received", {
+      userId: req.user?._id?.toString(),
+      role: req.user?.role,
+      email: req.body.email,
+      jobId: req.body.jobId || req.body.job
+    });
+
     const payload = normalizeCandidateInput(req.body);
 
     if (!payload.name || !payload.email || !payload.phone || !payload.job) {
@@ -80,9 +280,26 @@ const createCandidate = async (req, res) => {
 
     await ensureApprovedJob(payload.job);
 
+    const duplicate = await Candidate.findOne({
+      email: payload.email,
+      job: payload.job
+    });
+
+    if (duplicate) {
+      return res.status(409).json({
+        message: "A candidate with this email already exists for the selected job"
+      });
+    }
+
     const candidate = await Candidate.create({
       ...payload,
       createdBy: req.user._id
+    });
+
+    logger.info("[Candidate Create] candidate saved", {
+      candidateId: candidate._id.toString(),
+      jobId: String(candidate.job),
+      email: candidate.email
     });
 
     const hydrated = await populateCandidateQuery(Candidate.findById(candidate._id));
@@ -98,6 +315,13 @@ const createCandidate = async (req, res) => {
 
 const uploadResume = async (req, res) => {
   try {
+    logger.info("[Resume Upload] request received", {
+      candidateId: req.params.id,
+      userId: req.user?._id?.toString(),
+      hasFile: Boolean(req.file),
+      fileName: req.file?.originalname
+    });
+
     const candidate = await Candidate.findById(req.params.id);
 
     if (!candidate) {
@@ -108,46 +332,15 @@ const uploadResume = async (req, res) => {
       return res.status(400).json({ message: "Resume PDF is required" });
     }
 
-    await ensureApprovedJob(candidate.job);
-
-    candidate.rankingStatus = "parsing";
-    candidate.rankingError = "";
-    await candidate.save();
-
-    const parsed = await parseCandidateResume({
-      filePath: req.file.path,
-      originalFileName: req.file.originalname
-    });
-
-    logger.info("[Resume Parser] AI service returned parsed resume", {
+    logger.info("[Resume Upload] file saved", {
       candidateId: candidate._id.toString(),
-      resumeTextLength: (parsed.resumeText || "").length,
-      skillsCount: parsed.parsedSections?.skills?.length || 0,
-      projectsCount: parsed.parsedSections?.projects?.length || 0,
-      experienceCount: parsed.parsedSections?.experience?.length || 0
-    });
-
-    const resume = await CandidateResume.create({
-      candidate: candidate._id,
-      job: candidate.job,
       originalFileName: req.file.originalname,
       storedFileName: req.file.filename,
       filePath: req.file.path,
-      mimeType: req.file.mimetype,
-      size: req.file.size,
-      resumeText: parsed.resumeText || "",
-      parsedSections: parsed.parsedSections || {},
-      parserMetadata: {
-        characterCount: parsed.characterCount || 0,
-        extractionEngine: parsed.extractionEngine || "pdfplumber/pypdf",
-        parsedAt: new Date()
-      }
+      size: req.file.size
     });
 
-    candidate.resumeDocument = resume._id;
-    candidate.rankingStatus = "ready";
-    candidate.latestEvaluation = null;
-    await candidate.save();
+    await processCandidateResume({ candidate, file: req.file });
 
     const hydrated = await populateCandidateQuery(Candidate.findById(candidate._id));
     res.json({ message: "Resume uploaded and parsed", candidate: hydrated });
@@ -171,6 +364,13 @@ const uploadResume = async (req, res) => {
 };
 
 const saveEvaluation = async ({ candidate, job, ranking }) => {
+  logger.info("[MongoDB] Saving ranking", {
+    candidateId: candidate._id.toString(),
+    jobId: job._id.toString(),
+    score: ranking.score,
+    recommendation: ranking.recommendation
+  });
+
   const evaluation = await CandidateEvaluation.create({
     candidate: candidate._id,
     job: job._id,
@@ -191,6 +391,17 @@ const saveEvaluation = async ({ candidate, job, ranking }) => {
   candidate.rankingError = "";
   await candidate.save();
 
+  logger.info("[Candidate Ranking] evaluation saved", {
+    candidateId: candidate._id.toString(),
+    evaluationId: evaluation._id.toString(),
+    score: evaluation.score,
+    recommendation: evaluation.recommendation
+  });
+  logger.info("[MongoDB] Ranking saved for candidate", {
+    candidateId: candidate._id.toString(),
+    evaluationId: evaluation._id.toString()
+  });
+
   return evaluation;
 };
 
@@ -203,9 +414,12 @@ const rankSingleCandidate = async (candidateId) => {
     throw error;
   }
 
-  if (!candidate.resumeDocument || !candidate.resumeDocument.resumeText) {
+  const eligibility = getRankingEligibility(candidate);
+
+  if (!eligibility.eligible) {
     const error = new Error("Upload and parse a resume before ranking this candidate");
     error.status = 400;
+    error.exclusionReason = eligibility.exclusionReason;
     throw error;
   }
 
@@ -227,7 +441,7 @@ const rankSingleCandidate = async (candidateId) => {
       notes: candidate.notes
     },
     resume: {
-      resumeText: candidate.resumeDocument.resumeText,
+      resumeText: eligibility.resumeText,
       parsedSections: candidate.resumeDocument.parsedSections || {}
     },
     job: formatJobPayload(job)
@@ -248,6 +462,57 @@ const rankSingleCandidate = async (candidateId) => {
   return populateCandidateQuery(Candidate.findById(candidate._id));
 };
 
+const importExternalCandidateSubmission = async ({ submission, file }) => {
+  const duplicate = await Candidate.findOne({
+    email: submission.email,
+    job: submission.jobId
+  });
+
+  if (duplicate) {
+    return {
+      status: "duplicate",
+      candidate: await populateCandidateQuery(Candidate.findById(duplicate._id))
+    };
+  }
+
+  const parsedExperience = Number.parseFloat(String(submission.experience || "").replace(/[^0-9.]/g, ""));
+
+  const candidate = await Candidate.create({
+    name: submission.candidateName,
+    email: submission.email,
+    phone: submission.phone || "Not provided",
+    job: submission.jobId,
+    currentCompany: submission.currentCompany || "",
+    yearsOfExperience: Number.isFinite(parsedExperience) ? parsedExperience : null,
+    source: submission.source || "External application",
+    notes: [
+      submission.linkedinUrl ? `LinkedIn: ${submission.linkedinUrl}` : "",
+      submission.githubUrl ? `GitHub: ${submission.githubUrl}` : "",
+      submission.portfolioUrl ? `Portfolio: ${submission.portfolioUrl}` : ""
+    ].filter(Boolean).join("\n")
+  });
+
+  logger.info("[Candidate Import] Candidate created", {
+    candidateId: candidate._id.toString(),
+    submissionId: submission._id.toString(),
+    jobId: submission.jobId.toString()
+  });
+
+  await processCandidateResume({ candidate, file });
+
+  logger.info("[Gemini Ranking] Triggered", {
+    candidateId: candidate._id.toString(),
+    submissionId: submission._id.toString()
+  });
+
+  const rankedCandidate = await rankSingleCandidate(candidate._id);
+
+  return {
+    status: "imported",
+    candidate: rankedCandidate
+  };
+};
+
 const rankCandidate = async (req, res) => {
   try {
     const candidate = await rankSingleCandidate(req.params.id);
@@ -265,20 +530,56 @@ const rankCandidate = async (req, res) => {
 const rankAllCandidates = async (req, res) => {
   try {
     const { jobId } = req.body;
+    logger.info("[Backend] Ranking request received", {
+      userId: req.user?._id?.toString(),
+      role: req.user?.role,
+      jobId
+    });
 
     if (!jobId) {
       return res.status(400).json({ message: "jobId is required" });
     }
 
     await ensureApprovedJob(jobId);
+    logger.info("[Backend] Job ID validated", { jobId });
+    logger.info("[Backend] Approved JD fetched", { jobId });
 
-    const candidates = await Candidate.find({ job: jobId, resumeDocument: { $exists: true, $ne: null } });
+    const candidates = await Candidate.find({ job: jobId }).populate("resumeDocument");
+    logger.info("[Ranking] Candidates fetched: %s", candidates.length);
+    logger.info("[Ranking] Candidate IDs: %j", candidates.map((candidate) => candidate._id.toString()));
+
+    const eligibleCandidates = [];
+
+    for (const candidate of candidates) {
+      const eligibility = getRankingEligibility(candidate);
+      logger.info("[Ranking] Checking candidate: %s", candidate.name);
+      logger.info("[Ranking] Resume text exists: %s", Boolean(eligibility.resumeText));
+      logger.info("[Ranking] Resume text length: %s", eligibility.resumeText.length);
+      logger.info("[Ranking] Candidate status: %s", candidate.status);
+      logger.info("[Ranking] Candidate jobId: %s", candidate.job?.toString());
+      logger.info("[Ranking] Candidate eligible: %s", eligibility.eligible);
+
+      if (!eligibility.eligible) {
+        logger.info("[Ranking] Exclusion reason: %s", eligibility.exclusionReason);
+        continue;
+      }
+
+      eligibleCandidates.push(candidate);
+    }
+
     const rankedCandidates = [];
     const failures = [];
 
-    for (const candidate of candidates) {
+    for (const candidate of eligibleCandidates) {
       try {
+        logger.info("[Backend] Calling AI service", {
+          candidateId: candidate._id.toString(),
+          jobId
+        });
         rankedCandidates.push(await rankSingleCandidate(candidate._id));
+        logger.info("[Backend] AI response received", {
+          candidateId: candidate._id.toString()
+        });
       } catch (error) {
         failures.push({ candidateId: candidate._id.toString(), message: error.message });
         await Candidate.findByIdAndUpdate(candidate._id, {
@@ -288,6 +589,14 @@ const rankAllCandidates = async (req, res) => {
         });
       }
     }
+
+    logger.info("[Backend] Rankings saved successfully", {
+      jobId,
+      rankedCount: rankedCandidates.length,
+      failedCount: failures.length,
+      eligibleCount: eligibleCandidates.length,
+      fetchedCount: candidates.length
+    });
 
     res.json({
       message: "Candidate ranking completed",
@@ -310,7 +619,9 @@ const getCandidates = async (req, res) => {
       filter.job = req.query.jobId;
     }
 
-    if (req.query.status) {
+    if (req.query.status === "shortlisted") {
+      filter.isShortlisted = true;
+    } else if (req.query.status) {
       filter.status = req.query.status;
     }
 
@@ -324,9 +635,47 @@ const getCandidates = async (req, res) => {
       candidates = candidates.sort(sort);
     }
 
+    logger.info("[Candidate List] candidates fetched", {
+      jobId: req.query.jobId || null,
+      status: req.query.status || null,
+      count: candidates.length
+    });
+
     res.json({ candidates });
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch candidates", error: error.message });
+  }
+};
+
+const getShortlistedCandidates = async (req, res) => {
+  try {
+    const filter = {
+      isShortlisted: true
+    };
+
+    if (req.query.jobId) {
+      filter.job = req.query.jobId;
+    }
+
+    const candidates = await populateCandidateQuery(
+      Candidate.find(filter).sort({ shortlistedAt: -1, updatedAt: -1 })
+    );
+
+    logger.info("[Shortlist] candidates fetched", {
+      jobId: req.query.jobId || null,
+      count: candidates.length,
+      candidateIds: candidates.map((candidate) => candidate._id.toString())
+    });
+
+    res.json({
+      candidates,
+      count: candidates.length
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to fetch shortlisted candidates",
+      error: error.message
+    });
   }
 };
 
@@ -338,21 +687,123 @@ const shortlistCandidate = async (req, res) => {
       return res.status(404).json({ message: "Candidate not found" });
     }
 
-    candidate.status = req.body.status === "rejected" ? "rejected" : "shortlisted";
+    if (req.body.status === "rejected") {
+      candidate.status = "rejected";
+      candidate.isShortlisted = false;
+      candidate.shortlistedAt = null;
+      candidate.shortlistedBy = null;
+    } else {
+      candidate.status = "shortlisted";
+      candidate.isShortlisted = true;
+      candidate.shortlistedAt = candidate.shortlistedAt || new Date();
+      candidate.shortlistedBy = candidate.shortlistedBy || req.user._id;
+    }
+
     await candidate.save();
 
     const hydrated = await populateCandidateQuery(Candidate.findById(candidate._id));
+
+    logger.info("[Shortlist] candidate status updated", {
+      candidateId: candidate._id.toString(),
+      status: candidate.status,
+      isShortlisted: candidate.isShortlisted,
+      shortlistedBy: candidate.shortlistedBy?.toString() || null
+    });
+
     res.json({ message: "Candidate status updated", candidate: hydrated });
   } catch (error) {
     res.status(500).json({ message: "Failed to update candidate", error: error.message });
   }
 };
 
+const deleteCandidate = async (req, res) => {
+  try {
+    const candidate = await Candidate.findById(req.params.id);
+
+    if (!candidate) {
+      return res.status(404).json({ message: "Candidate not found" });
+    }
+
+    const cleanup = await cleanupCandidateArtifacts([candidate._id]);
+    await Candidate.deleteOne({ _id: candidate._id });
+
+    logger.info("[Cleanup] Old candidate record deleted", {
+      candidateId: candidate._id.toString(),
+      email: candidate.email,
+      cleanup
+    });
+
+    res.json({
+      message: "Candidate and related resume/ranking/interview data deleted",
+      deletedCount: 1,
+      cleanup
+    });
+  } catch (error) {
+    logger.error("[Cleanup] Candidate delete failed", {
+      candidateId: req.params.id,
+      error: error.message
+    });
+    res.status(500).json({ message: "Failed to delete candidate", error: error.message });
+  }
+};
+
+const resetCandidates = async (req, res) => {
+  try {
+    const filter = {};
+    if (req.query.jobId || req.body?.jobId) {
+      filter.job = req.query.jobId || req.body.jobId;
+    }
+
+    const candidates = await Candidate.find(filter).select("_id email job");
+    const candidateIds = candidates.map((candidate) => candidate._id);
+
+    if (candidateIds.length === 0) {
+      return res.json({
+        message: "No candidates matched the cleanup filter",
+        deletedCount: 0,
+        cleanup: {
+          filesRemoved: 0,
+          resumesDeleted: 0,
+          evaluationsDeleted: 0,
+          interviewRequestsDeleted: 0,
+          interviewsDeleted: 0,
+          feedbackDeleted: 0
+        }
+      });
+    }
+
+    const cleanup = await cleanupCandidateArtifacts(candidateIds);
+    const candidateResult = await Candidate.deleteMany({ _id: { $in: candidateIds } });
+
+    logger.info("[Cleanup] Old candidate records deleted", {
+      deletedCount: candidateResult.deletedCount,
+      jobId: filter.job || null,
+      cleanup
+    });
+
+    res.json({
+      message: "Candidate test data reset completed",
+      deletedCount: candidateResult.deletedCount,
+      cleanup
+    });
+  } catch (error) {
+    logger.error("[Cleanup] Candidate reset failed", {
+      jobId: req.query.jobId || req.body?.jobId || null,
+      error: error.message
+    });
+    res.status(500).json({ message: "Failed to reset candidate data", error: error.message });
+  }
+};
+
 module.exports = {
   createCandidate,
+  deleteCandidate,
   uploadResume,
   rankCandidate,
   rankAllCandidates,
+  resetCandidates,
   getCandidates,
-  shortlistCandidate
+  getShortlistedCandidates,
+  shortlistCandidate,
+  importExternalCandidateSubmission
 };

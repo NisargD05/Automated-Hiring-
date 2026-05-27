@@ -1,14 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+dotenv.config();
 const authRoutes = require("./routes/authRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 const knowledgeBaseRoutes = require("./routes/knowledgeBaseRoutes");
 const interviewerRoutes = require("./routes/interviewerRoutes");
+const interviewRequestRoutes = require("./routes/interviewRequestRoutes");
+const interviewRoutes = require("./routes/interviewRoutes");
 const candidateRoutes = require("./routes/candidateRoutes");
+const shortlistedCandidateRoutes = require("./routes/shortlistedCandidateRoutes");
+const externalApplicationRoutes = require("./routes/externalApplicationRoutes");
+const webhookRoutes = require("./routes/webhookRoutes");
 const logger = require("./utils/logger");
-
-dotenv.config();
 
 const app = express();
 
@@ -60,7 +66,12 @@ app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/knowledge-base", knowledgeBaseRoutes);
 app.use("/api/interviewer", interviewerRoutes);
+app.use("/api/interview-requests", interviewRequestRoutes);
+app.use("/api/interviews", interviewRoutes);
 app.use("/api/candidates", candidateRoutes);
+app.use("/api/shortlisted-candidates", shortlistedCandidateRoutes);
+app.use("/api/external-applications", externalApplicationRoutes);
+app.use("/api/webhooks", webhookRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

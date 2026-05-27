@@ -25,11 +25,11 @@ def build_candidate_context(payload):
     jd_text = (payload.job.fullJDText or "").strip()
     required_skills = (payload.job.requiredSkills or "").strip()
 
-    logger.info("[Context Builder] Resume text length: %s", len(resume_text))
+    logger.info("[Ranking] Resume text extracted length=%s", len(resume_text))
     logger.info("[Context Builder] Resume Skills: %s", resume_sections.get("skills", [])[:12])
     logger.info("[Context Builder] JD Role: %s", payload.job.roleName)
     logger.info("[Context Builder] JD Skills: %s", required_skills)
-    logger.info("[Context Builder] KB Chunks Count: %s", len(kb_chunks))
+    logger.info("[Ranking] KB chunks retrieved count=%s", len(kb_chunks))
 
     if not resume_text:
         raise ValueError("Candidate resume text is empty; cannot rank without resume evidence")

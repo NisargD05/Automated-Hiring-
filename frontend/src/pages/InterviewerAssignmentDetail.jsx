@@ -207,7 +207,7 @@ function InterviewerAssignmentDetail() {
               </label>
 
               <button type="button" onClick={scheduleInterview} disabled={saving}>
-                {saving ? "Scheduling..." : "Confirm time and create Meet link"}
+                {saving ? "Scheduling..." : "Confirm time and create meeting link"}
               </button>
             </>
           )}

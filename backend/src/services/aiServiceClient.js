@@ -3,11 +3,18 @@ const fs = require("fs");
 const FormData = require("form-data");
 const logger = require("../utils/logger");
 
-const getAiServiceUrl = () => process.env.AI_SERVICE_URL || "http://localhost:8001";
+const getAiServiceUrl = () => process.env.AI_SERVICE_URL || "http://localhost:8000";
 
 const extractAiError = (error, fallbackMessage) => {
   const responseData = error.response?.data;
+  const endpoint = error.config?.url || "";
+  const routeMissing =
+    error.response?.status === 404 &&
+    (endpoint.includes("/candidates/parse-resume") || endpoint.includes("/ranking/candidate"));
   const message =
+    (routeMissing
+      ? `AI service route not found at ${endpoint}. Rebuild/restart the AI service so candidate resume parsing and ranking routes are available.`
+      : "") ||
     responseData?.message ||
     responseData?.detail?.message ||
     responseData?.detail ||
@@ -73,12 +80,26 @@ const parseCandidateResume = async ({ filePath, originalFileName }) => {
   });
 
   try {
+    logger.info("[Resume Indexing] AI parse request started", {
+      endpoint,
+      originalFileName,
+      filePath
+    });
+
     const { data } = await axios.post(endpoint, form, {
       headers: form.getHeaders(),
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
       timeout: 120000
     });
+
+    logger.info("[Resume Indexing] AI parse request completed", {
+      endpoint,
+      originalFileName,
+      resumeTextLength: (data.resumeText || "").length,
+      skillsCount: data.parsedSections?.skills?.length || 0
+    });
+
     return data;
   } catch (error) {
     const wrappedError = extractAiError(error, "AI service resume parsing request failed");
@@ -96,6 +117,13 @@ const rankCandidate = async ({ candidate, resume, job }) => {
   const endpoint = `${getAiServiceUrl()}/ranking/candidate`;
 
   try {
+    logger.info("[Candidate Ranking] AI ranking request started", {
+      endpoint,
+      candidateId: candidate?._id,
+      jobId: job?._id,
+      resumeTextLength: (resume?.resumeText || "").length
+    });
+
     const { data } = await axios.post(
       endpoint,
       {
@@ -107,6 +135,15 @@ const rankCandidate = async ({ candidate, resume, job }) => {
         timeout: 120000
       }
     );
+
+    logger.info("[Candidate Ranking] AI ranking request completed", {
+      endpoint,
+      candidateId: candidate?._id,
+      jobId: job?._id,
+      score: data.score,
+      recommendation: data.recommendation
+    });
+
     return data;
   } catch (error) {
     const wrappedError = extractAiError(error, "AI service candidate ranking request failed");

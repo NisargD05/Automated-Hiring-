@@ -1,0 +1,165 @@
+INFO:     Started server process [40484]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+2026-05-26 04:42:37,148 INFO app.rag.retriever [Retriever] Query built: Forward Deployed Software Engineer Junior 3
+2026-05-26 04:42:37,149 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 04:42:37,150 INFO app.rag.embedding_service Generating deterministic local embeddings for 1 chunks
+2026-05-26 04:42:37,151 WARNING app.db.vector_store ChromaDB search failed, using fallback vector store: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 04:42:37,157 INFO app.rag.retriever [Retriever] Retrieved chunks: 5
+2026-05-26 04:42:37,158 INFO app.rag.retriever [Retriever] Chunk 1 preview: Product Engineer - Internal Hiring Knowledge Base This document contains internal hiring intelligence, engineering expectations, company culture alignment, product development standards, and interview evaluation guidelin
+2026-05-26 04:42:37,158 INFO app.rag.retriever [Retriever] Chunk 2 preview: Forward Deployed Software Engineer - Company Hiring Knowledge Base This internal hiring knowledge base document contains organizational hiring preferences, technical expectations, interview standards, cultural traits, an
+2026-05-26 04:42:37,158 INFO app.rag.retriever [Retriever] Chunk 3 preview: edge Medium-High DevOps / Deployment Medium Competitive Programming Low
+2026-05-26 04:42:37,159 INFO app.rag.context_builder [Context Builder] Resume text length: 6131
+2026-05-26 04:42:37,160 INFO app.rag.context_builder [Context Builder] Resume Skills: ['Languages:C++', 'Python', 'Java', 'SQL', 'DeveloperTools:VSCode', 'GoogleColab', 'Libraries&Frameworks:scikit-learn', 'NumPy', 'pandas', 'ReactJS', 'Databases:MySQL', 'PostgreSQL']
+2026-05-26 04:42:37,161 INFO app.rag.context_builder [Context Builder] JD Role: Forward Deployed Software Engineer
+2026-05-26 04:42:37,161 INFO app.rag.context_builder [Context Builder] JD Skills: 
+2026-05-26 04:42:37,162 INFO app.rag.context_builder [Context Builder] KB Chunks Count: 5
+2026-05-26 04:42:37,162 INFO app.services.candidate_ranker [Candidate Ranker] Ranking candidate=Vtom narsansa job=Forward Deployed Software Engineer promptLength=6518
+2026-05-26 04:42:37,163 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.0-flash promptLength=6518
+2026-05-26 04:42:37,354 WARNING app.llm.gemini_client [Gemini Ranking] Gemini request failed for gemini-2.0-flash with status 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-fla
+2026-05-26 04:42:37,355 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.5-flash promptLength=6518
+2026-05-26 04:42:54,225 INFO app.llm.gemini_client [Gemini Ranking] Response received model=gemini-2.5-flash length=1261
+2026-05-26 04:42:54,226 INFO app.services.candidate_ranker [Gemini Ranking] Parsed JSON successfully score=44
+2026-05-26 04:42:54,281 INFO app.rag.retriever [Retriever] Query built: Forward Deployed Software Engineer Junior 3
+2026-05-26 04:42:54,282 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 04:42:54,283 INFO app.rag.embedding_service Generating deterministic local embeddings for 1 chunks
+2026-05-26 04:42:54,284 WARNING app.db.vector_store ChromaDB search failed, using fallback vector store: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 04:42:54,290 INFO app.rag.retriever [Retriever] Retrieved chunks: 5
+2026-05-26 04:42:54,290 INFO app.rag.retriever [Retriever] Chunk 1 preview: Product Engineer - Internal Hiring Knowledge Base This document contains internal hiring intelligence, engineering expectations, company culture alignment, product development standards, and interview evaluation guidelin
+2026-05-26 04:42:54,291 INFO app.rag.retriever [Retriever] Chunk 2 preview: Forward Deployed Software Engineer - Company Hiring Knowledge Base This internal hiring knowledge base document contains organizational hiring preferences, technical expectations, interview standards, cultural traits, an
+2026-05-26 04:42:54,291 INFO app.rag.retriever [Retriever] Chunk 3 preview: edge Medium-High DevOps / Deployment Medium Competitive Programming Low
+2026-05-26 04:42:54,292 INFO app.rag.context_builder [Context Builder] Resume text length: 3509
+2026-05-26 04:42:54,292 INFO app.rag.context_builder [Context Builder] Resume Skills: ['Languages:C', 'C++', 'Assembly', 'Python', 'Java', 'SQL', 'MATLAB', 'DeveloperTools:Git', 'Docker', 'ShellScripting', 'OpenMP', 'MPI']
+2026-05-26 04:42:54,292 INFO app.rag.context_builder [Context Builder] JD Role: Forward Deployed Software Engineer
+2026-05-26 04:42:54,293 INFO app.rag.context_builder [Context Builder] JD Skills: 
+2026-05-26 04:42:54,293 INFO app.rag.context_builder [Context Builder] KB Chunks Count: 5
+2026-05-26 04:42:54,294 INFO app.services.candidate_ranker [Candidate Ranker] Ranking candidate=dickpan job=Forward Deployed Software Engineer promptLength=6589
+2026-05-26 04:42:54,294 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.0-flash promptLength=6589
+2026-05-26 04:42:54,504 WARNING app.llm.gemini_client [Gemini Ranking] Gemini request failed for gemini-2.0-flash with status 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-fla
+2026-05-26 04:42:54,505 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.5-flash promptLength=6589
+2026-05-26 04:43:09,453 INFO app.llm.gemini_client [Gemini Ranking] Response received model=gemini-2.5-flash length=1220
+2026-05-26 04:43:09,454 INFO app.services.candidate_ranker [Gemini Ranking] Parsed JSON successfully score=52
+2026-05-26 04:43:09,497 INFO app.rag.retriever [Retriever] Query built: Forward Deployed Software Engineer Junior 3
+2026-05-26 04:43:09,499 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 04:43:09,499 INFO app.rag.embedding_service Generating deterministic local embeddings for 1 chunks
+2026-05-26 04:43:09,500 WARNING app.db.vector_store ChromaDB search failed, using fallback vector store: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 04:43:09,506 INFO app.rag.retriever [Retriever] Retrieved chunks: 5
+2026-05-26 04:43:09,506 INFO app.rag.retriever [Retriever] Chunk 1 preview: Product Engineer - Internal Hiring Knowledge Base This document contains internal hiring intelligence, engineering expectations, company culture alignment, product development standards, and interview evaluation guidelin
+2026-05-26 04:43:09,507 INFO app.rag.retriever [Retriever] Chunk 2 preview: Forward Deployed Software Engineer - Company Hiring Knowledge Base This internal hiring knowledge base document contains organizational hiring preferences, technical expectations, interview standards, cultural traits, an
+2026-05-26 04:43:09,507 INFO app.rag.retriever [Retriever] Chunk 3 preview: edge Medium-High DevOps / Deployment Medium Competitive Programming Low
+2026-05-26 04:43:09,508 INFO app.rag.context_builder [Context Builder] Resume text length: 3577
+2026-05-26 04:43:09,508 INFO app.rag.context_builder [Context Builder] Resume Skills: ['Languages:C', 'C++', 'Python', 'Java(basic)', 'SQL', 'DeveloperTools:Git', 'GitHub', 'VSCode', 'PgAdmin', 'Postman', 'Figma', 'VertexAIAgent']
+2026-05-26 04:43:09,508 INFO app.rag.context_builder [Context Builder] JD Role: Forward Deployed Software Engineer
+2026-05-26 04:43:09,509 INFO app.rag.context_builder [Context Builder] JD Skills: 
+2026-05-26 04:43:09,509 INFO app.rag.context_builder [Context Builder] KB Chunks Count: 5
+2026-05-26 04:43:09,509 INFO app.services.candidate_ranker [Candidate Ranker] Ranking candidate=dushyant job=Forward Deployed Software Engineer promptLength=6662
+2026-05-26 04:43:09,510 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.0-flash promptLength=6662
+2026-05-26 04:43:09,676 WARNING app.llm.gemini_client [Gemini Ranking] Gemini request failed for gemini-2.0-flash with status 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-fla
+2026-05-26 04:43:09,677 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.5-flash promptLength=6662
+2026-05-26 04:43:20,177 INFO app.llm.gemini_client [Gemini Ranking] Response received model=gemini-2.5-flash length=1407
+2026-05-26 04:43:20,179 INFO app.services.candidate_ranker [Gemini Ranking] Parsed JSON successfully score=35
+2026-05-26 04:47:48,482 INFO app.services.resume_parser [Resume Parser] PDF received: C:\Users\nisar\AppData\Local\Temp\tmpm9x6_61k.pdf
+2026-05-26 04:47:48,483 INFO app.document_processing.pdf_extractor Starting PDF extraction for C:\Users\nisar\AppData\Local\Temp\tmpm9x6_61k.pdf
+2026-05-26 04:47:48,631 INFO app.document_processing.pdf_extractor PDF extraction completed with pdfplumber
+2026-05-26 04:47:48,631 INFO app.services.resume_parser [Resume Parser] Extracted text length: 811
+2026-05-26 04:47:48,634 INFO app.services.resume_parser [Resume Parser] Parsed skills: ['(cid:127) Node.js', 'Python', 'MongoDB', 'Docker', 'REST APIs', 'AWS Basics', 'Distributed Systems']
+2026-05-26 04:47:48,634 INFO app.services.resume_parser [Resume Parser] Parsed projects: ['(cid:127) AI Support Assistant — Built AI assistant using FastAPI and MongoDB with semantic search', '(cid:127) Distributed Job Queue System — Built lightweight distributed task queue using Redis and Node.js', 'ACHIEVEMENTS', '(cid:127) Solved 400+ DSA problems', '(cid:127) Built multiple backend-focused full-stack projects']
+2026-05-26 04:47:48,636 INFO app.services.resume_parser [Resume Parser] Parsed experience count: 4
+2026-05-26 04:47:57,285 INFO app.rag.retriever [Retriever] Query built: Forward Deployed Software Engineer Junior 3
+2026-05-26 04:47:57,287 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 04:47:57,288 INFO app.rag.embedding_service Generating deterministic local embeddings for 1 chunks
+2026-05-26 04:47:57,289 WARNING app.db.vector_store ChromaDB search failed, using fallback vector store: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 04:47:57,298 INFO app.rag.retriever [Retriever] Retrieved chunks: 5
+2026-05-26 04:47:57,299 INFO app.rag.retriever [Retriever] Chunk 1 preview: Product Engineer - Internal Hiring Knowledge Base This document contains internal hiring intelligence, engineering expectations, company culture alignment, product development standards, and interview evaluation guidelin
+2026-05-26 04:47:57,299 INFO app.rag.retriever [Retriever] Chunk 2 preview: Forward Deployed Software Engineer - Company Hiring Knowledge Base This internal hiring knowledge base document contains organizational hiring preferences, technical expectations, interview standards, cultural traits, an
+2026-05-26 04:47:57,300 INFO app.rag.retriever [Retriever] Chunk 3 preview: edge Medium-High DevOps / Deployment Medium Competitive Programming Low
+2026-05-26 04:47:57,300 INFO app.rag.context_builder [Context Builder] Resume text length: 6131
+2026-05-26 04:47:57,301 INFO app.rag.context_builder [Context Builder] Resume Skills: ['Languages:C++', 'Python', 'Java', 'SQL', 'DeveloperTools:VSCode', 'GoogleColab', 'Libraries&Frameworks:scikit-learn', 'NumPy', 'pandas', 'ReactJS', 'Databases:MySQL', 'PostgreSQL']
+2026-05-26 04:47:57,302 INFO app.rag.context_builder [Context Builder] JD Role: Forward Deployed Software Engineer
+2026-05-26 04:47:57,302 INFO app.rag.context_builder [Context Builder] JD Skills: 
+2026-05-26 04:47:57,303 INFO app.rag.context_builder [Context Builder] KB Chunks Count: 5
+2026-05-26 04:47:57,303 INFO app.services.candidate_ranker [Candidate Ranker] Ranking candidate=Vtom narsansa job=Forward Deployed Software Engineer promptLength=6518
+2026-05-26 04:47:57,304 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.0-flash promptLength=6518
+2026-05-26 04:47:57,532 WARNING app.llm.gemini_client [Gemini Ranking] Gemini request failed for gemini-2.0-flash with status 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-fla
+2026-05-26 04:47:57,533 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.5-flash promptLength=6518
+2026-05-26 04:48:07,172 INFO app.llm.gemini_client [Gemini Ranking] Response received model=gemini-2.5-flash length=1270
+2026-05-26 04:48:07,173 INFO app.services.candidate_ranker [Gemini Ranking] Parsed JSON successfully score=38
+2026-05-26 04:48:07,226 INFO app.rag.retriever [Retriever] Query built: Forward Deployed Software Engineer Junior 3
+2026-05-26 04:48:07,227 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 04:48:07,228 INFO app.rag.embedding_service Generating deterministic local embeddings for 1 chunks
+2026-05-26 04:48:07,229 WARNING app.db.vector_store ChromaDB search failed, using fallback vector store: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 04:48:07,239 INFO app.rag.retriever [Retriever] Retrieved chunks: 5
+2026-05-26 04:48:07,240 INFO app.rag.retriever [Retriever] Chunk 1 preview: Product Engineer - Internal Hiring Knowledge Base This document contains internal hiring intelligence, engineering expectations, company culture alignment, product development standards, and interview evaluation guidelin
+2026-05-26 04:48:07,241 INFO app.rag.retriever [Retriever] Chunk 2 preview: Forward Deployed Software Engineer - Company Hiring Knowledge Base This internal hiring knowledge base document contains organizational hiring preferences, technical expectations, interview standards, cultural traits, an
+2026-05-26 04:48:07,241 INFO app.rag.retriever [Retriever] Chunk 3 preview: edge Medium-High DevOps / Deployment Medium Competitive Programming Low
+2026-05-26 04:48:07,242 INFO app.rag.context_builder [Context Builder] Resume text length: 3509
+2026-05-26 04:48:07,242 INFO app.rag.context_builder [Context Builder] Resume Skills: ['Languages:C', 'C++', 'Assembly', 'Python', 'Java', 'SQL', 'MATLAB', 'DeveloperTools:Git', 'Docker', 'ShellScripting', 'OpenMP', 'MPI']
+2026-05-26 04:48:07,243 INFO app.rag.context_builder [Context Builder] JD Role: Forward Deployed Software Engineer
+2026-05-26 04:48:07,244 INFO app.rag.context_builder [Context Builder] JD Skills: 
+2026-05-26 04:48:07,244 INFO app.rag.context_builder [Context Builder] KB Chunks Count: 5
+2026-05-26 04:48:07,245 INFO app.services.candidate_ranker [Candidate Ranker] Ranking candidate=dickpan job=Forward Deployed Software Engineer promptLength=6589
+2026-05-26 04:48:07,245 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.0-flash promptLength=6589
+2026-05-26 04:48:07,454 WARNING app.llm.gemini_client [Gemini Ranking] Gemini request failed for gemini-2.0-flash with status 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-fla
+2026-05-26 04:48:07,455 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.5-flash promptLength=6589
+2026-05-26 04:48:25,541 INFO app.llm.gemini_client [Gemini Ranking] Response received model=gemini-2.5-flash length=1432
+2026-05-26 04:48:25,543 INFO app.services.candidate_ranker [Gemini Ranking] Parsed JSON successfully score=50
+2026-05-26 04:48:25,597 INFO app.rag.retriever [Retriever] Query built: Forward Deployed Software Engineer Junior 3
+2026-05-26 04:48:25,599 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 04:48:25,600 INFO app.rag.embedding_service Generating deterministic local embeddings for 1 chunks
+2026-05-26 04:48:25,601 WARNING app.db.vector_store ChromaDB search failed, using fallback vector store: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 04:48:25,612 INFO app.rag.retriever [Retriever] Retrieved chunks: 5
+2026-05-26 04:48:25,612 INFO app.rag.retriever [Retriever] Chunk 1 preview: Product Engineer - Internal Hiring Knowledge Base This document contains internal hiring intelligence, engineering expectations, company culture alignment, product development standards, and interview evaluation guidelin
+2026-05-26 04:48:25,613 INFO app.rag.retriever [Retriever] Chunk 2 preview: Forward Deployed Software Engineer - Company Hiring Knowledge Base This internal hiring knowledge base document contains organizational hiring preferences, technical expectations, interview standards, cultural traits, an
+2026-05-26 04:48:25,614 INFO app.rag.retriever [Retriever] Chunk 3 preview: edge Medium-High DevOps / Deployment Medium Competitive Programming Low
+2026-05-26 04:48:25,614 INFO app.rag.context_builder [Context Builder] Resume text length: 3577
+2026-05-26 04:48:25,615 INFO app.rag.context_builder [Context Builder] Resume Skills: ['Languages:C', 'C++', 'Python', 'Java(basic)', 'SQL', 'DeveloperTools:Git', 'GitHub', 'VSCode', 'PgAdmin', 'Postman', 'Figma', 'VertexAIAgent']
+2026-05-26 04:48:25,615 INFO app.rag.context_builder [Context Builder] JD Role: Forward Deployed Software Engineer
+2026-05-26 04:48:25,616 INFO app.rag.context_builder [Context Builder] JD Skills: 
+2026-05-26 04:48:25,616 INFO app.rag.context_builder [Context Builder] KB Chunks Count: 5
+2026-05-26 04:48:25,617 INFO app.services.candidate_ranker [Candidate Ranker] Ranking candidate=dushyant job=Forward Deployed Software Engineer promptLength=6662
+2026-05-26 04:48:25,618 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.0-flash promptLength=6662
+2026-05-26 04:48:25,815 WARNING app.llm.gemini_client [Gemini Ranking] Gemini request failed for gemini-2.0-flash with status 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-fla
+2026-05-26 04:48:25,817 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.5-flash promptLength=6662
+2026-05-26 04:48:45,239 INFO app.llm.gemini_client [Gemini Ranking] Response received model=gemini-2.5-flash length=1193
+2026-05-26 04:48:45,240 INFO app.services.candidate_ranker [Gemini Ranking] Parsed JSON successfully score=46
+2026-05-26 04:48:45,289 INFO app.rag.retriever [Retriever] Query built: Forward Deployed Software Engineer Junior 3
+2026-05-26 04:48:45,290 WARNING app.rag.embedding_service Sentence-transformers embedding failed: No module named 'sentence_transformers'. Falling back to deterministic local embeddings.
+2026-05-26 04:48:45,290 INFO app.rag.embedding_service Generating deterministic local embeddings for 1 chunks
+2026-05-26 04:48:45,292 WARNING app.db.vector_store ChromaDB search failed, using fallback vector store: ChromaDB is not installed. Install Microsoft C++ Build Tools on Windows, or run Chroma in Docker/Linux, then reinstall chromadb.
+2026-05-26 04:48:45,298 INFO app.rag.retriever [Retriever] Retrieved chunks: 5
+2026-05-26 04:48:45,299 INFO app.rag.retriever [Retriever] Chunk 1 preview: Product Engineer - Internal Hiring Knowledge Base This document contains internal hiring intelligence, engineering expectations, company culture alignment, product development standards, and interview evaluation guidelin
+2026-05-26 04:48:45,300 INFO app.rag.retriever [Retriever] Chunk 2 preview: Forward Deployed Software Engineer - Company Hiring Knowledge Base This internal hiring knowledge base document contains organizational hiring preferences, technical expectations, interview standards, cultural traits, an
+2026-05-26 04:48:45,300 INFO app.rag.retriever [Retriever] Chunk 3 preview: edge Medium-High DevOps / Deployment Medium Competitive Programming Low
+2026-05-26 04:48:45,301 INFO app.rag.context_builder [Context Builder] Resume text length: 811
+2026-05-26 04:48:45,301 INFO app.rag.context_builder [Context Builder] Resume Skills: ['(cid:127) Node.js', 'Python', 'MongoDB', 'Docker', 'REST APIs', 'AWS Basics', 'Distributed Systems']
+2026-05-26 04:48:45,302 INFO app.rag.context_builder [Context Builder] JD Role: Forward Deployed Software Engineer
+2026-05-26 04:48:45,302 INFO app.rag.context_builder [Context Builder] JD Skills: 
+2026-05-26 04:48:45,303 INFO app.rag.context_builder [Context Builder] KB Chunks Count: 5
+2026-05-26 04:48:45,303 INFO app.services.candidate_ranker [Candidate Ranker] Ranking candidate=Shunya kumar job=Forward Deployed Software Engineer promptLength=5755
+2026-05-26 04:48:45,303 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.0-flash promptLength=5755
+2026-05-26 04:48:45,495 WARNING app.llm.gemini_client [Gemini Ranking] Gemini request failed for gemini-2.0-flash with status 429: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-fla
+2026-05-26 04:48:45,496 INFO app.llm.gemini_client [Gemini Ranking] Sending request model=gemini-2.5-flash promptLength=5755
+2026-05-26 04:48:58,618 INFO app.llm.gemini_client [Gemini Ranking] Response received model=gemini-2.5-flash length=1278
+2026-05-26 04:48:58,620 INFO app.services.candidate_ranker [Gemini Ranking] Parsed JSON successfully score=42

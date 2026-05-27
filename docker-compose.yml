@@ -28,6 +28,8 @@ services:
       dockerfile: Dockerfile
     container_name: ai-service
     restart: unless-stopped
+    env_file:
+      - ./ai-service/.env
     ports:
       - "8000:8000"
     depends_on:
@@ -40,8 +42,6 @@ services:
       - CHROMA_COLLECTION_NAME=knowledge_base_documents
       - APP_NAME=AI Hiring JD Service
       - AI_PROVIDER=gemini
-      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
-      - GEMINI_MODEL=gemini-2.0-flash
       - LLM_TEMPERATURE=0.4
       - LLM_TIMEOUT_SECONDS=45
       - EMBEDDING_PROVIDER=sentence-transformers
@@ -54,6 +54,8 @@ services:
       dockerfile: Dockerfile
     container_name: backend
     restart: unless-stopped
+    env_file:
+      - ./backend/.env
     ports:
       - "5000:5000"
     depends_on:
@@ -66,6 +68,8 @@ services:
       - JWT_EXPIRES_IN=7d
       - CLIENT_URL=http://localhost:3000,http://localhost:5173
       - AI_SERVICE_URL=http://ai-service:8000
+      - JITSI_BASE_URL=https://meet.jit.si
+      - MEETING_ROOM_PREFIX=aihiring
 
   # React Frontend
   frontend:

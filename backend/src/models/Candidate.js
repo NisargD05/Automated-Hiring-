@@ -99,6 +99,20 @@ const candidateSchema = new mongoose.Schema(
       enum: ["new", "shortlisted", "assigned", "interview_scheduled", "rejected", "review"],
       default: "new",
       index: true
+    },
+    isShortlisted: {
+      type: Boolean,
+      default: false,
+      index: true
+    },
+    shortlistedAt: {
+      type: Date,
+      default: null
+    },
+    shortlistedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null
     }
   },
   {
@@ -108,5 +122,6 @@ const candidateSchema = new mongoose.Schema(
 
 candidateSchema.index({ email: 1, job: 1 });
 candidateSchema.index({ job: 1, status: 1, rankingStatus: 1 });
+candidateSchema.index({ job: 1, isShortlisted: 1, shortlistedAt: -1 });
 
 module.exports = mongoose.model("Candidate", candidateSchema);
