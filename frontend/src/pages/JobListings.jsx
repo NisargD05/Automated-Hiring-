@@ -49,7 +49,7 @@ function JobListings() {
       <PageHeader
         eyebrow="Published roles"
         title="Job Listings"
-        description="Approved jobs created through the AI-assisted workflow. Search, inspect, and keep listings ready for downstream candidate workflows."
+        description="Approved roles ready for candidate intake and review."
       />
 
       <Card className="overflow-hidden">
@@ -73,7 +73,7 @@ function JobListings() {
           <div className="p-5"><Loader label="Loading approved jobs..." /></div>
         ) : jobs.length === 0 ? (
           <div className="p-5">
-            <EmptyState title="No approved jobs yet" description="Generate a JD, edit it with human review, and approve it to publish here." />
+            <EmptyState title="No approved jobs yet" description="Create and approve a job description before collecting applications for a role." />
           </div>
         ) : (
           <div className="overflow-x-auto">

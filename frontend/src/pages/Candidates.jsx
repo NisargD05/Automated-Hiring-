@@ -3,7 +3,6 @@ import api from "../api/axios";
 import CandidateDetails from "../components/CandidateDetails";
 import CandidateRankingCard from "../components/CandidateRankingCard";
 import InterviewRequestModal from "../components/InterviewRequestModal";
-import { useAuth } from "../context/AuthContext";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import EmptyState from "../components/ui/EmptyState";
@@ -19,7 +18,6 @@ const extractApiError = (error, fallback) => {
 };
 
 function Candidates() {
-  const { user } = useAuth();
   const [jobs, setJobs] = useState([]);
   const [selectedJobId, setSelectedJobId] = useState("");
   const [candidates, setCandidates] = useState([]);
@@ -45,6 +43,11 @@ function Candidates() {
     () => jobs.find((job) => job._id === selectedJobId),
     [jobs, selectedJobId]
   );
+
+  const pendingResumeCount = applicationSummary?.pendingCount ?? 0;
+  const pendingResumeText = pendingResumeCount > 0
+    ? `${pendingResumeCount} resume${pendingResumeCount === 1 ? "" : "s"} available to fetch`
+    : "No resumes uploaded yet";
 
   const fetchCandidates = async (jobId = selectedJobId) => {
     if (!jobId) {
@@ -239,19 +242,11 @@ function Candidates() {
     setError("");
     setSuccess("");
     try {
-      console.debug("[Frontend] Rank button clicked", { candidateId });
-      console.debug("[Frontend] Sending ranking request", { candidateId });
       const { data } = await api.post(`/candidates/${candidateId}/rank`);
-      console.debug("[Frontend] Ranking response received", {
-        candidateId,
-        score: data.candidate?.latestEvaluation?.score,
-        status: data.candidate?.rankingStatus
-      });
       setSuccess("Candidate ranking completed.");
       await refreshCandidateWorkspace(selectedJobId, candidateId);
     } catch (error) {
       const message = extractApiError(error, "Failed to rank candidate");
-      console.error("[Frontend] Ranking failed:", message);
       setError(message);
     } finally {
       setBusy(false);
@@ -263,14 +258,7 @@ function Candidates() {
     setError("");
     setSuccess("");
     try {
-      console.debug("[Frontend] Rank button clicked", { jobId: selectedJobId, candidateCount: candidates.length });
-      console.debug("[Frontend] Sending ranking request", { jobId: selectedJobId });
       const { data } = await api.post("/candidates/rank-all", { jobId: selectedJobId });
-      console.debug("[Frontend] Ranking response received", {
-        jobId: selectedJobId,
-        rankedCount: data.rankedCount,
-        failedCount: data.failedCount
-      });
       if (data.failedCount) {
         const failureText = (data.failures || []).map((failure) => failure.message).join(" | ");
         setError(`Ranking completed with ${data.failedCount} failure(s): ${failureText || "No failure detail returned"}`);
@@ -285,38 +273,7 @@ function Candidates() {
       await refreshCandidateWorkspace(selectedJobId);
     } catch (error) {
       const message = extractApiError(error, "Failed to rank candidates");
-      console.error("[Frontend] Ranking failed:", message);
       setError(message);
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const handleResetCandidates = async () => {
-    const confirmed = window.confirm(
-      selectedJobId
-        ? "Delete all candidates, resumes, rankings, and interview records for the selected job?"
-        : "Delete all candidates, resumes, rankings, and interview records?"
-    );
-
-    if (!confirmed) {
-      return;
-    }
-
-    setBusy(true);
-    setError("");
-    setSuccess("");
-    try {
-      const { data } = await api.delete("/candidates", {
-        data: selectedJobId ? { jobId: selectedJobId } : {}
-      });
-      setCandidates([]);
-      setShortlistedCandidates([]);
-      setSelectedCandidateId("");
-      setSuccess(`Cleanup complete: deleted ${data.deletedCount || 0} candidates and ${data.cleanup?.filesRemoved || 0} resume files.`);
-      await refreshCandidateWorkspace(selectedJobId);
-    } catch (error) {
-      setError(error.response?.data?.message || "Failed to reset candidate test data");
     } finally {
       setBusy(false);
     }
@@ -337,11 +294,6 @@ function Candidates() {
   };
 
   const openInterviewRequest = (candidate) => {
-    console.debug("[Shortlist] shortlisted candidate clicked", {
-      candidateId: candidate._id,
-      candidateName: candidate.name
-    });
-    console.debug("[Interview Request] candidate selected:", candidate._id);
     setSelectedCandidateId(candidate._id);
     setInterviewRequestCandidate(candidate);
   };
@@ -377,16 +329,12 @@ function Candidates() {
           <option value="assigned">Assigned</option>
           <option value="interview_scheduled">Interview scheduled</option>
           <option value="review">Review</option>
+          <option value="accepted">Accepted</option>
           <option value="rejected">Rejected</option>
         </select>
         <Button variant="ai" onClick={handleRankAll} disabled={busy || !selectedJobId || candidates.length === 0}>
           Rank Candidates
         </Button>
-        {user?.role === "admin" && (
-          <Button variant="danger" onClick={handleResetCandidates} disabled={busy || !selectedJobId || candidates.length === 0}>
-            Reset Candidates
-          </Button>
-        )}
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[420px_1fr]">
@@ -417,8 +365,9 @@ function Candidates() {
 
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
               <div className="rounded-xl border border-slate-200 p-3">
-                <p className="field-label">Pending submissions</p>
+                <p className="field-label">Fetch queue</p>
                 <p className="mt-1 text-2xl font-semibold text-slate-950">{applicationSummary?.pendingCount ?? 0}</p>
+                <p className="mt-1 text-xs text-slate-500">{pendingResumeText}</p>
               </div>
               <div className="rounded-xl border border-slate-200 p-3">
                 <p className="field-label">Last fetched</p>
@@ -448,8 +397,11 @@ function Candidates() {
               {applicationSummary?.latestWebhook || applicationSummary?.latestWebhookAny ? (
                 <div className="mt-3 space-y-2 text-xs text-slate-600">
                   <p>Latest received: {new Date((applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).createdAt).toLocaleString()}</p>
+                  <p>Webhook status: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).status || "Unknown"}</p>
+                  <p>Storage: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).status === "stored" ? "Stored successfully" : "Not stored"}</p>
                   <p>Job ID: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).rawJobId || "Not parsed"}</p>
                   <p>Role: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).role || "Not parsed"}</p>
+                  <p>Name: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).candidateName || "Not parsed"}</p>
                   <p>Email: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).email || "Not parsed"}</p>
                   <p>Resume detected: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).resumeDetected ? "Yes" : "No"}</p>
                   <p>Candidate imported: {(applicationSummary.latestWebhook || applicationSummary.latestWebhookAny).candidateImported ? "Yes" : "No"}</p>
@@ -478,6 +430,9 @@ function Candidates() {
               <Button variant="ai" onClick={handleFetchResumes} disabled={!selectedJobId || fetchingResumes}>
                 {fetchingResumes ? "Fetching resumes..." : "Fetch Resumes"}
               </Button>
+              <p className="text-xs leading-5 text-slate-500">
+                Webhooks store submissions as pending. Fetching downloads resumes, parses them, creates candidates, and runs AI ranking.
+              </p>
             </div>
           </div>
         </Card>
@@ -498,7 +453,7 @@ function Candidates() {
               <div className="mt-5"><Loader label="Loading shortlist..." /></div>
             ) : filteredShortlistedCandidates.length === 0 ? (
               <div className="mt-5">
-                <EmptyState title="No shortlisted candidates" description="Click Shortlist on ranked profiles and every selected candidate will remain visible here." />
+                <EmptyState title="No shortlisted candidates yet" description="Shortlist ranked applicants who should move into interview consideration for this role." />
               </div>
             ) : (
               <div className="mt-5 grid gap-4 lg:grid-cols-2">
@@ -534,7 +489,7 @@ function Candidates() {
               <div className="mt-5"><Loader label="Loading candidates..." /></div>
             ) : filteredCandidates.length === 0 ? (
               <div className="mt-5">
-                <EmptyState title="No candidates yet" description="Select an approved job and add the first resume to begin ranking." />
+                <EmptyState title="No applications received for this role yet" description="Share the generated application link on LinkedIn or fetch submitted resumes to start ranking candidates." />
               </div>
             ) : (
               <div className="mt-5 grid gap-4 lg:grid-cols-2">

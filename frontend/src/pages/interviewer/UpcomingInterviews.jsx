@@ -27,7 +27,10 @@ function UpcomingInterviews({ history = false }) {
 
   const visible = useMemo(() => {
     if (history) {
-      return interviews.filter((interview) => interview.feedbackId || ["selected", "rejected", "next_round"].includes(interview.status));
+      return interviews.filter((interview) => (
+        interview.feedbackId ||
+        ["feedback_submitted", "accepted", "rejected"].includes(interview.status)
+      ));
     }
 
     return interviews.filter((interview) => !interview.feedbackId && interview.status === "scheduled");
@@ -38,7 +41,7 @@ function UpcomingInterviews({ history = false }) {
       <PageHeader
         eyebrow="Interview calendar"
         title={history ? "Feedback History" : "Upcoming Interviews"}
-        description={history ? "Submitted recommendations and completed interview outcomes." : "Confirmed interviews with meeting links, candidate context, resumes, and feedback actions."}
+        description={history ? "Structured evaluations you have already submitted." : "Confirmed interviews with meeting links and candidate context."}
       />
 
       {error && <p className="alert-error">{error}</p>}
@@ -46,7 +49,10 @@ function UpcomingInterviews({ history = false }) {
       {loading ? (
         <Loader label="Loading interviews..." />
       ) : visible.length === 0 ? (
-        <EmptyState title={history ? "No feedback yet" : "No upcoming interviews"} description={history ? "Completed feedback will appear here." : "Scheduled interviews appear here after you accept a request."} />
+        <EmptyState
+          title={history ? "No submitted feedback yet" : "No upcoming interviews"}
+          description={history ? "After you submit an interview evaluation, it will be archived here for reference." : "When you confirm a pending request, the interview will move here with its meeting link and feedback action."}
+        />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
           {visible.map((interview) => (

@@ -60,13 +60,19 @@ const buildSelectedSlot = ({ date, startTime }) => {
   return toUtcDate(`${date}T${time}.000Z`);
 };
 
-const activeInterviewerStatuses = [
+const activeRequestStatuses = [
   "pending",
   "awaiting_interviewer_slot",
   "email_pending",
   "email_failed",
   "email_sent",
   "scheduled"
+];
+
+const visibleInterviewerRequestStatuses = [
+  "pending",
+  "awaiting_interviewer_slot",
+  "email_failed"
 ];
 
 const sendAndPersistInterviewEmails = async ({ interview, request, meetingLink }) => {
@@ -213,7 +219,7 @@ const createInterviewRequest = async (req, res) => {
 
     const existingActiveRequest = await InterviewRequest.findOne({
       candidateId: candidate._id,
-      status: { $in: activeInterviewerStatuses }
+      status: { $in: activeRequestStatuses }
     });
 
     if (existingActiveRequest) {
@@ -326,12 +332,12 @@ const getInterviewerRequests = async (req, res) => {
   try {
     logger.info("[Interview Request] fetching interviewer requests", {
       interviewerId: req.user._id.toString(),
-      statuses: activeInterviewerStatuses
+      statuses: visibleInterviewerRequestStatuses
     });
 
     const requests = await InterviewRequest.find({
       interviewerId: req.user._id,
-      status: { $in: activeInterviewerStatuses }
+      status: { $in: visibleInterviewerRequestStatuses }
     })
       .populate(requestPopulate)
       .sort({ createdAt: -1 });
@@ -366,6 +372,12 @@ const rejectInterviewRequest = async (req, res) => {
     request.status = "rejected";
     request.rejectionReason = req.body.reason?.trim() || "";
     await request.save();
+
+    await Candidate.findByIdAndUpdate(request.candidateId, {
+      status: "shortlisted",
+      isShortlisted: true,
+      shortlistedAt: new Date()
+    });
 
     res.json({ success: true, message: "Interview request rejected", interviewRequest: request });
   } catch (error) {

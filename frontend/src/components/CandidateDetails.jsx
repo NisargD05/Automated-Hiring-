@@ -5,6 +5,12 @@ function CandidateDetails({ candidate }) {
 
   const resume = candidate.resumeDocument;
   const sections = resume?.parsedSections || {};
+  const normalizeItems = (items = []) =>
+    items
+      .map((item) => (typeof item === "string" ? item : item?.name || item?.title || item?.description || ""))
+      .filter(Boolean);
+  const skills = normalizeItems(sections.skills);
+  const projects = normalizeItems(sections.projects);
 
   return (
     <div className="panel">
@@ -23,19 +29,19 @@ function CandidateDetails({ candidate }) {
         <section>
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Skills</p>
           <div className="chip-row">
-            {(sections.skills || []).slice(0, 10).map((skill) => (
+            {skills.slice(0, 10).map((skill) => (
               <span key={skill} className="chip">{skill}</span>
             ))}
-            {(!sections.skills || sections.skills.length === 0) && <span className="text-sm text-slate-500">No parsed skills yet.</span>}
+            {skills.length === 0 && <span className="text-sm text-slate-500">No parsed skills yet.</span>}
           </div>
         </section>
         <section>
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Projects</p>
           <div className="chip-row">
-            {(sections.projects || []).slice(0, 6).map((project) => (
+            {projects.slice(0, 6).map((project) => (
               <span key={project} className="chip">{project}</span>
             ))}
-            {(!sections.projects || sections.projects.length === 0) && <span className="text-sm text-slate-500">No parsed projects yet.</span>}
+            {projects.length === 0 && <span className="text-sm text-slate-500">No parsed projects yet.</span>}
           </div>
         </section>
       </div>

@@ -20,13 +20,6 @@ function InterviewRequestModal({ candidate, onClose, onInterviewRequested }) {
   useEffect(() => {
     setRequestForm(initialRequest);
     setRequestError("");
-    if (candidate?._id) {
-      console.debug("[Frontend] selected candidate updated", {
-        candidateId: candidate._id,
-        candidateName: candidate.name
-      });
-      console.debug("[Interview Request] opening modal for candidate:", candidate.name);
-    }
   }, [candidate?._id, candidate?.name]);
 
   if (!candidate) {
@@ -43,7 +36,6 @@ function InterviewRequestModal({ candidate, onClose, onInterviewRequested }) {
   const closeModal = () => {
     setRequestForm(initialRequest);
     setRequestError("");
-    console.debug("[Frontend] modal reset after close");
     onClose();
   };
 
@@ -53,7 +45,6 @@ function InterviewRequestModal({ candidate, onClose, onInterviewRequested }) {
     setRequestError("");
 
     try {
-      console.debug("[Interview Request] creating request for candidateId:", candidate._id);
       await api.post("/interview-requests", {
         candidateId: candidate._id,
         interviewerEmail: requestForm.interviewerEmail,

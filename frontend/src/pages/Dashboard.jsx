@@ -48,11 +48,6 @@ function Dashboard() {
       label: "Indexed documents",
       value: documents.filter((document) => document.status === "indexed").length,
       detail: "Ready for RAG"
-    },
-    {
-      label: "JD generations",
-      value: jobs.length,
-      detail: "Approved workflow output"
     }
   ];
 
@@ -61,7 +56,7 @@ function Dashboard() {
       <PageHeader
         eyebrow="Hiring operations"
         title={`Welcome, ${user?.name}`}
-        description="A command center for AI-assisted job creation, knowledge management, approvals, and listing readiness."
+        description="Create roles, prepare company knowledge, review candidates, and manage interviews."
         actions={
           <>
             <Link to="/dashboard/create-job">
@@ -74,7 +69,7 @@ function Dashboard() {
         }
       />
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-3">
         {stats.map((stat) => (
           <Card key={stat.label} className="surface-hover p-5">
             <p className="text-sm font-medium text-slate-500">{stat.label}</p>
@@ -94,7 +89,7 @@ function Dashboard() {
             <h2 className="font-semibold text-slate-950">Recent approved roles</h2>
           </div>
           {jobs.length === 0 ? (
-            <p className="p-5 text-sm text-slate-500">No approved roles yet. Generate and approve a JD to populate this panel.</p>
+            <p className="p-5 text-sm text-slate-500">No approved roles yet. Create and approve a JD before opening candidate intake.</p>
           ) : (
             <div className="divide-y divide-slate-100">
               {jobs.slice(0, 5).map((job) => (

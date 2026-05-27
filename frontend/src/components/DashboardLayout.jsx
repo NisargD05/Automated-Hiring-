@@ -8,7 +8,6 @@ const iconMap = {
   "Job Listings": "J",
   Candidates: "P",
   Interviews: "I",
-  Settings: "S",
   "Pending Requests": "P",
   "Upcoming Interviews": "U",
   "Feedback History": "F"
@@ -22,8 +21,7 @@ function DashboardLayout() {
       ? [
           { label: "Pending Requests", to: "/interviewer/pending" },
           { label: "Upcoming Interviews", to: "/interviewer/upcoming" },
-          { label: "Feedback History", to: "/interviewer/feedback-history" },
-          { label: "Settings", to: "/dashboard/settings" }
+          { label: "Feedback History", to: "/interviewer/feedback-history" }
         ]
       : [
           { label: "Dashboard", to: "/dashboard", end: true, roles: ["admin", "recruiter"] },
@@ -31,8 +29,7 @@ function DashboardLayout() {
           { label: "Create Job", to: "/dashboard/create-job", roles: ["admin", "recruiter"] },
           { label: "Job Listings", to: "/dashboard/job-listings", roles: ["admin", "recruiter"] },
           { label: "Candidates", to: "/dashboard/candidates", roles: ["admin", "recruiter"] },
-          { label: "Interviews", to: "/dashboard/interviews", roles: ["admin", "recruiter"] },
-          { label: "Settings", to: "/dashboard/settings", roles: ["admin", "recruiter"] }
+          { label: "Interviews", to: "/dashboard/interviews", roles: ["admin", "recruiter"] }
         ];
   const visibleNavItems = navItems.filter((item) => {
     if (!item.roles) {

@@ -28,7 +28,7 @@ function SubmitFeedback() {
     setBusy(true);
     setError("");
     try {
-      await api.put(`/interviews/${interviewId}/feedback`, payload);
+      await api.post(`/interviews/${interviewId}/feedback`, payload);
       navigate("/interviewer/feedback-history");
     } catch (error) {
       setError(error.response?.data?.message || "Unable to submit feedback");
@@ -45,7 +45,11 @@ function SubmitFeedback() {
         description="Ratings and recommendations are visible to the recruiter after submission."
       />
       {error && <p className="alert-error">{error}</p>}
-      <FeedbackForm busy={busy} onSubmit={submitFeedback} />
+      {interview?.feedbackId ? (
+        <p className="alert-success">Feedback has already been submitted for this interview.</p>
+      ) : (
+        <FeedbackForm busy={busy} onSubmit={submitFeedback} />
+      )}
     </div>
   );
 }

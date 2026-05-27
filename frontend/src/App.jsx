@@ -3,19 +3,16 @@ import Candidates from "./pages/Candidates";
 import CreateJob from "./pages/CreateJob";
 import Dashboard from "./pages/Dashboard";
 import Interviews from "./pages/Interviews";
-import InterviewerAssignmentDetail from "./pages/InterviewerAssignmentDetail";
-import InterviewerAssignments from "./pages/InterviewerAssignments";
-import InterviewerSchedule from "./pages/InterviewerSchedule";
 import InterviewDetails from "./pages/interviewer/InterviewDetails";
 import PendingRequests from "./pages/interviewer/PendingRequests";
 import SubmitFeedback from "./pages/interviewer/SubmitFeedback";
 import UpcomingInterviews from "./pages/interviewer/UpcomingInterviews";
+import InterviewReview from "./pages/recruiter/InterviewReview";
 import JobDetails from "./pages/JobDetails";
 import JobListings from "./pages/JobListings";
 import KnowledgeBase from "./pages/KnowledgeBase";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Settings from "./pages/Settings";
 import AppLayout from "./components/AppLayout";
 import DashboardLayout from "./components/DashboardLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -52,7 +49,14 @@ function App() {
             </RoleRoute>
           }
         />
-        <Route path="settings" element={<Settings />} />
+        <Route
+          path="interviews/:interviewId/review"
+          element={
+            <RoleRoute allowedRoles={["admin", "recruiter"]}>
+              <InterviewReview />
+            </RoleRoute>
+          }
+        />
         <Route
           path="knowledge-base"
           element={
@@ -87,18 +91,6 @@ function App() {
         />
       </Route>
 
-      <Route
-        path="/interviewer/assignments"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["interviewer"]}>
-              <AppLayout>
-                <InterviewerAssignments />
-              </AppLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
       <Route
         path="/interviewer/pending"
         element={
@@ -154,30 +146,6 @@ function App() {
             <RoleRoute allowedRoles={["interviewer"]}>
               <AppLayout>
                 <SubmitFeedback />
-              </AppLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/interviewer/assignments/:assignmentId"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["interviewer"]}>
-              <AppLayout>
-                <InterviewerAssignmentDetail />
-              </AppLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/interviewer/schedule"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["interviewer"]}>
-              <AppLayout>
-                <InterviewerSchedule />
               </AppLayout>
             </RoleRoute>
           </ProtectedRoute>

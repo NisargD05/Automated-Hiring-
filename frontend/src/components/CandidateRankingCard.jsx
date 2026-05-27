@@ -16,6 +16,13 @@ function CandidateRankingCard({ candidate, onRank, onShortlist, onRequestIntervi
   const strengths = evaluation?.strengths || [];
   const weaknesses = evaluation?.weaknesses || [];
   const hasEvaluation = Boolean(evaluation);
+  const isFinalized = ["accepted", "rejected"].includes(candidate.status) && !candidate.isShortlisted;
+  const statusTone =
+    candidate.status === "accepted" || candidate.status === "shortlisted"
+      ? "status-scheduled"
+      : candidate.status === "rejected"
+        ? "status-failed"
+        : "status-generated";
 
   return (
     <article className="candidate-card">
@@ -25,7 +32,7 @@ function CandidateRankingCard({ candidate, onRank, onShortlist, onRequestIntervi
           {candidate.isShortlisted && candidate.status !== "shortlisted" && (
             <span className="status-badge status-scheduled">shortlisted</span>
           )}
-          <span className={`status-badge ${candidate.status === "rejected" ? "status-failed" : candidate.status === "shortlisted" ? "status-scheduled" : "status-generated"}`}>
+          <span className={`status-badge ${statusTone}`}>
             {candidate.status}
           </span>
           <span className={`status-badge ${candidate.rankingStatus === "failed" ? "status-failed" : "status-generated"}`}>
@@ -106,7 +113,7 @@ function CandidateRankingCard({ candidate, onRank, onShortlist, onRequestIntervi
         <Button variant="ai" onClick={(event) => { event.stopPropagation(); onRank(candidate._id); }} disabled={busy || !candidate.resumeDocument} className="px-3 py-2 text-xs">
           Rank
         </Button>
-        <Button variant="success" onClick={(event) => { event.stopPropagation(); onShortlist(candidate._id, "shortlisted"); }} disabled={busy || candidate.isShortlisted} className="px-3 py-2 text-xs">
+        <Button variant="success" onClick={(event) => { event.stopPropagation(); onShortlist(candidate._id, "shortlisted"); }} disabled={busy || candidate.isShortlisted || isFinalized} className="px-3 py-2 text-xs">
           {candidate.isShortlisted ? "Shortlisted" : "Shortlist"}
         </Button>
         {candidate.isShortlisted && candidate.status === "shortlisted" && onRequestInterview && (
@@ -114,7 +121,7 @@ function CandidateRankingCard({ candidate, onRank, onShortlist, onRequestIntervi
             Request Interview
           </Button>
         )}
-        <Button variant="danger" onClick={(event) => { event.stopPropagation(); onShortlist(candidate._id, "rejected"); }} disabled={busy} className="px-3 py-2 text-xs">
+        <Button variant="danger" onClick={(event) => { event.stopPropagation(); onShortlist(candidate._id, "rejected"); }} disabled={busy || isFinalized} className="px-3 py-2 text-xs">
           Reject
         </Button>
       </div>

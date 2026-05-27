@@ -159,8 +159,55 @@ const rankCandidate = async ({ candidate, resume, job }) => {
   }
 };
 
+const generateInterviewQuestionPacket = async ({ candidate, resume, ranking, job, interview }) => {
+  const endpoint = `${getAiServiceUrl()}/interview-agent/generate`;
+
+  try {
+    logger.info("[InterviewQuestionAgent] AI request started", {
+      endpoint,
+      candidateId: candidate?._id,
+      jobId: job?._id,
+      interviewId: interview?._id || null
+    });
+
+    const { data } = await axios.post(
+      endpoint,
+      {
+        candidate,
+        resume,
+        ranking,
+        job,
+        interview
+      },
+      {
+        timeout: 120000
+      }
+    );
+
+    logger.info("[InterviewQuestionAgent] AI request completed", {
+      endpoint,
+      candidateId: candidate?._id,
+      focusAreaCount: data.packet?.focusAreas?.length || 0
+    });
+
+    return data;
+  } catch (error) {
+    const wrappedError = extractAiError(error, "AI service interview question generation request failed");
+    logger.error("[InterviewQuestionAgent] AI request failed", {
+      endpoint,
+      candidateId: candidate?._id,
+      jobId: job?._id,
+      status: error.response?.status,
+      message: wrappedError.message,
+      responseData: error.response?.data
+    });
+    throw wrappedError;
+  }
+};
+
 module.exports = {
   generateJobDescription,
+  generateInterviewQuestionPacket,
   parseCandidateResume,
   rankCandidate
 };

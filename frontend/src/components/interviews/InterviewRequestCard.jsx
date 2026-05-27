@@ -84,7 +84,7 @@ function InterviewRequestCard({ request, onSchedule, onReject, onResendEmail, re
           </>
         )}
         {request.interviewId && (
-          <Link to={`/interviewer/interviews/${request.interviewId._id || request.interviewId}`}>
+          <Link to={recruiterView ? `/dashboard/interviews/${request.interviewId._id || request.interviewId}/review` : `/interviewer/interviews/${request.interviewId._id || request.interviewId}`}>
             <Button variant="secondary">Open Interview</Button>
           </Link>
         )}

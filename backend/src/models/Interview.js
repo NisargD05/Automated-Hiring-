@@ -1,5 +1,53 @@
 const mongoose = require("mongoose");
 
+const technicalRatingsSchema = new mongoose.Schema(
+  {
+    problemSolving: { type: Number, min: 1, max: 10 },
+    backendFundamentals: { type: Number, min: 1, max: 10 },
+    systemDesign: { type: Number, min: 1, max: 10 },
+    databases: { type: Number, min: 1, max: 10 },
+    debugging: { type: Number, min: 1, max: 10 },
+    communication: { type: Number, min: 1, max: 10 },
+    productionReadiness: { type: Number, min: 1, max: 10 }
+  },
+  { _id: false }
+);
+
+const interviewerFeedbackSchema = new mongoose.Schema(
+  {
+    technicalRatings: {
+      type: technicalRatingsSchema,
+      default: null
+    },
+    strengths: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    concerns: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    observations: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    finalNotes: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+    recommendation: {
+      type: String,
+      enum: ["Strong Hire", "Hire", "Borderline", "Reject"],
+      default: undefined
+    }
+  },
+  { _id: false }
+);
+
 const interviewSchema = new mongoose.Schema(
   {
     requestId: {
@@ -92,13 +140,13 @@ const interviewSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["scheduled", "completed", "feedback_submitted", "selected", "rejected", "next_round", "cancelled"],
+      enum: ["scheduled", "completed", "feedback_submitted", "accepted", "selected", "rejected", "next_round", "cancelled"],
       default: "scheduled",
       index: true
     },
     interviewStatus: {
       type: String,
-      enum: ["scheduled", "completed", "feedback_submitted", "selected", "rejected", "next_round", "cancelled"],
+      enum: ["scheduled", "completed", "feedback_submitted", "accepted", "selected", "rejected", "next_round", "cancelled"],
       default: "scheduled"
     },
     emailStatus: {
@@ -124,6 +172,26 @@ const interviewSchema = new mongoose.Schema(
     feedbackId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "InterviewFeedback"
+    },
+    interviewerFeedback: {
+      type: interviewerFeedbackSchema,
+      default: null
+    },
+    interviewerRecommendation: {
+      type: String,
+      enum: ["Strong Hire", "Hire", "Borderline", "Reject"],
+      default: undefined,
+      index: true
+    },
+    recruiterDecision: {
+      type: String,
+      enum: ["pending", "accepted", "rejected"],
+      default: "pending",
+      index: true
+    },
+    decisionAt: {
+      type: Date,
+      default: null
     }
   },
   {

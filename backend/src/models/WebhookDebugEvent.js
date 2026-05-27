@@ -46,7 +46,7 @@ const webhookDebugEventSchema = new mongoose.Schema(
     },
     importStatus: {
       type: String,
-      enum: ["not_started", "pending", "downloading", "downloaded", "parsed", "ranked", "imported", "completed", "duplicate", "failed"],
+      enum: ["not_started", "pending", "pending_failed", "downloading", "downloaded", "parsed", "ranked", "imported", "completed", "duplicate", "failed"],
       default: "not_started",
       index: true
     },

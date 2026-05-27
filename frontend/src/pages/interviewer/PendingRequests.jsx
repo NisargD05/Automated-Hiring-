@@ -20,9 +20,6 @@ function PendingRequests() {
     try {
       const { data } = await api.get("/interview-requests/interviewer");
       setRequests(data.interviewRequests || []);
-      console.debug("[Frontend] request list refreshed", {
-        count: data.interviewRequests?.length || 0
-      });
     } catch (error) {
       setError(error.response?.data?.message || "Unable to load interview requests");
     } finally {
@@ -98,7 +95,7 @@ function PendingRequests() {
       <PageHeader
         eyebrow="Interviewer workflow"
         title="Pending Requests"
-        description="Review assigned candidates and choose the final interview slot. Candidate invites are sent only after you confirm."
+        description="Review assigned candidates and confirm the interview slot."
       />
 
       {error && <p className="alert-error">{error}</p>}
@@ -125,7 +122,7 @@ function PendingRequests() {
       {loading ? (
         <Loader label="Loading requests..." />
       ) : requests.length === 0 ? (
-        <EmptyState title="No assigned requests" description="New recruiter requests assigned to you will appear here." />
+        <EmptyState title="No pending interview requests" description="New recruiter-assigned interviews will appear here when your scheduling input is needed." />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
           {requests.map((request) => (

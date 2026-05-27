@@ -19,20 +19,6 @@ const populateCandidateQuery = (query) =>
     .populate("resumeDocument")
     .populate("latestEvaluation");
 
-const normalizeCandidateInput = (body) => ({
-  name: body.name?.trim(),
-  email: body.email?.trim().toLowerCase(),
-  phone: body.phone?.trim(),
-  job: body.jobId || body.job,
-  currentCompany: body.currentCompany?.trim() || "",
-  yearsOfExperience:
-    body.yearsOfExperience === "" || body.yearsOfExperience === undefined
-      ? null
-      : Number(body.yearsOfExperience),
-  source: body.source?.trim() || "Manual upload",
-  notes: body.notes?.trim() || ""
-});
-
 const ensureApprovedJob = async (jobId) => {
   const job = await Job.findById(jobId);
 
@@ -261,108 +247,6 @@ const processCandidateResume = async ({ candidate, file }) => {
   return resume;
 };
 
-const createCandidate = async (req, res) => {
-  try {
-    logger.info("[Candidate Create] request received", {
-      userId: req.user?._id?.toString(),
-      role: req.user?.role,
-      email: req.body.email,
-      jobId: req.body.jobId || req.body.job
-    });
-
-    const payload = normalizeCandidateInput(req.body);
-
-    if (!payload.name || !payload.email || !payload.phone || !payload.job) {
-      return res.status(400).json({
-        message: "Candidate name, email, phone number, and approved job are required"
-      });
-    }
-
-    await ensureApprovedJob(payload.job);
-
-    const duplicate = await Candidate.findOne({
-      email: payload.email,
-      job: payload.job
-    });
-
-    if (duplicate) {
-      return res.status(409).json({
-        message: "A candidate with this email already exists for the selected job"
-      });
-    }
-
-    const candidate = await Candidate.create({
-      ...payload,
-      createdBy: req.user._id
-    });
-
-    logger.info("[Candidate Create] candidate saved", {
-      candidateId: candidate._id.toString(),
-      jobId: String(candidate.job),
-      email: candidate.email
-    });
-
-    const hydrated = await populateCandidateQuery(Candidate.findById(candidate._id));
-    res.status(201).json({ message: "Candidate created", candidate: hydrated });
-  } catch (error) {
-    logger.error("Failed to create candidate", {
-      userId: req.user?._id?.toString(),
-      error: error.message
-    });
-    res.status(error.status || 500).json({ message: error.message || "Failed to create candidate" });
-  }
-};
-
-const uploadResume = async (req, res) => {
-  try {
-    logger.info("[Resume Upload] request received", {
-      candidateId: req.params.id,
-      userId: req.user?._id?.toString(),
-      hasFile: Boolean(req.file),
-      fileName: req.file?.originalname
-    });
-
-    const candidate = await Candidate.findById(req.params.id);
-
-    if (!candidate) {
-      return res.status(404).json({ message: "Candidate not found" });
-    }
-
-    if (!req.file) {
-      return res.status(400).json({ message: "Resume PDF is required" });
-    }
-
-    logger.info("[Resume Upload] file saved", {
-      candidateId: candidate._id.toString(),
-      originalFileName: req.file.originalname,
-      storedFileName: req.file.filename,
-      filePath: req.file.path,
-      size: req.file.size
-    });
-
-    await processCandidateResume({ candidate, file: req.file });
-
-    const hydrated = await populateCandidateQuery(Candidate.findById(candidate._id));
-    res.json({ message: "Resume uploaded and parsed", candidate: hydrated });
-  } catch (error) {
-    await Candidate.findByIdAndUpdate(req.params.id, {
-      rankingStatus: "failed",
-      rankingError: error.message
-    });
-
-    logger.error("Failed to upload candidate resume", {
-      candidateId: req.params.id,
-      error: error.message,
-      details: error.details
-    });
-    res.status(error.status || 500).json({
-      message: error.message || "Failed to upload and parse resume",
-      error: error.message,
-      details: error.details || null
-    });
-  }
-};
-
 const saveEvaluation = async ({ candidate, job, ranking }) => {
   logger.info("[MongoDB] Saving ranking", {
     candidateId: candidate._id.toString(),
@@ -505,12 +389,32 @@ const importExternalCandidateSubmission = async ({ submission, file }) => {
     submissionId: submission._id.toString()
   });
 
-  const rankedCandidate = await rankSingleCandidate(candidate._id);
+  try {
+    const rankedCandidate = await rankSingleCandidate(candidate._id);
 
-  return {
-    status: "imported",
-    candidate: rankedCandidate
-  };
+    return {
+      status: "imported",
+      candidate: rankedCandidate
+    };
+  } catch (error) {
+    await Candidate.findByIdAndUpdate(candidate._id, {
+      rankingStatus: "failed",
+      rankingError: error.message,
+      latestEvaluation: null
+    });
+
+    logger.error("[Gemini Ranking] Failed after external resume import", {
+      candidateId: candidate._id.toString(),
+      submissionId: submission._id.toString(),
+      error: error.message
+    });
+
+    return {
+      status: "imported",
+      rankingError: error.message,
+      candidate: await populateCandidateQuery(Candidate.findById(candidate._id))
+    };
+  }
 };
 
 const rankCandidate = async (req, res) => {
@@ -687,6 +591,17 @@ const shortlistCandidate = async (req, res) => {
       return res.status(404).json({ message: "Candidate not found" });
     }
 
+    const finalizedInterview = await Interview.findOne({
+      candidateId: candidate._id,
+      recruiterDecision: { $in: ["accepted", "rejected"] }
+    }).select("_id recruiterDecision");
+
+    if (finalizedInterview) {
+      return res.status(409).json({
+        message: "Candidate has a finalized hiring decision and cannot be changed from the shortlist view"
+      });
+    }
+
     if (req.body.status === "rejected") {
       candidate.status = "rejected";
       candidate.isShortlisted = false;
@@ -782,7 +697,7 @@ const resetCandidates = async (req, res) => {
     });
 
     res.json({
-      message: "Candidate test data reset completed",
+      message: "Candidate cleanup completed",
       deletedCount: candidateResult.deletedCount,
       cleanup
     });
@@ -796,9 +711,7 @@ const resetCandidates = async (req, res) => {
 };
 
 module.exports = {
-  createCandidate,
   deleteCandidate,
-  uploadResume,
   rankCandidate,
   rankAllCandidates,
   resetCandidates,

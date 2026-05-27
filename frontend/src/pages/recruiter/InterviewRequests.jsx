@@ -3,7 +3,6 @@ import api from "../../api/axios";
 import InterviewRequestCard from "../../components/interviews/InterviewRequestCard";
 import EmptyState from "../../components/ui/EmptyState";
 import Loader from "../../components/ui/Loader";
-import PageHeader from "../../components/ui/PageHeader";
 
 function InterviewRequests() {
   const [requests, setRequests] = useState([]);
@@ -27,16 +26,11 @@ function InterviewRequests() {
 
   return (
     <div className="space-y-4">
-      <PageHeader
-        eyebrow="Recruiter orchestration"
-        title="Interview Requests"
-        description="Track interviewer assignments before slots are confirmed. Final invites are only sent after interviewer scheduling."
-      />
       {error && <p className="alert-error">{error}</p>}
       {loading ? (
         <Loader label="Loading requests..." />
       ) : requests.length === 0 ? (
-        <EmptyState title="No interview requests" description="Shortlist a candidate and request an interview to start the workflow." />
+        <EmptyState title="No interview requests pending" description="Shortlist a candidate and request an interview when you are ready for interviewer scheduling." />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
           {requests.map((request) => (

@@ -204,7 +204,87 @@ const sendInterviewScheduledEmails = async ({
   return results;
 };
 
+const assertDecisionEmailConfig = (candidate) => {
+  const transporter = createTransporter();
+
+  if (!transporter) {
+    const message = "SMTP_HOST is not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, and SMTP_FROM in backend/.env, then restart the backend.";
+    logger.error("[Email Service] %s", message, {
+      candidateEmail: candidate?.email
+    });
+    throw new EmailDeliveryError(message, {
+      candidate: { status: "skipped", email: candidate?.email || null }
+    });
+  }
+
+  const from = process.env.SMTP_FROM || process.env.SMTP_USER;
+  if (!from || !candidate?.email) {
+    throw new EmailDeliveryError("Email sender and candidate recipient are required", {
+      fromConfigured: Boolean(from),
+      candidateEmail: candidate?.email || null
+    });
+  }
+
+  return { transporter, from };
+};
+
+const sendAcceptanceEmail = async ({ candidate, job, recruiter, companyName }) => {
+  const { transporter, from } = assertDecisionEmailConfig(candidate);
+  await transporter.verify();
+
+  const role = job?.roleName || "the role";
+  const senderName = recruiter?.name || "Recruiting Team";
+  const company = companyName || "our team";
+
+  return transporter.sendMail({
+    from,
+    to: candidate.email,
+    subject: "Congratulations — Interview Outcome",
+    text: [
+      `Hi ${candidate.name},`,
+      "",
+      `Congratulations. We are pleased to let you know that you have been selected for ${role}.`,
+      "",
+      `Thank you for the time and care you put into the interview process. ${company} enjoyed learning more about your experience and how you approach your work.`,
+      "",
+      "Our team will reach out soon with the next communication and any details you need.",
+      "",
+      "Best,",
+      senderName
+    ].join("\n")
+  });
+};
+
+const sendRejectionEmail = async ({ candidate, job, recruiter, companyName }) => {
+  const { transporter, from } = assertDecisionEmailConfig(candidate);
+  await transporter.verify();
+
+  const role = job?.roleName || "the role";
+  const senderName = recruiter?.name || "Recruiting Team";
+  const company = companyName || "our team";
+
+  return transporter.sendMail({
+    from,
+    to: candidate.email,
+    subject: "Interview Outcome",
+    text: [
+      `Hi ${candidate.name},`,
+      "",
+      `Thank you for taking the time to interview with ${company} for ${role}. We appreciate the effort you put into the process and the opportunity to learn more about your background.`,
+      "",
+      "After careful review, we will not be moving forward with your application at this time.",
+      "",
+      "We are grateful for your interest and wish you the very best in your search and future work.",
+      "",
+      "Best,",
+      senderName
+    ].join("\n")
+  });
+};
+
 module.exports = {
   EmailDeliveryError,
+  sendAcceptanceEmail,
+  sendRejectionEmail,
   sendInterviewScheduledEmails
 };

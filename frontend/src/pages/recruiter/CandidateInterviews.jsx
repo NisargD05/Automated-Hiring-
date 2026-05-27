@@ -3,7 +3,6 @@ import api from "../../api/axios";
 import InterviewCard from "../../components/interviews/InterviewCard";
 import EmptyState from "../../components/ui/EmptyState";
 import Loader from "../../components/ui/Loader";
-import PageHeader from "../../components/ui/PageHeader";
 
 function CandidateInterviews() {
   const [interviews, setInterviews] = useState([]);
@@ -27,16 +26,11 @@ function CandidateInterviews() {
 
   return (
     <div className="space-y-4">
-      <PageHeader
-        eyebrow="Recruiter review"
-        title="Candidate Interviews"
-        description="Scheduled interviews, completed feedback, and interviewer recommendations for your candidate pipeline."
-      />
       {error && <p className="alert-error">{error}</p>}
       {loading ? (
         <Loader label="Loading interviews..." />
       ) : interviews.length === 0 ? (
-        <EmptyState title="No scheduled interviews" description="Scheduled interviews will appear after interviewers confirm slots." />
+        <EmptyState title="No scheduled interviews yet" description="Confirmed interviews will appear here after an interviewer selects a slot." />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
           {interviews.map((interview) => (

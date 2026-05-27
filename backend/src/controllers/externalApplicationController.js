@@ -1,5 +1,6 @@
 const axios = require("axios");
 const fs = require("fs/promises");
+const mongoose = require("mongoose");
 const path = require("path");
 const ExternalApplicationSubmission = require("../models/ExternalApplicationSubmission");
 const WebhookDebugEvent = require("../models/WebhookDebugEvent");
@@ -15,6 +16,24 @@ const ensureResumeUploadDir = async () => {
 };
 
 const normalizeKey = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+const safeJsonStringify = (value) => {
+  try {
+    return JSON.stringify(value, null, 2);
+  } catch (error) {
+    return `[unserializable payload: ${error.message}]`;
+  }
+};
+
+const summarizeHeaders = (headers = {}) => ({
+  "content-type": headers["content-type"] || "",
+  "content-length": headers["content-length"] || "",
+  "user-agent": headers["user-agent"] || "",
+  "x-forwarded-for": headers["x-forwarded-for"] || "",
+  "x-forwarded-host": headers["x-forwarded-host"] || "",
+  "x-forwarded-proto": headers["x-forwarded-proto"] || "",
+  "tally-signature": headers["tally-signature"] ? "[present]" : ""
+});
 
 const buildApplicationLink = (job) => {
   const provider = (process.env.APPLICATION_FORM_PROVIDER || "tally").toLowerCase();
@@ -66,6 +85,40 @@ const buildWebhookUrl = () => {
 const getNested = (object, pathParts) =>
   pathParts.reduce((current, part) => (current && current[part] !== undefined ? current[part] : undefined), object);
 
+const stringifyFieldValue = (value) => {
+  if (value === undefined || value === null) {
+    return "";
+  }
+
+  if (typeof value === "string") {
+    return value.trim();
+  }
+
+  if (typeof value === "number" || typeof value === "boolean") {
+    return String(value).trim();
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(stringifyFieldValue).filter(Boolean).join(", ");
+  }
+
+  if (typeof value === "object") {
+    const textValue =
+      value.value ??
+      value.text ??
+      value.label ??
+      value.name ??
+      value.email ??
+      value.phone_number ??
+      value.url ??
+      value.href;
+
+    return stringifyFieldValue(textValue);
+  }
+
+  return String(value).trim();
+};
+
 const extractFileUrl = (value) => {
   if (!value) {
     return "";
@@ -103,10 +156,16 @@ const flattenFields = (payload) => {
     payload?.data?.fields,
     payload?.event?.fields,
     payload?.form_response?.answers,
+    payload?.answers,
+    payload?.data?.answers,
     payload?.data?.hiddenFields,
     payload?.data?.hidden_fields,
     payload?.hiddenFields,
-    payload?.hidden_fields
+    payload?.hidden_fields,
+    payload?.data?.uploaded_files,
+    payload?.data?.uploadedFiles,
+    payload?.uploaded_files,
+    payload?.uploadedFiles
   ].filter(Array.isArray);
 
   for (const fieldArray of sourceArrays) {
@@ -135,6 +194,19 @@ const flattenFields = (payload) => {
           raw: field
         });
       }
+
+      if (normalizeKey(field.type).includes("hidden") && value && typeof value === "object" && !Array.isArray(value)) {
+        for (const [hiddenKey, hiddenValue] of Object.entries(value)) {
+          fields.push({
+            key: normalizeKey(hiddenKey),
+            rawKey: hiddenKey,
+            label: hiddenKey,
+            type: "HIDDEN_FIELDS",
+            value: hiddenValue,
+            raw: { key: hiddenKey, value: hiddenValue, parent: field }
+          });
+        }
+      }
     }
   }
 
@@ -159,7 +231,16 @@ const flattenFields = (payload) => {
   ];
 
   for (const hidden of hiddenObjects) {
-    if (hidden && typeof hidden === "object" && !Array.isArray(hidden)) {
+    if (Array.isArray(hidden)) {
+      for (const field of hidden) {
+        const key = field.key || field.name || field.label || field.id || field.ref;
+        const value = field.value ?? field.answer ?? field.text;
+
+        if (key) {
+          fields.push({ key: normalizeKey(key), rawKey: key, label: key, type: "HIDDEN_FIELDS", value, raw: field });
+        }
+      }
+    } else if (hidden && typeof hidden === "object") {
       for (const [key, value] of Object.entries(hidden)) {
         fields.push({ key: normalizeKey(key), rawKey: key, label: key, type: "HIDDEN_FIELDS", value, raw: { key, value } });
       }
@@ -177,13 +258,7 @@ const fieldMatches = (field, possibleNames) => {
 
 const getFieldValue = (fields, aliases) => {
   const match = fields.find((field) => fieldMatches(field, aliases));
-  const value = match?.value;
-
-  if (Array.isArray(value)) {
-    return value.join(", ");
-  }
-
-  return value === undefined || value === null ? "" : String(value).trim();
+  return stringifyFieldValue(match?.value);
 };
 
 const getFieldRawValue = (fields, aliases) => {
@@ -203,10 +278,22 @@ const getHiddenFieldValue = (fields, aliases) => {
   return getFieldValue(fields, aliases);
 };
 
+const getExactHiddenFieldValue = (fields, exactName) => {
+  const match = fields.find((field) => {
+    const type = normalizeKey(field.type);
+    return (
+      (type.includes("hidden") || field.raw?.type === "HIDDEN_FIELDS") &&
+      (field.rawKey === exactName || field.label === exactName || field.raw?.key === exactName)
+    );
+  });
+
+  return stringifyFieldValue(match?.value);
+};
+
 const getResumeUrl = (fields, payload) => {
   const fileUploadField = fields.find((field) => normalizeKey(field.type).includes("fileupload"));
-  const resumeNamedField = fields.find((field) => fieldMatches(field, ["resume", "resume upload", "cv", "cover letter"]));
-  const explicitResumeUrl = getFieldRawValue(fields, ["resume url", "cv url", "file url"]);
+  const resumeNamedField = fields.find((field) => fieldMatches(field, ["resume", "resume upload", "resumeupload", "cv", "cover letter"]));
+  const explicitResumeUrl = getFieldRawValue(fields, ["resume url", "cv url", "file url", "download url"]);
 
   return (
     extractFileUrl(fileUploadField?.value) ||
@@ -214,6 +301,10 @@ const getResumeUrl = (fields, payload) => {
     extractFileUrl(resumeNamedField?.value) ||
     extractFileUrl(resumeNamedField?.raw) ||
     extractFileUrl(explicitResumeUrl) ||
+    extractFileUrl(payload?.data?.uploaded_files) ||
+    extractFileUrl(payload?.data?.uploadedFiles) ||
+    extractFileUrl(payload?.uploaded_files) ||
+    extractFileUrl(payload?.uploadedFiles) ||
     ""
   );
 };
@@ -221,6 +312,7 @@ const getResumeUrl = (fields, payload) => {
 const extractSubmission = (payload, provider) => {
   const fields = flattenFields(payload);
   const jobId =
+    getExactHiddenFieldValue(fields, "jobId") ||
     payload?.jobId ||
     payload?.data?.job_id ||
     payload?.data?.jobId ||
@@ -232,6 +324,7 @@ const extractSubmission = (payload, provider) => {
     payload?.hidden_fields?.jobId ||
     getHiddenFieldValue(fields, ["jobId", "job id", "job_id"]);
   const role =
+    getExactHiddenFieldValue(fields, "role") ||
     payload?.role ||
     payload?.data?.role ||
     payload?.data?.hidden?.role ||
@@ -271,6 +364,28 @@ const extractSubmission = (payload, provider) => {
   };
 };
 
+const summarizeFields = (fields) =>
+  fields.map((field) => ({
+    label: field.label,
+    rawKey: field.rawKey,
+    type: field.type,
+    normalizedKey: field.key,
+    valuePreview: stringifyFieldValue(field.value).slice(0, 300),
+    fileUrlDetected: extractFileUrl(field.value) || extractFileUrl(field.raw) || ""
+  }));
+
+const summarizeHiddenFields = (fields) =>
+  fields
+    .filter((field) => {
+      const type = normalizeKey(field.type);
+      return type.includes("hidden") || field.raw?.type === "HIDDEN_FIELDS";
+    })
+    .map((field) => ({
+      label: field.label,
+      rawKey: field.rawKey,
+      value: stringifyFieldValue(field.value)
+    }));
+
 const updateWebhookDebugForSubmission = async (submission, update) => {
   const filters = [
     ...(submission.submissionId ? [{ submissionId: submission.submissionId }] : []),
@@ -301,22 +416,40 @@ const serializeWebhookDebugEvent = (event, fallbackRole = "") => {
 
 const storeWebhookSubmission = async (req, res, provider) => {
   let debugEvent;
+  const webhookName = provider === "typeform" ? "Typeform" : "Tally";
   try {
-    logger.info(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Request received`, {
+    logger.info(`[${webhookName} Webhook] Request received`, {
       method: req.method,
       path: req.originalUrl,
       contentType: req.headers["content-type"],
-      query: req.query
+      contentLength: req.headers["content-length"] || "",
+      query: req.query,
+      receivedAt: new Date().toISOString()
     });
-    console.log("[TallyWebhook] Payload received");
-    console.log(JSON.stringify(req.body, null, 2));
-    logger.info(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Headers: %j`, req.headers);
-    logger.info(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Body: %j`, req.body);
+    logger.info(`[${webhookName} Webhook] Headers`, summarizeHeaders(req.headers));
+    logger.info(`[${webhookName} Webhook] Raw body`, {
+      body: safeJsonStringify(req.body)
+    });
 
+    const flattenedFields = flattenFields(req.body);
     const extracted = extractSubmission(req.body, provider);
-    logger.info(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Parsed fields: %j`, extracted);
+    const hiddenFields = summarizeHiddenFields(flattenedFields);
 
-    logger.info(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Extracted intake fields`, {
+    logger.info(`[${webhookName} Webhook] Flattened field summary`, {
+      fieldCount: flattenedFields.length,
+      fields: summarizeFields(flattenedFields)
+    });
+    logger.info(`[${webhookName} Webhook] Hidden fields`, {
+      hiddenFieldCount: hiddenFields.length,
+      hiddenFields
+    });
+    logger.info(`[${webhookName} Webhook] Parsed body`, extracted);
+
+    logger.info(`[${webhookName} Webhook] Resume URL extraction`, {
+      resumeUrl: extracted.resumeUrl,
+      resumeDetected: Boolean(extracted.resumeUrl)
+    });
+    logger.info(`[${webhookName} Webhook] Extracted intake fields`, {
       jobId: extracted.jobId,
       role: extracted.role,
       resumeUrl: extracted.resumeUrl,
@@ -343,6 +476,11 @@ const storeWebhookSubmission = async (req, res, provider) => {
       headers: req.headers,
       webhookPayload: req.body
     });
+    logger.info(`[${webhookName} Webhook] Debug event created`, {
+      debugEventId: debugEvent._id.toString(),
+      status: debugEvent.status,
+      importStatus: debugEvent.importStatus
+    });
 
     if (!extracted.jobId || !extracted.candidateName || !extracted.email || !extracted.resumeUrl) {
       const missing = [
@@ -356,7 +494,7 @@ const storeWebhookSubmission = async (req, res, provider) => {
       debugEvent.resumeDetected = Boolean(extracted.resumeUrl);
       await debugEvent.save();
 
-      logger.warn(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Invalid submission`, {
+      logger.warn(`[${webhookName} Webhook] Validation error`, {
         missing,
         parsedFields: extracted
       });
@@ -365,6 +503,25 @@ const storeWebhookSubmission = async (req, res, provider) => {
         success: false,
         accepted: false,
         message: `Missing required webhook fields: ${missing}`
+      });
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(extracted.jobId)) {
+      debugEvent.status = "invalid";
+      debugEvent.error = "Invalid jobId hidden field";
+      debugEvent.resumeDetected = Boolean(extracted.resumeUrl);
+      await debugEvent.save();
+
+      logger.warn(`[${webhookName} Webhook] Validation error`, {
+        missing: "",
+        parsedFields: extracted,
+        error: "Invalid jobId hidden field"
+      });
+
+      return res.status(200).json({
+        success: false,
+        accepted: false,
+        message: "Invalid jobId hidden field"
       });
     }
 
@@ -381,6 +538,13 @@ const storeWebhookSubmission = async (req, res, provider) => {
       });
     }
 
+    logger.info(`[${webhookName} Webhook] DB insert start`, {
+      jobId: job._id.toString(),
+      submissionId: extracted.submissionId || "",
+      email: extracted.email,
+      importStatus: "pending"
+    });
+
     const submission = await ExternalApplicationSubmission.findOneAndUpdate(
       {
         $or: [
@@ -389,11 +553,17 @@ const storeWebhookSubmission = async (req, res, provider) => {
         ]
       },
       {
-        ...extracted,
-        jobId: job._id,
-        webhookPayload: req.body,
-        importStatus: "pending",
-        importError: ""
+        $set: {
+          ...extracted,
+          jobId: job._id,
+          webhookPayload: req.body,
+          importStatus: "pending",
+          importError: ""
+        },
+        $setOnInsert: {
+          importedCandidateId: null,
+          importedAt: null
+        }
       },
       {
         new: true,
@@ -402,10 +572,11 @@ const storeWebhookSubmission = async (req, res, provider) => {
       }
     );
 
-    logger.info(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Stored as pending`, {
+    logger.info(`[${webhookName} Webhook] DB insert status`, {
       submissionId: submission._id.toString(),
       jobId: job._id.toString(),
-      email: submission.email
+      email: submission.email,
+      importStatus: submission.importStatus
     });
 
     debugEvent.status = "stored";
@@ -414,7 +585,13 @@ const storeWebhookSubmission = async (req, res, provider) => {
     debugEvent.resumeDetected = Boolean(submission.resumeUrl);
     await debugEvent.save();
 
-    logger.info(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Submission saved successfully`, {
+    logger.info(`[${webhookName} Webhook] Import status`, {
+      debugEventId: debugEvent._id.toString(),
+      submissionId: submission._id.toString(),
+      importStatus: submission.importStatus,
+      candidateImported: false
+    });
+    logger.info(`[${webhookName} Webhook] Submission saved successfully`, {
       submissionId: submission._id.toString(),
       jobId: job._id.toString()
     });
@@ -426,10 +603,18 @@ const storeWebhookSubmission = async (req, res, provider) => {
       debugEvent.error = error.message;
       await debugEvent.save().catch(() => {});
     }
-    logger.error(`[${provider === "typeform" ? "Typeform" : "Tally"} Webhook] Failed`, {
-      message: error.message
+    logger.error(`[${webhookName} Webhook] Failed`, {
+      message: error.message,
+      name: error.name,
+      stack: error.stack,
+      debugEventId: debugEvent?._id?.toString() || null
     });
-    res.status(200).json({ success: false, accepted: false, message: error.message || "Webhook submission failed" });
+    return res.status(200).json({
+      success: false,
+      accepted: false,
+      error: error.message || "Webhook submission failed",
+      message: error.message || "Webhook submission failed"
+    });
   }
 };
 
@@ -493,6 +678,11 @@ const downloadResume = async (submission) => {
   const originalName = getResumeFileName(submission.resumeUrl, `${submission.candidateName || "resume"}.pdf`).replace(/[^a-zA-Z0-9.-]/g, "_");
   const storedFileName = `${Date.now()}-${submission._id}-${originalName}`;
   const filePath = path.join(resumeUploadRoot, storedFileName);
+  logger.info("[Fetch Resumes] Resume download start", {
+    submissionId: submission._id.toString(),
+    resumeUrl: submission.resumeUrl,
+    filePath
+  });
   const response = await axios.get(submission.resumeUrl, {
     responseType: "arraybuffer",
     maxRedirects: 5,
@@ -505,7 +695,7 @@ const downloadResume = async (submission) => {
 
   await fs.writeFile(filePath, response.data);
 
-  logger.info("[TallyWebhook] resume downloaded", {
+  logger.info("[Fetch Resumes] Resume downloaded", {
     submissionId: submission._id.toString(),
     filePath,
     contentType: response.headers["content-type"] || "",

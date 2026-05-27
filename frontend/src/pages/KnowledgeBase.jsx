@@ -163,7 +163,7 @@ function KnowledgeBase() {
           <div className="p-5"><Loader label="Loading documents..." /></div>
         ) : documents.length === 0 ? (
           <div className="p-5">
-            <EmptyState title="No uploaded PDFs" description="Upload your first company knowledge document to make JD generation organization-aware." />
+            <EmptyState title="No knowledge documents uploaded" description="Upload company hiring PDFs so job generation and interview context can use your internal standards." />
           </div>
         ) : (
           <div className="overflow-x-auto">

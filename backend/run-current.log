@@ -66,7 +66,59 @@
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
@@ -82,73 +134,17 @@
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
-ile changes before starting...[39m
-ike Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:41.657Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:41.663Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:41.667Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:41.694Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 0 }
-[2026-05-26T21:53:41.698Z] [INFO] [Shortlist] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', count: 0, candidateIds: [] }
-[2026-05-26T21:53:41.705Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:41.710Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:41.714Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:41.727Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 0 }
-[2026-05-26T21:53:41.730Z] [INFO] [Shortlist] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', count: 0, candidateIds: [] }
-[2026-05-26T21:53:44.153Z] [INFO] HTTP request {
-  method: 'POST',
-  path: '/api/external-applications/fetch-resumes',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:44.159Z] [INFO] [Fetch Resumes] Started {
-  jobId: '6a16108f26beca3baf5f4f17',
-  userId: '6a148440cf4199b40f53680d'
-}
-[2026-05-26T21:53:44.162Z] [INFO] [Fetch Resumes] Selected job: 6a16108f26beca3baf5f4f17
-[2026-05-26T21:53:44.163Z] [INFO] [Fetch Resumes] Query: {"jobId":"6a16108f26beca3baf5f4f17","importStatus":"pending"}
-[2026-05-26T21:53:44.164Z] [INFO] [Fetch Resumes] Pending submissions found: 0
-[2026-05-26T21:53:44.165Z] [INFO] [Fetch Resumes] Submission IDs: []
-[2026-05-26T21:53:44.165Z] [INFO] [Fetch Resumes] No pending submissions { jobId: '6a16108f26beca3baf5f4f17' }
-[2026-05-26T21:53:44.171Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:44.176Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:44.181Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:53:44.194Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 0 }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+ `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to cha[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon][31m[nodemon] app crashed - waiting[31m[nodemon] app crashed - waiting for f[32m[nodemon] restarting due to cha[32m[nodemon[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to cha[31m[nodemon] app crashed - waiting for file changes before st[31m[nodemon] [32m[nodemon] restarting due to changes...[39m
+[32m[nodemon][32m[nodemon] restarting due to cha[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+app crashed - waiting for file changes before starting...[39m
+5-26T21:53:44.194Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 0 }
 [2026-05-26T21:53:44.198Z] [INFO] [Shortlist] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', count: 0, candidateIds: [] }
 [2026-05-26T21:53:51.718Z] [INFO] HTTP request {
   method: 'POST',
@@ -217,682 +213,689 @@ ike Gecko) Chrome/148.0.0.0 Safari/537.36'
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
-f17', count: 0, candidateIds: [] }
-[2026-05-26T21:57:50.624Z] [INFO] HTTP request {
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-27T17:49:25.534Z] [INFO] Backend server running on port 5001 {}
+[2026-05-27T17:49:25.609Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[2026-05-27T17:50:40.047Z] [INFO] HTTP request {
   method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
+  path: '/api/auth/me',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-26T21:57:50.632Z] [INFO] HTTP request {
+[2026-05-27T17:50:40.081Z] [INFO] HTTP request {
   method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
+  path: '/api/auth/me',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-26T21:57:50.642Z] [INFO] HTTP request {
+[2026-05-27T17:50:40.227Z] [INFO] HTTP request {
   method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
+  path: '/api/interviews/6a17277173dec3a2758ae6ba',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-26T21:57:50.665Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 0 }
-[2026-05-26T21:57:50.680Z] [INFO] [Shortlist] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', count: 0, candidateIds: [] }
-[2026-05-26T21:57:52.387Z] [INFO] HTTP request {
+[2026-05-27T17:50:40.295Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:50:40.305Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:50:40.369Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:50:43.712Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:50:43.746Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:51:24.267Z] [INFO] HTTP request {
   method: 'POST',
-  path: '/api/external-applications/fetch-resumes',
+  path: '/api/interviews/6a17277173dec3a2758ae6ba/feedback',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-26T21:57:52.392Z] [INFO] [Fetch Resumes] Started {
-  jobId: '6a16108f26beca3baf5f4f17',
-  userId: '6a148440cf4199b40f53680d'
-}
-[2026-05-26T21:57:52.395Z] [INFO] [Fetch[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-s`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-ac6f3d4f4a46c6","mimeType":"application/pdf","size":174588}]},{"key":"question_jxYk1Y","label":"If a current employee at (company) referred you, please list his/her name","type":"INPUT_TEXT","value":null}]}}
-[2026-05-26T21:58:37.164Z] [INFO] [Tally Webhook] Parsed fields: {"jobId":"6a16108f26beca3baf5f4f17","formId":"81R4oY","submissionId":"2a7b6fad-4984-41d3-9b01-83b45e58ab74","candidateName":"Kathan","email":"dushyantvarshney2005@gmail.com","phone":"+917073719155","linkedinUrl":"linkedin.com/","githubUrl":"","portfolio[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-fa74e563fe0a7a56592ec6d69a359e1294909b","submissionPreviewUrl":"https://tally.so/forms/81R4oY/submissions/DqNle2j/preview?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJtaXNzaW9uSWQiOiJEcU5sZTJqIiwiZm9ybUlkIjoiODFSNG9ZIiwiaWF0IjoxNzc5ODMyNzMyfQ.KhyLwXmLi3HweMQIGfD_Nc8XAO13Xo1QuH1iSRe0ZN0&signature=fdccfeeb171622d6c3067dca37fa74e563fe0a7a56592ec6d69a359e1294909b","fields":[{"key":"question_G04Q8Q","label":"First Name","type":"INPUT_TEXT","value":"foiawbf"},{"key":"question_O09oOk","labe[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-ing due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-i/537.36'
-}
-[2026-05-26T21:58:59.034Z] [INFO] HTTP request {
+[2026-05-27T17:51:24.369Z] [INFO] HTTP request {
   method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
+  path: '/api/interviews/interviewer',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-26T21:58:59.039Z] [INFO] HTTP request {
+[2026-05-27T17:51:24.410Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T17:51:24.420Z] [INFO] HTTP request {
   method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
+  path: '/api/interviews/interviewer',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-26T21:58:59.046Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:58:59.065Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 0 }
-[2026-05-26T21:58:59.068Z] [INFO] [Shortlist] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', count: 0, candidateIds: [] }
-[2026-05-26T21:58:59.075Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:58:59.081Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:58:59.088Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:58:59.095Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 0 }
-[2026-05-26T21:58:59.105Z] [INFO] [Shortlist] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', count: 0, candidateIds: [] }
-[2026-05-26T21:59:02.474Z] [INFO] HTTP request {
-  method: 'POST',
-  path: '/api/external-applications/fetch-resumes',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:59:02.479Z] [INFO] [Fetch Resumes] Started {
-  jobId: '6a16108f26beca3baf5f4f17',
-  userId: '6a148440cf4199b40f53680d'
-}
-[2026-05-26T21:59:02.483Z] [INFO] [Fetch Resumes] Selected job: 6a16108f26beca3baf5f4f17
-[2026-05-26T21:59:02.484Z] [INFO] [Fetch Resumes] Que[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-26T21:59:06.484Z] [INFO] [Resume Indexing] extraction completed {
-  candidateId: '6a1617a86537271a58845992',
-  resumeTextLength: 3855,
-  skillsCount: 18,
-  projectsCount: 10,
-  experienceCount: 8
-}
-[2026-05-26T21:59:06.508Z] [INFO] [Resume Indexing] candidate resume indexed {
-  candidateId: '6a1617a86537271a58845992',
-  resumeId: '6a1617aa6537271a5884599c',
-  resumeTextLength: 3855,
-  status: 'ready'
-}
-[2026-05-26T21:59:06.509Z] [INFO] [Gemini Ranking] Triggered {
-  candidateId: '6a1617a86537271a58845992',
-  submissionId: '6a16178d8085e931e3521c94'
-}
-[2026-05-26T21:59:06.521Z] [INFO] [JD Fetcher] Job found {
-  jobId: '6a16108f26beca3baf5f4f17',
-  roleName: 'Product Engineer',
-  requiredSkillsCount: 0,
-  mandatoryRequirementsCount: 0,
-  approvedJdLength: 4410
-}
-[2026-05-26T21:59:06.527Z] [INFO] [Candidate Ranking] AI ranking request started {
-  endpoint: 'http://localhost:8000/ranking/candidate',
-  candidateId: '6a1617a86537271a58845992',
-  jobId: '6a16108f26beca3baf5f4f17',
-  resumeTextLength: 3855
-}
-[2026-05-26T21:59:25.653Z] [INFO] [Candidate Ranking] AI ranking request completed {
-  endpoint: 'http://localhost:8000/ranking/candidate',
-  candidateId: '6a1617a86537271a58845992',
-  jobId: '6a16108f26beca3baf5f4f17',
-  score: 53,
-  recommendation: 'Reject'
-}
-[2026-05-26T21:59:25.655Z] [INFO] [Candidate Ranking] AI service returned ranking {
-  can[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] starting `node src/server.js`[39m
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-d\\uploads\\resumes\\1779832765685-6a16179c8085e931e3521c95-Ritik_Oracle.pdf'
-}
-[2026-05-26T21:59:27.950Z] [INFO] [Resume Indexing] AI parse request completed {
-  endpoint: 'http://localhost:8000/candidates/parse-resume',
-  originalFileName: 'Ritik_Oracle.pdf',
-  resumeTextLength: 3577,
-  skillsCount: 18
-}
-[2026-05-26T21:59:27.952Z] [INFO] [Resume Indexing] extraction completed {
-  candidateId: '6a1617bf6537271a588459d4',
-  resumeTextLength: 3577,
-  skillsCount: 18,
-  projectsCount: 10,
-  experienceCount: 8
-}
-[2026-05-26T21:59:27.966Z] [INFO] [Resume Indexing] candidate resume indexed {
-  candidateId: '6a1617bf6537271a588459d4',
-  resumeId: '6a1617bf6537271a588459de',
-  resumeTextLength: 3577,
-  status: 'ready'
-}
-[2026-05-26T21:59:27.966Z] [INFO] [Gemini Ranking] Triggered {
-  candidateId: '6a1617bf6537271a588459d4',
-  submissionId: '6a16179c8085e931e3521c95'
-}
-[2026-05-26T21:59:27.979Z] [INFO] [JD Fetcher] Job found {
-  jobId: '6a16108f26beca3baf5f4f17',
-  roleName: 'Product Engineer',
-  requiredSkillsCount: 0,
-  mandatoryRequirementsCount: 0,
-  approvedJdLength: 4410
-}
-[2026-05-26T21:59:27.983Z] [INFO] [Candidate Ranking] AI ranking request started {
-  endpoint: 'http://localhost:8000/ranking/candidate',
-  candidateId: '6a1617bf6537271a588459d4',
-  jobId: '6a16108f26beca3baf5f4f17',
-  resumeTextLength: 3577
-}
-[2026-05-26T21:59:44.467Z] [INFO] [Candidate Ranking] AI ranking request completed {
-  endpoint: 'http://localhost:8000/ranking/candidate',
-  candidateId: '6a1617bf6537271a588459d4',
-  jobId: '6a16108f26beca3baf5f4f17',
-  score: 34,
-  recommendation: 'Reject'
-}
-[2026-05-26T21:59:44.469Z] [INFO] [Candidate Ranking] AI service returned ranking {
-  candidateId: '6a1617bf6537271a588459d4',
-  jobId: '6a16108f26beca3baf5f4f17',
-  score: 34,
-  recommendation: 'Reject',
-  matchesCount: 3,
-  missingCount: 3,
-  strengthsCount: 3,
-  weaknessesCount: 3
-}
-[2026-05-26T21:59:44.469Z] [INFO] [MongoDB] Saving ranking {
-  candidateId: '6a1617bf6537271a588459d4',
-  jobId: '6a16108f26beca3baf5f4f17',
-  score: 34,
-  recommendation: 'Reject'
-}
-[2026-05-26T21:59:44.482Z] [INFO] [Candidate Ranking] evaluation saved {
-  candidateId: '6a1617bf6537271a588459d4',
-  evaluationId: '6a1617d06537271a588459fb',
-  score: 34,
-  recommendation: 'Reject'
-}
-[2026-05-26T21:59:44.483Z] [INFO] [MongoDB] Ranking saved for candidate {
-  candidateId: '6a1617bf6537271a588459d4',
-  evaluationId: '6a1617d06537271a588459fb'
-}
-[2026-05-26T21:59:44.501Z] [INFO] [Fetch Resumes] Completed {
-  jobId: '6a16108f26beca3baf5f4f17',
-  importedCount: 2,
-  duplicateCount: 0,
-  failedCount: 0
-}
-[2026-05-26T21:59:44.517Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:59:44.522Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:59:44.526Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T21:59:44.551Z] [INFO] [Shortlist] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', count: 0, candidateIds: [] }
-[2026-05-26T21:59:44.571Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 2 }
-[2026-05-26T22:00:28.348Z] [INFO] HTTP request {
-  method: 'PUT',
-  path: '/api/candidates/6a1617a86537271a58845992/shortlist',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T22:00:28.373Z] [INFO] [Shortlist] candidate status updated {
-  candidateId: '6a1617a86537271a58845992',
-  status: 'shortlisted',
-  isShortlisted: true,
-  shortlistedBy: '6a148440cf4199b40f53680d'
-}
-[2026-05-26T22:00:28.384Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T22:00:28.388Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T22:00:28.421Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 2 }
-[2026-05-26T22:00:28.431Z] [INFO] [Shortlist] candidates fetched {
-  jobId: '6a16108f26beca3baf5f4f17',
-  count: 1,
-  candidateIds: [ '6a1617a86537271a58845992' ]
-}
-[2026-05-26T22:00:30.423Z] [INFO] HTTP request {
-  method: 'PUT',
-  path: '/api/candidates/6a1617bf6537271a588459d4/shortlist',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T22:00:30.445Z] [INFO] [Shortlist] candidate status updated {
-  candidateId: '6a1617bf6537271a588459d4',
-  status: 'shortlisted',
-  isShortlisted: true,
-  shortlistedBy: '6a148440cf4199b40f53680d'
-}
-[2026-05-26T22:00:30.452Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T22:00:30.457Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-26T22:00:30.493Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 2 }
-[2026-05-26T22:00:30.508Z] [INFO] [Shortlist] candidates fetched {
-  jobId: '6a16108f26beca3baf5f4f17',
-  count: 2,
-  candidateIds: [ '6a1617bf6537271a588459d4', '6a1617a86537271a58845992' ]
-}
-[2026-05-27T13:44:38.275Z] [INFO] HTTP request {
+[2026-05-27T17:51:24.465Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T17:51:30.261Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/auth/me',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T13:44:38.309Z] [INFO] HTTP request {
+[2026-05-27T17:51:30.269Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/auth/me',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.307Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/auth/me',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.314Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/auth/me',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.372Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/jobs',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.401Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/jobs',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.433Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.438Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.442Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.521Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 2 }
-[2026-05-27T13:44:44.531Z] [INFO] [Shortlist] candidates fetched {
-  jobId: '6a16108f26beca3baf5f4f17',
-  count: 2,
-  candidateIds: [ '6a1617bf6537271a588459d4', '6a1617a86537271a58845992' ]
-}
-[2026-05-27T13:44:44.599Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.603Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.608Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T13:44:44.657Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 2 }
-[2026-05-27T13:44:44.683Z] [INFO] [Shortlist] candidates fetched {
-  jobId: '6a16108f26beca3baf5f4f17',
-  count: 2,
-  candidateIds: [ '6a1617bf6537271a588459d4', '6a1617a86537271a58845992' ]
-}
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
-[32m[nodemon] restarting due to changes...[39m
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) [32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] restarting due to changes...[39m
 [32m[nodemon] starting `node src/server.js`[39m
-[2026-05-27T13:50:42.616Z] [INFO] Backend server running on port 5001 {}
-[2026-05-27T13:50:42.661Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
-[2026-05-27T14:08:22.232Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/auth/me',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+0.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:22.273Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/auth/me',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T14:08:30.551Z] [INFO] HTTP request {
+[2026-05-27T17:51:39.822Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T17:51:47.810Z] [INFO] HTTP request {
   method: 'POST',
   path: '/api/auth/login',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:30.711Z] [INFO] User logged in {
+[2026-05-27T17:51:47.969Z] [INFO] User logged in {
   userId: '6a148440cf4199b40f53680d',
   email: 'nisargdivecha1@gmail.com',
   role: 'recruiter'
 }
-[2026-05-27T14:08:30.753Z] [INFO] HTTP request {
-  method: 'GET',
-  path: '/api/jobs',
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
-}
-[2026-05-27T14:08:30.758Z] [INFO] HTTP request {
+[2026-05-27T17:51:48.003Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/knowledge-base',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:30.808Z] [INFO] HTTP request {
+[2026-05-27T17:51:48.009Z] [INFO] HTTP r[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+in64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:52:05.376Z] [INFO] HTTP request {
   method: 'GET',
-  path: '/api/jobs',
+  path: '/api/interview-requests/recruiter',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:30.814Z] [INFO] HTTP request {
+[2026-05-27T17:52:09.653Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/recruiter',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:52:09.694Z] [INFO] [Interview] recruiter interviews fetched { userId: '6a148440cf4199b40f53680d', role: 'recruiter', count: 4 }
+[2026-05-27T17:52:09.702Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/recruiter',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:52:09.740Z] [INFO] [Interview] recruiter interviews fetched { userId: '6a148440cf4199b40f53680d', role: 'recruiter', count: 4 }
+[2026-05-27T17:52:18.211Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a17277173d[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+ changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+ozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:58:52.001Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:58:52.007Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gec[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+6 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:01:47.756Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/knowledge-base',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:38.158Z] [INFO] HTTP request {
+[2026-05-27T18:01:49.439Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:01:49.453Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:01:54.259Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/jobs',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:38.183Z] [INFO] HTTP request {
+[2026-05-27T18:01:54.275Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/jobs',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:38.212Z] [INFO] HTTP request {
+[2026-05-27T18:01:55.289Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:01:55.304Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:01:55.321Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:38.222Z] [INFO] HTTP request {
+[2026-05-27T18:01:55.327Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:38.229Z] [INFO] HTTP request {
+[2026-05-27T18:01:55.332Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:38.327Z] [INFO] HTTP request {
+[2026-05-27T18:01:55.388Z] [INFO] HTTP request {
   method: 'GET',
   path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
-[2026-05-27T14:08:38.350Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 2 }
+[2026-05-27T18:01:55.400Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 3 }
+[2026-05-27T18:01:55.408Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a16108f26beca3baf5f4f17',
+  count: 3,
+  candidateIds: [
+   [32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+'
+}
+[2026-05-27T18:01:56.191Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/recruiter',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:15.370Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:15.531Z] [INFO] User logged in {
+  userId: '6a15cee5be95725c272e8c70',
+  email: 'dushyantvarshney2005@gmail.com',
+  role: 'interviewer'
+}
+[2026-05-27T18:02:15.556Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:15.563Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T18:02:15.586Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 2,
+  requestIds: [ '6a1606c332eb8b43527d23da', '6a15ece3830dd1498c395fbc' ]
+}
+[2026-05-27T18:02:15.591Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:15.596Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T18:02:15.620Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 2,
+  requestIds: [ '6a1606c332eb8b43527d23da', '6a15ece3830dd1498c395fbc' ]
+}
+[2026-05-27T18:02:16.883Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKi[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+ent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:35.583Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T18:02:35.592Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:35.627Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T18:02:45.022Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:45.049Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:51.425Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/feedback',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:51.505Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:51.546Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T18:02:51.556Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:02:51.590Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T18:03:06.677Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:06.818Z] [INFO] User logged in {
+  userId: '6a148440cf4199b40f53680d',
+  email: 'nisargdivecha1@gmail.com',
+  role: 'recruiter'
+}
+[2026-05-27T18:03:06.853Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:06.856Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:06.876Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:06.880Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:08.443Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/recruiter',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:08.480Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/recruiter',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:09.485Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/recruiter',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:09.514Z] [INFO] [Interview] recruiter interviews fetched { userId: '6a148440cf4199b40f53680d', role: 'recruiter', count: 4 }
+[2026-05-27T18:03:09.523Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/recruiter',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:09.551Z] [INFO] [Interview] recruiter interviews fetched { userId: '6a148440cf4199b40f53680d', role: 'recruiter', count: 4 }
+[2026-05-27T18:03:20.380Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:20.412Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:23.347Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/reject',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:03:23.382Z] [INFO] [Email Service] Transport created {
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  userConfigured: true,
+  passConfigured: true,
+  from: 'nisargdivecha@gmail.com'
+}
+[2026-05-27T18:04:30.648Z] [INFO] [Interview] final recruiter decision recorded {
+  interviewId: '6a1606f432eb8b43527d2510',
+  candidateId: '6a15ebc4830dd1498c395ddb',
+  recruiterId: '6a148440cf4199b40f53680d',
+  decision: 'rejected'
+}
+[2026-05-27T18:04:30.687Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:06:25.628Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:06:25.634Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:06:25.665Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:06:25.694Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[2026-05-27T18:11:07.480Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:11:08.776Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:11:08.782Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:11:08.847Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:11:08.885Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[2026-05-27T18:12:13.464Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T18:12:13.491Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510/review',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-27T18:12:39.387Z] [INFO] Backend server running on port 5001 {}
+[2026-05-27T18:12:39.421Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-27T18:14:36.657Z] [INFO] Backend server running on port 5001 {}
+[2026-05-27T18:14:36.696Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+idate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 2 }
 [2026-05-27T14:08:38.360Z] [INFO] [Shortlist] candidates fetched {
   jobId: '6a16108f26beca3baf5f4f17',
   count: 2,
@@ -1902,3 +1905,1036 @@ d\\uploads\\resumes\\1779832765685-6a16179c8085e931e3521c95-Ritik_Oracle.pdf'
   path: '/api/jobs',
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-27T16:27:30.131Z] [INFO] Backend server running on port 5001 {}
+[2026-05-27T16:27:30.168Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[2026-05-27T16:37:53.721Z] [INFO] Backend server running on port 5001 {}
+[2026-05-27T16:37:53.758Z] [INFO] MongoDB connected { host: '127.0.0.1', database: 'ai_hiring_system' }
+[2026-05-27T17:14:12.536Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:12.575Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/auth/me',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:28.367Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:28.532Z] [INFO] User logged in {
+  userId: '6a148440cf4199b40f53680d',
+  email: 'nisargdivecha1@gmail.com',
+  role: 'recruiter'
+}
+[2026-05-27T17:14:28.597Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:28.602Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:28.645Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:28.650Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/knowledge-base',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.756Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.775Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/jobs',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.791Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.803Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.808Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.894Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.910Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 3 }
+[2026-05-27T17:14:32.918Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a16108f26beca3baf5f4f17',
+  count: 3,
+  candidateIds: [
+    '6a17018a9b6ebdfb3fb268d0',
+    '6a1617bf6537271a588459d4',
+    '6a1617a86537271a58845992'
+  ]
+}
+[2026-05-27T17:14:32.930Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.934Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:32.969Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 3 }
+[2026-05-27T17:14:32.992Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a16108f26beca3baf5f4f17',
+  count: 3,
+  candidateIds: [
+    '6a17018a9b6ebdfb3fb268d0',
+    '6a1617bf6537271a588459d4',
+    '6a1617a86537271a58845992'
+  ]
+}
+[2026-05-27T17:14:43.548Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/external-applications/fetch-resumes',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:43.555Z] [INFO] [Fetch Resumes] Started {
+  jobId: '6a16108f26beca3baf5f4f17',
+  userId: '6a148440cf4199b40f53680d'
+}
+[2026-05-27T17:14:43.559Z] [INFO] [Fetch Resumes] Selected job: 6a16108f26beca3baf5f4f17
+[2026-05-27T17:14:43.559Z] [INFO] [Fetch Resumes] Query: {"jobId":"6a16108f26beca3baf5f4f17","importStatus":"pending"}
+[2026-05-27T17:14:43.560Z] [INFO] [Fetch Resumes] Pending submissions found: 0
+[2026-05-27T17:14:43.561Z] [INFO] [Fetch Resumes] Submission IDs: []
+[2026-05-27T17:14:43.561Z] [INFO] [Fetch Resumes] No pending submissions { jobId: '6a16108f26beca3baf5f4f17' }
+[2026-05-27T17:14:43.573Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a16108f26beca3baf5f4f17&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:43.577Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a16108f26beca3baf5f4f17',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:43.581Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/external-applications/summary?jobId=6a16108f26beca3baf5f4f17',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:43.625Z] [INFO] [Candidate List] candidates fetched { jobId: '6a16108f26beca3baf5f4f17', status: null, count: 3 }
+[2026-05-27T17:14:43.644Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a16108f26beca3baf5f4f17',
+  count: 3,
+  candidateIds: [
+    '6a17018a9b6ebdfb3fb268d0',
+    '6a1617bf6537271a588459d4',
+    '6a1617a86537271a58845992'
+  ]
+}
+[2026-05-27T17:14:50.783Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:50.788Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:50.792Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/external-applications/summary?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:50.840Z] [INFO] [Candidate List] candidates fetched { jobId: '6a1491aef8042b0e097d7cb1', status: null, count: 4 }
+[2026-05-27T17:14:50.854Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  count: 2,
+  candidateIds: [ '6a15ebab830dd1498c395db0', '6a15ebc4830dd1498c395ddb' ]
+}
+[2026-05-27T17:14:53.812Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/external-applications/fetch-resumes',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:53.818Z] [INFO] [Fetch Resumes] Started {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  userId: '6a148440cf4199b40f53680d'
+}
+[2026-05-27T17:14:53.821Z] [INFO] [Fetch Resumes] Selected job: 6a1491aef8042b0e097d7cb1
+[2026-05-27T17:14:53.822Z] [INFO] [Fetch Resumes] Query: {"jobId":"6a1491aef8042b0e097d7cb1","importStatus":"pending"}
+[2026-05-27T17:14:53.822Z] [INFO] [Fetch Resumes] Pending submissions found: 0
+[2026-05-27T17:14:53.823Z] [INFO] [Fetch Resumes] Submission IDs: []
+[2026-05-27T17:14:53.823Z] [INFO] [Fetch Resumes] No pending submissions { jobId: '6a1491aef8042b0e097d7cb1' }
+[2026-05-27T17:14:53.831Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:53.835Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:53.838Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/external-applications/summary?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:14:53.875Z] [INFO] [Candidate List] candidates fetched { jobId: '6a1491aef8042b0e097d7cb1', status: null, count: 4 }
+[2026-05-27T17:14:53.885Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  count: 2,
+  candidateIds: [ '6a15ebab830dd1498c395db0', '6a15ebc4830dd1498c395ddb' ]
+}
+[2026-05-27T17:15:43.551Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/webhooks/tally',
+  userAgent: 'Tally Webhooks'
+}
+[2026-05-27T17:15:43.554Z] [INFO] [Tally Webhook] Request received {
+  method: 'POST',
+  path: '/api/webhooks/tally',
+  contentType: 'application/json',
+  query: {}
+}
+[TallyWebhook] Payload received
+{
+  "eventId": "da1c9166-ee58-47bb-ae1b-387676d50a41",
+  "eventType": "FORM_RESPONSE",
+  "createdAt": "2026-05-27T17:15:43.119Z",
+  "data": {
+    "responseId": "VpZGEMa",
+    "submissionId": "VpZGEMa",
+    "respondentId": "jaklyaE",
+    "formId": "81R4oY",
+    "formName": "Job application",
+    "createdAt": "2026-05-27T17:15:43.000Z",
+    "submissionPdfUrl": "https://api.tally.so/forms/81R4oY/submissions/VpZGEMa/pdf?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJtaXNzaW9uSWQiOiJWcFpHRU1hIiwiZm9ybUlkIjoiODFSNG9ZIiwiaWF0IjoxNzc5OTAyMTQzfQ.bn2ztjbl0UxdAfklIxOznslEDC1ynYjR1QQSUXZlFU0&signature=8d1c31e5bd037ee1786edc7396d6cbd200f5c8054285b9be83d3122fadc82d59",
+    "submissionPreviewUrl": "https://tally.so/forms/81R4oY/submissions/VpZGEMa/preview?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJtaXNzaW9uSWQiOiJWcFpHRU1hIiwiZm9ybUlkIjoiODFSNG9ZIiwiaWF0IjoxNzc5OTAyMTQzfQ.bn2ztjbl0UxdAfklIxOznslEDC1ynYjR1QQSUXZlFU0&signature=8d1c31e5bd037ee1786edc7396d6cbd200f5c8054285b9be83d3122fadc82d59",
+    "fields": [
+      {
+        "key": "question_4jDAWo_bea657c8-06eb-4745-ad43-b479f3836782",
+        "label": "jobId",
+        "type": "HIDDEN_FIELDS",
+        "value": "6a1491aef8042b0e097d7cb1"
+      },
+      {
+        "key": "question_jxq5d9_f825387c-9f1c-405c-b0a4-c8a473a4958b",
+        "label": "role",
+        "type": "HIDDEN_FIELDS",
+        "value": "Forward Deployed Software Engineer"
+      },
+      {
+        "key": "question_G04Q8Q",
+        "label": "First Name",
+        "type": "INPUT_TEXT",
+        "value": "Dushyant"
+      },
+      {
+        "key": "question_O09oOk",
+        "label": "Last Name",
+        "type": "INPUT_TEXT",
+        "value": "Varshney"
+      },
+      {
+        "key": "question_V8A42N",
+        "label": "Email",
+        "type": "INPUT_EMAIL",
+        "value": "divechanisarg7@gmail.com"
+      },
+      {
+        "key": "question_P0eGVP",
+        "label": "Phone",
+        "type": "INPUT_PHONE_NUMBER",
+        "value": "+919426770288"
+      },
+      {
+        "key": "question_E0ENyA",
+        "label": "LinkedIN Profile",
+        "type": "INPUT_LINK",
+        "value": null
+      },
+      {
+        "key": "question_rE1kzp",
+        "label": "Anything else we should know?",
+        "type": "TEXTAREA",
+        "value": "None"
+      },
+      {
+        "key": "question_4jyped",
+        "label": "Upload your resume and cover letter",
+        "type": "FILE_UPLOAD",
+        "value": [
+          {
+            "id": "zg8EYM",
+            "name": "202203026_Vyom_Narsana.pdf",
+            "url": "https://storage.tally.so/private/202203026_Vyom_Narsana.pdf?id=zg8EYM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpnOEVZTSIsImZvcm1JZCI6IjgxUjRvWSIsImlhdCI6MTc3OTkwMjE0M30.yZPvWc90m8mpD14y5lDZSzE4WHt4nPZ-vqgRgxBjgn8&signature=773489219a1ed540f1c709cc739f51bb12ed5e3f5b63f632f3506e1f9e70e308",
+            "mimeType": "application/pdf",
+            "size": 212902
+          }
+        ]
+      },
+      {
+        "key": "question_jxYk1Y",
+        "label": "If a current employee at (company) referred you, please list his/her name",
+        "type": "INPUT_TEXT",
+        "value": null
+      }
+    ]
+  }
+}
+[2026-05-27T17:15:43.556Z] [INFO] [Tally Webhook] Headers: {"host":"aspirin-mundane-phrase.ngrok-free.dev","user-agent":"Tally Webhooks","content-length":"2446","accept":"application/json, text/plain, */*","accept-encoding":"gzip, compress, deflate, br","baggage":"sentry-environment=production,sentry-release=beb258d54252eb039016dcd9b2ab2b8beacd47c3,sentry-public_key=6af4b6673f1648edaa8fef3f2ca43405,sentry-trace_id=f60fd9cbf95386d7d3aeffb94a1576c1,sentry-org_id=407628","content-type":"application/json","sentry-trace":"f60fd9cbf95386d7d3aeffb94a1576c1-9ec6f04e912b07e7","x-forwarded-for":"34.96.62.51","x-forwarded-host":"aspirin-mundane-phrase.ngrok-free.dev","x-forwarded-proto":"https"}
+[2026-05-27T17:15:43.557Z] [INFO] [Tally Webhook] Body: {"eventId":"da1c9166-ee58-47bb-ae1b-387676d50a41","eventType":"FORM_RESPONSE","createdAt":"2026-05-27T17:15:43.119Z","data":{"responseId":"VpZGEMa","submissionId":"VpZGEMa","respondentId":"jaklyaE","formId":"81R4oY","formName":"Job application","createdAt":"2026-05-27T17:15:43.000Z","submissionPdfUrl":"https://api.tally.so/forms/81R4oY/submissions/VpZGEMa/pdf?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJtaXNzaW9uSWQiOiJWcFpHRU1hIiwiZm9ybUlkIjoiODFSNG9ZIiwiaWF0IjoxNzc5OTAyMTQzfQ.bn2ztjbl0UxdAfklIxOznslEDC1ynYjR1QQSUXZlFU0&signature=8d1c31e5bd037ee1786edc7396d6cbd200f5c8054285b9be83d3122fadc82d59","submissionPreviewUrl":"https://tally.so/forms/81R4oY/submissions/VpZGEMa/preview?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJtaXNzaW9uSWQiOiJWcFpHRU1hIiwiZm9ybUlkIjoiODFSNG9ZIiwiaWF0IjoxNzc5OTAyMTQzfQ.bn2ztjbl0UxdAfklIxOznslEDC1ynYjR1QQSUXZlFU0&signature=8d1c31e5bd037ee1786edc7396d6cbd200f5c8054285b9be83d3122fadc82d59","fields":[{"key":"question_4jDAWo_bea657c8-06eb-4745-ad43-b479f3836782","label":"jobId","type":"HIDDEN_FIELDS","value":"6a1491aef8042b0e097d7cb1"},{"key":"question_jxq5d9_f825387c-9f1c-405c-b0a4-c8a473a4958b","label":"role","type":"HIDDEN_FIELDS","value":"Forward Deployed Software Engineer"},{"key":"question_G04Q8Q","label":"First Name","type":"INPUT_TEXT","value":"Dushyant"},{"key":"question_O09oOk","label":"Last Name","type":"INPUT_TEXT","value":"Varshney"},{"key":"question_V8A42N","label":"Email","type":"INPUT_EMAIL","value":"divechanisarg7@gmail.com"},{"key":"question_P0eGVP","label":"Phone","type":"INPUT_PHONE_NUMBER","value":"+919426770288"},{"key":"question_E0ENyA","label":"LinkedIN Profile","type":"INPUT_LINK","value":null},{"key":"question_rE1kzp","label":"Anything else we should know?","type":"TEXTAREA","value":"None"},{"key":"question_4jyped","label":"Upload your resume and cover letter","type":"FILE_UPLOAD","value":[{"id":"zg8EYM","name":"202203026_Vyom_Narsana.pdf","url":"https://storage.tally.so/private/202203026_Vyom_Narsana.pdf?id=zg8EYM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpnOEVZTSIsImZvcm1JZCI6IjgxUjRvWSIsImlhdCI6MTc3OTkwMjE0M30.yZPvWc90m8mpD14y5lDZSzE4WHt4nPZ-vqgRgxBjgn8&signature=773489219a1ed540f1c709cc739f51bb12ed5e3f5b63f632f3506e1f9e70e308","mimeType":"application/pdf","size":212902}]},{"key":"question_jxYk1Y","label":"If a current employee at (company) referred you, please list his/her name","type":"INPUT_TEXT","value":null}]}}
+[2026-05-27T17:15:43.561Z] [INFO] [Tally Webhook] Parsed fields: {"jobId":"6a1491aef8042b0e097d7cb1","role":"Forward Deployed Software Engineer","formId":"81R4oY","submissionId":"da1c9166-ee58-47bb-ae1b-387676d50a41","candidateName":"Dushyant Varshney","email":"divechanisarg7@gmail.com","phone":"+919426770288","linkedinUrl":"","githubUrl":"","portfolioUrl":"","experience":"","currentCompany":"","resumeUrl":"https://storage.tally.so/private/202203026_Vyom_Narsana.pdf?id=zg8EYM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpnOEVZTSIsImZvcm1JZCI6IjgxUjRvWSIsImlhdCI6MTc3OTkwMjE0M30.yZPvWc90m8mpD14y5lDZSzE4WHt4nPZ-vqgRgxBjgn8&signature=773489219a1ed540f1c709cc739f51bb12ed5e3f5b63f632f3506e1f9e70e308","source":"tally"}
+[2026-05-27T17:15:43.562Z] [INFO] [Tally Webhook] Extracted intake fields {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  role: 'Forward Deployed Software Engineer',
+  resumeUrl: 'https://storage.tally.so/private/202203026_Vyom_Narsana.pdf?id=zg8EYM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpnOEVZTSIsImZvcm1JZCI6IjgxUjRvWSIsImlhdCI6MTc3OTkwMjE0M30.yZPvWc90m8mpD14y5lDZSzE4WHt4nPZ-vqgRgxBjgn8&signature=773489219a1ed540f1c709cc739f51bb12ed5e3f5b63f632f3506e1f9e70e308',
+  resumeDetected: true,
+  email: 'divechanisarg7@gmail.com',
+  submissionId: 'da1c9166-ee58-47bb-ae1b-387676d50a41'
+}
+[2026-05-27T17:15:43.563Z] [INFO] [TallyWebhook] jobId extracted { jobId: '6a1491aef8042b0e097d7cb1' }
+[2026-05-27T17:15:43.564Z] [INFO] [TallyWebhook] role extracted { role: 'Forward Deployed Software Engineer' }
+[2026-05-27T17:15:43.565Z] [INFO] [TallyWebhook] resume URL extracted {
+  resumeUrl: 'https://storage.tally.so/private/202203026_Vyom_Narsana.pdf?id=zg8EYM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpnOEVZTSIsImZvcm1JZCI6IjgxUjRvWSIsImlhdCI6MTc3OTkwMjE0M30.yZPvWc90m8mpD14y5lDZSzE4WHt4nPZ-vqgRgxBjgn8&signature=773489219a1ed540f1c709cc739f51bb12ed5e3f5b63f632f3506e1f9e70e308'
+}
+[2026-05-27T17:15:43.605Z] [INFO] [Tally Webhook] Stored as pending {
+  submissionId: '6a1726bf8085e931e3521c98',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  email: 'divechanisarg7@gmail.com'
+}
+[2026-05-27T17:15:43.613Z] [INFO] [Tally Webhook] Submission saved successfully {
+  submissionId: '6a1726bf8085e931e3521c98',
+  jobId: '6a1491aef8042b0e097d7cb1'
+}
+[2026-05-27T17:15:48.081Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/external-applications/fetch-resumes',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:15:48.089Z] [INFO] [Fetch Resumes] Started {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  userId: '6a148440cf4199b40f53680d'
+}
+[2026-05-27T17:15:48.094Z] [INFO] [Fetch Resumes] Selected job: 6a1491aef8042b0e097d7cb1
+[2026-05-27T17:15:48.095Z] [INFO] [Fetch Resumes] Query: {"jobId":"6a1491aef8042b0e097d7cb1","importStatus":"pending"}
+[2026-05-27T17:15:48.096Z] [INFO] [Fetch Resumes] Pending submissions found: 1
+[2026-05-27T17:15:48.096Z] [INFO] [Fetch Resumes] Submission IDs: ["6a1726bf8085e931e3521c98"]
+[2026-05-27T17:15:50.587Z] [INFO] [TallyWebhook] resume downloaded {
+  submissionId: '6a1726bf8085e931e3521c98',
+  filePath: 'C:\\Users\\nisar\\AI Agentic HR Final\\backend\\uploads\\resumes\\1779902148111-6a1726bf8085e931e3521c98-202203026_Vyom_Narsana.pdf',
+  contentType: 'application/pdf',
+  size: 212902
+}
+[2026-05-27T17:15:50.598Z] [INFO] [TallyWebhook] ranking triggered {
+  submissionId: '6a1726bf8085e931e3521c98',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  role: 'Forward Deployed Software Engineer',
+  email: 'divechanisarg7@gmail.com'
+}
+[2026-05-27T17:15:50.615Z] [INFO] [Candidate Import] Candidate created {
+  candidateId: '6a1726c673dec3a2758ae399',
+  submissionId: '6a1726bf8085e931e3521c98',
+  jobId: '6a1491aef8042b0e097d7cb1'
+}
+[2026-05-27T17:15:50.622Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-27T17:15:50.623Z] [INFO] [Resume Parsing] Triggered {
+  candidateId: '6a1726c673dec3a2758ae399',
+  originalFileName: '202203026_Vyom_Narsana.pdf'
+}
+[2026-05-27T17:15:50.632Z] [INFO] [Resume Indexing] AI parse request started {
+  endpoint: 'http://localhost:8000/candidates/parse-resume',
+  originalFileName: '202203026_Vyom_Narsana.pdf',
+  filePath: 'C:\\Users\\nisar\\AI Agentic HR Final\\backend\\uploads\\resumes\\1779902148111-6a1726bf8085e931e3521c98-202203026_Vyom_Narsana.pdf'
+}
+[2026-05-27T17:15:51.263Z] [INFO] [Resume Indexing] AI parse request completed {
+  endpoint: 'http://localhost:8000/candidates/parse-resume',
+  originalFileName: '202203026_Vyom_Narsana.pdf',
+  resumeTextLength: 6131,
+  skillsCount: 18
+}
+[2026-05-27T17:15:51.264Z] [INFO] [Resume Indexing] extraction completed {
+  candidateId: '6a1726c673dec3a2758ae399',
+  resumeTextLength: 6131,
+  skillsCount: 18,
+  projectsCount: 10,
+  experienceCount: 8
+}
+[2026-05-27T17:15:51.290Z] [INFO] [Resume Indexing] candidate resume indexed {
+  candidateId: '6a1726c673dec3a2758ae399',
+  resumeId: '6a1726c773dec3a2758ae3a1',
+  resumeTextLength: 6131,
+  status: 'ready'
+}
+[2026-05-27T17:15:51.291Z] [INFO] [Gemini Ranking] Triggered {
+  candidateId: '6a1726c673dec3a2758ae399',
+  submissionId: '6a1726bf8085e931e3521c98'
+}
+[2026-05-27T17:15:51.301Z] [INFO] [JD Fetcher] Job found {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  roleName: 'Forward Deployed Software Engineer',
+  requiredSkillsCount: 0,
+  mandatoryRequirementsCount: 0,
+  approvedJdLength: 5070
+}
+[2026-05-27T17:15:51.306Z] [INFO] [Candidate Ranking] AI ranking request started {
+  endpoint: 'http://localhost:8000/ranking/candidate',
+  candidateId: '6a1726c673dec3a2758ae399',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  resumeTextLength: 6131
+}
+[2026-05-27T17:16:43.559Z] [INFO] [Candidate Ranking] AI ranking request completed {
+  endpoint: 'http://localhost:8000/ranking/candidate',
+  candidateId: '6a1726c673dec3a2758ae399',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 37,
+  recommendation: 'Reject'
+}
+[2026-05-27T17:16:43.561Z] [INFO] [Candidate Ranking] AI service returned ranking {
+  candidateId: '6a1726c673dec3a2758ae399',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 37,
+  recommendation: 'Reject',
+  matchesCount: 3,
+  missingCount: 3,
+  strengthsCount: 3,
+  weaknessesCount: 3
+}
+[2026-05-27T17:16:43.562Z] [INFO] [MongoDB] Saving ranking {
+  candidateId: '6a1726c673dec3a2758ae399',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  score: 37,
+  recommendation: 'Reject'
+}
+[2026-05-27T17:16:43.575Z] [INFO] [Candidate Ranking] evaluation saved {
+  candidateId: '6a1726c673dec3a2758ae399',
+  evaluationId: '6a1726fb73dec3a2758ae3bc',
+  score: 37,
+  recommendation: 'Reject'
+}
+[2026-05-27T17:16:43.576Z] [INFO] [MongoDB] Ranking saved for candidate {
+  candidateId: '6a1726c673dec3a2758ae399',
+  evaluationId: '6a1726fb73dec3a2758ae3bc'
+}
+[2026-05-27T17:16:43.594Z] [INFO] [TallyWebhook] candidate created {
+  submissionId: '6a1726bf8085e931e3521c98',
+  candidateId: '6a1726c673dec3a2758ae399',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  email: 'divechanisarg7@gmail.com'
+}
+[2026-05-27T17:16:43.595Z] [INFO] [TallyWebhook] ranking completed {
+  submissionId: '6a1726bf8085e931e3521c98',
+  candidateId: '6a1726c673dec3a2758ae399'
+}
+[2026-05-27T17:16:43.595Z] [INFO] [Fetch Resumes] Completed {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  importedCount: 1,
+  duplicateCount: 0,
+  failedCount: 0
+}
+[2026-05-27T17:16:43.607Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:16:43.611Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:16:43.615Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/external-applications/summary?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:16:43.665Z] [INFO] [Candidate List] candidates fetched { jobId: '6a1491aef8042b0e097d7cb1', status: null, count: 5 }
+[2026-05-27T17:16:43.676Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  count: 2,
+  candidateIds: [ '6a15ebab830dd1498c395db0', '6a15ebc4830dd1498c395ddb' ]
+}
+[2026-05-27T17:17:12.319Z] [INFO] HTTP request {
+  method: 'PUT',
+  path: '/api/candidates/6a1726c673dec3a2758ae399/shortlist',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:12.348Z] [INFO] [Shortlist] candidate status updated {
+  candidateId: '6a1726c673dec3a2758ae399',
+  status: 'shortlisted',
+  isShortlisted: true,
+  shortlistedBy: '6a148440cf4199b40f53680d'
+}
+[2026-05-27T17:17:12.359Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:12.364Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:12.395Z] [INFO] [Candidate List] candidates fetched { jobId: '6a1491aef8042b0e097d7cb1', status: null, count: 5 }
+[2026-05-27T17:17:12.415Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  count: 3,
+  candidateIds: [
+    '6a1726c673dec3a2758ae399',
+    '6a15ebab830dd1498c395db0',
+    '6a15ebc4830dd1498c395ddb'
+  ]
+}
+[2026-05-27T17:17:37.913Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/interview-requests',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:37.918Z] [INFO] [Interview Request] create request received {
+  recruiterId: '6a148440cf4199b40f53680d',
+  candidateId: '6a1726c673dec3a2758ae399',
+  interviewerEmail: 'dushyantvarshney2005@gmail.com',
+  roundType: 'Technical Round',
+  duration: 60,
+  preferredWindow: { startDate: '2026-05-28', endDate: '2026-05-29' }
+}
+[2026-05-27T17:17:37.926Z] [INFO] [Interview Request] selected candidate refreshed {
+  candidateId: '6a1726c673dec3a2758ae399',
+  candidateName: 'Dushyant Varshney',
+  candidateStatus: 'shortlisted',
+  isShortlisted: true,
+  jobId: '6a1491aef8042b0e097d7cb1'
+}
+[2026-05-27T17:17:37.938Z] [INFO] [Interview Request] request created {
+  requestId: '6a17273173dec3a2758ae4a8',
+  candidateId: '6a1726c673dec3a2758ae399',
+  candidateName: 'Dushyant Varshney',
+  candidateEmail: 'divechanisarg7@gmail.com',
+  interviewerId: '6a15cee5be95725c272e8c70',
+  recruiterId: '6a148440cf4199b40f53680d'
+}
+[2026-05-27T17:17:37.939Z] [INFO] [Interview Request] interviewer assigned {
+  requestId: '6a17273173dec3a2758ae4a8',
+  interviewerId: '6a15cee5be95725c272e8c70',
+  interviewerEmail: 'dushyantvarshney2005@gmail.com'
+}
+[2026-05-27T17:17:37.974Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates?jobId=6a1491aef8042b0e097d7cb1&sort=score',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:37.977Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/candidates/shortlisted?jobId=6a1491aef8042b0e097d7cb1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:38.015Z] [INFO] [Candidate List] candidates fetched { jobId: '6a1491aef8042b0e097d7cb1', status: null, count: 5 }
+[2026-05-27T17:17:38.032Z] [INFO] [Shortlist] candidates fetched {
+  jobId: '6a1491aef8042b0e097d7cb1',
+  count: 3,
+  candidateIds: [
+    '6a1726c673dec3a2758ae399',
+    '6a15ebab830dd1498c395db0',
+    '6a15ebc4830dd1498c395ddb'
+  ]
+}
+[2026-05-27T17:17:45.789Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/auth/login',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:45.926Z] [INFO] User logged in {
+  userId: '6a15cee5be95725c272e8c70',
+  email: 'dushyantvarshney2005@gmail.com',
+  role: 'interviewer'
+}
+[2026-05-27T17:17:45.951Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:45.957Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:17:45.982Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:17:45.990Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:17:45.996Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:17:46.021Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:18:08.093Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/interview-requests/6a17273173dec3a2758ae4a8/accept',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:08.099Z] [INFO] [Interview Request] accept clicked for request ID {
+  requestId: '6a17273173dec3a2758ae4a8',
+  interviewerId: '6a15cee5be95725c272e8c70',
+  date: '2026-05-29',
+  startTime: '2026-05-29T06:20:00.000Z'
+}
+[2026-05-27T17:18:08.111Z] [INFO] [Interview Scheduling] Computed interview window {
+  requestId: '6a17273173dec3a2758ae4a8',
+  scheduledAt: '2026-05-29T06:20:00.000Z',
+  endTime: '2026-05-29T07:20:00.000Z',
+  duration: 60
+}
+[2026-05-27T17:18:08.123Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:08.128Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:18:08.152Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:18:18.276Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:18.306Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a1606f432eb8b43527d2510',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:18.314Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a1606f432eb8b43527d2510',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:18.339Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a1606f432eb8b43527d2510',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:22.193Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:22.198Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:18:22.227Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:18:22.234Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:22.240Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:18:22.273Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:18:25.278Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a15ed0f830dd1498c396033',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:25.310Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a15ed0f830dd1498c396033',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:25.317Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a15ed0f830dd1498c396033',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:25.349Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a15ed0f830dd1498c396033',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:26.238Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:26.245Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:18:26.274Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:18:26.280Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:26.285Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:18:26.315Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:18:41.782Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/interview-requests/6a17273173dec3a2758ae4a8/accept',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:18:41.789Z] [INFO] [Interview Request] accept clicked for request ID {
+  requestId: '6a17273173dec3a2758ae4a8',
+  interviewerId: '6a15cee5be95725c272e8c70',
+  date: '2026-05-29',
+  startTime: '2026-05-29T07:20:00.000Z'
+}
+[2026-05-27T17:18:41.804Z] [INFO] [Interview Scheduling] Computed interview window {
+  requestId: '6a17273173dec3a2758ae4a8',
+  scheduledAt: '2026-05-29T07:20:00.000Z',
+  endTime: '2026-05-29T08:20:00.000Z',
+  duration: 60
+}
+[2026-05-27T17:18:41.808Z] [INFO] [Interview Scheduling] Generating meeting link before saving interview {
+  requestId: '6a17273173dec3a2758ae4a8',
+  candidateId: '6a1726c673dec3a2758ae399',
+  interviewerId: '6a15cee5be95725c272e8c70',
+  recruiterId: '6a148440cf4199b40f53680d',
+  jobId: '6a1491aef8042b0e097d7cb1'
+}
+[2026-05-27T17:18:41.810Z] [INFO] [Meeting Link] generated unique link {
+  requestId: '6a17273173dec3a2758ae4a8',
+  candidateId: '6a1726c673dec3a2758ae399',
+  meetingRoomId: 'aihiring-forward-deployed-software-engineer-6a1726c673dec3a2758ae399-6a17273173dec3a2758ae4a8-technical-round-mpqldp1c-04cdd70d9a',
+  meetingLink: 'https://meet.jit.si/aihiring-forward-deployed-software-engineer-6a1726c673dec3a2758ae399-6a17273173dec3a2758ae4a8-technical-round-mpqldp1c-04cdd70d9a',
+  provider: 'jitsi'
+}
+[2026-05-27T17:18:41.817Z] [INFO] [MongoDB] Scheduled interview saved {
+  interviewId: '6a17277173dec3a2758ae6ba',
+  requestId: '6a17273173dec3a2758ae4a8',
+  meetingRoomId: 'aihiring-forward-deployed-software-engineer-6a1726c673dec3a2758ae399-6a17273173dec3a2758ae4a8-technical-round-mpqldp1c-04cdd70d9a',
+  meetingLink: 'https://meet.jit.si/aihiring-forward-deployed-software-engineer-6a1726c673dec3a2758ae399-6a17273173dec3a2758ae4a8-technical-round-mpqldp1c-04cdd70d9a',
+  status: 'scheduled'
+}
+[2026-05-27T17:18:41.823Z] [INFO] [MongoDB] Interview request marked scheduled {
+  requestId: '6a17273173dec3a2758ae4a8',
+  interviewId: '6a17277173dec3a2758ae6ba',
+  status: 'scheduled'
+}
+[2026-05-27T17:18:41.824Z] [INFO] [Interview Request] saved successfully {
+  requestId: '6a17273173dec3a2758ae4a8',
+  interviewId: '6a17277173dec3a2758ae6ba',
+  candidateId: '6a1726c673dec3a2758ae399'
+}
+[2026-05-27T17:18:41.828Z] [INFO] [MongoDB] Candidate marked interview_scheduled { candidateId: '6a1726c673dec3a2758ae399' }
+[2026-05-27T17:18:41.839Z] [INFO] [Email Service] Transport created {
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  userConfigured: true,
+  passConfigured: true,
+  from: 'nisargdivecha@gmail.com'
+}
+[2026-05-27T17:18:41.874Z] [INFO] [Email Service] Verifying SMTP transport {}
+[2026-05-27T17:19:44.834Z] [INFO] [Email Service] SMTP verify successful {}
+[2026-05-27T17:19:44.836Z] [INFO] [Email Service] Sending interviewer email {
+  to: 'dushyantvarshney2005@gmail.com',
+  candidateEmail: 'divechanisarg7@gmail.com'
+}
+[2026-05-27T17:20:10.270Z] [INFO] [Email Service] Interviewer email sent {
+  to: 'dushyantvarshney2005@gmail.com',
+  messageId: '<5a0cdd96-b01a-4252-9f0c-df19a8417b0f@gmail.com>',
+  response: '250 2.0.0 OK  1779902409 d2e1a72fcca58-841d6e81174sm2845635b3a.5 - gsmtp'
+}
+[2026-05-27T17:20:10.272Z] [INFO] [Email Service] Sending candidate email {
+  to: 'divechanisarg7@gmail.com',
+  interviewerEmail: 'dushyantvarshney2005@gmail.com'
+}
+[2026-05-27T17:20:35.556Z] [INFO] [Email Service] Candidate email sent {
+  to: 'divechanisarg7@gmail.com',
+  messageId: '<d85da589-04e3-bbb7-0f79-0808bb1c871d@gmail.com>',
+  response: '250 2.0.0 OK  1779902435 d9443c01a7336-2beb591a277sm162329315ad.80 - gsmtp'
+}
+[2026-05-27T17:20:35.563Z] [INFO] [Email] interviewer sent / candidate sent {
+  requestId: '6a17273173dec3a2758ae4a8',
+  interviewId: '6a17277173dec3a2758ae6ba',
+  interviewerMessageId: '<5a0cdd96-b01a-4252-9f0c-df19a8417b0f@gmail.com>',
+  candidateMessageId: '<d85da589-04e3-bbb7-0f79-0808bb1c871d@gmail.com>'
+}
+[2026-05-27T17:20:35.563Z] [INFO] [Interview Scheduling] Completed successfully {
+  interviewId: '6a17277173dec3a2758ae6ba',
+  meetingRoomId: 'aihiring-forward-deployed-software-engineer-6a1726c673dec3a2758ae399-6a17273173dec3a2758ae4a8-technical-round-mpqldp1c-04cdd70d9a',
+  meetingLink: 'https://meet.jit.si/aihiring-forward-deployed-software-engineer-6a1726c673dec3a2758ae399-6a17273173dec3a2758ae4a8-technical-round-mpqldp1c-04cdd70d9a',
+  emailStatus: {
+    interviewer: 'sent',
+    candidate: 'sent',
+    error: '',
+    lastAttemptAt: 2026-05-27T17:20:35.557Z
+  },
+  requestStatus: 'email_sent'
+}
+[2026-05-27T17:20:35.611Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-requests/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:20:35.615Z] [INFO] [Interview Request] fetching interviewer requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  statuses: [
+    'pending',
+    'awaiting_interviewer_slot',
+    'email_pending',
+    'email_failed',
+    'email_sent',
+    'scheduled'
+  ]
+}
+[2026-05-27T17:20:35.643Z] [INFO] [Interview Request] found N requests {
+  interviewerId: '6a15cee5be95725c272e8c70',
+  count: 3,
+  requestIds: [
+    '6a17273173dec3a2758ae4a8',
+    '6a1606c332eb8b43527d23da',
+    '6a15ece3830dd1498c395fbc'
+  ]
+}
+[2026-05-27T17:20:55.973Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:20:56.013Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T17:20:56.021Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/interviewer',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:20:56.055Z] [INFO] [Interview] interviewer interviews fetched { interviewerId: '6a15cee5be95725c272e8c70', count: 4 }
+[2026-05-27T17:21:01.732Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:21:01.792Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interviews/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:21:01.806Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:21:01.860Z] [INFO] HTTP request {
+  method: 'GET',
+  path: '/api/interview-agent/6a17277173dec3a2758ae6ba',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:21:09.999Z] [INFO] HTTP request {
+  method: 'POST',
+  path: '/api/interview-agent/generate/6a1726c673dec3a2758ae399',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
+}
+[2026-05-27T17:21:10.027Z] [INFO] [InterviewQuestionAgent] AI request started {
+  endpoint: 'http://localhost:8000/interview-agent/generate',
+  candidateId: '6a1726c673dec3a2758ae399',
+  jobId: '6a1491aef8042b0e097d7cb1',
+  interviewId: '6a17277173dec3a2758ae6ba'
+}
+[2026-05-27T17:21:26.929Z] [INFO] [InterviewQuestionAgent] AI request completed {
+  endpoint: 'http://localhost:8000/interview-agent/generate',
+  candidateId: '6a1726c673dec3a2758ae399',
+  focusAreaCount: 5
+}
+[2026-05-27T17:21:26.943Z] [INFO] [InterviewQuestionAgent] packet saved {
+  packetId: '6a17281673dec3a2758ae7d9',
+  candidateId: '6a1726c673dec3a2758ae399',
+  interviewId: '6a17277173dec3a2758ae6ba'
+}
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

@@ -80,7 +80,7 @@ const externalApplicationSubmissionSchema = new mongoose.Schema(
     },
     importStatus: {
       type: String,
-      enum: ["pending", "downloading", "downloaded", "parsed", "ranked", "imported", "completed", "failed", "duplicate"],
+      enum: ["pending", "pending_failed", "downloading", "downloaded", "parsed", "ranked", "imported", "completed", "failed", "duplicate"],
       default: "pending",
       index: true
     },

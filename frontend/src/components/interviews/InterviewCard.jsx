@@ -8,6 +8,7 @@ function InterviewCard({ interview, recruiterView = false }) {
   const candidate = interview.candidateId;
   const job = interview.jobId;
   const meetingLink = interview.meetingLink;
+  const feedback = interview.interviewerFeedback || interview.feedbackId;
 
   return (
     <Card className="surface-hover p-5">
@@ -25,17 +26,26 @@ function InterviewCard({ interview, recruiterView = false }) {
         <strong>{formatTimeRange(interview.scheduledAt, interview.endTime)}</strong>
       </div>
 
-      {recruiterView && interview.feedbackId && (
+      {recruiterView && feedback && (
         <div className="mt-4 rounded-xl bg-slate-50 p-4 text-sm">
-          <p className="font-semibold text-slate-950">Recommendation: {interview.feedbackId.recommendation}</p>
-          <p className="mt-2 leading-6 text-slate-600">{interview.feedbackId.notes}</p>
+          <p className="font-semibold text-slate-950">Recommendation: {feedback.recommendation}</p>
+          <p className="mt-2 leading-6 text-slate-600">
+            {feedback.finalNotes || feedback.notes || "Structured feedback submitted."}
+          </p>
         </div>
       )}
 
       <div className="mt-5 flex flex-wrap gap-2">
-        <a href={meetingLink} target="_blank" rel="noreferrer">
-          <Button variant="success">Join Meeting</Button>
-        </a>
+        {!recruiterView && (
+          <a href={meetingLink} target="_blank" rel="noreferrer">
+            <Button variant="success">Join Meeting</Button>
+          </a>
+        )}
+        {recruiterView && (
+          <Link to={`/dashboard/interviews/${interview._id}/review`}>
+            <Button variant={feedback ? "ai" : "secondary"}>Review Candidate</Button>
+          </Link>
+        )}
         {!recruiterView && (
           <>
             <Link to={`/interviewer/interviews/${interview._id}`}>

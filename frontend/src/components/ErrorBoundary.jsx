@@ -12,9 +12,7 @@ class ErrorBoundary extends React.Component {
     return { error };
   }
 
-  componentDidCatch(error, info) {
-    console.error("[ui:error-boundary]", error, info);
-  }
+  componentDidCatch() {}
 
   render() {
     if (this.state.error) {

@@ -88,6 +88,7 @@ const interviewRequestSchema = new mongoose.Schema(
         "scheduled",
         "completed",
         "feedback_submitted",
+        "accepted",
         "selected",
         "rejected",
         "next_round",
